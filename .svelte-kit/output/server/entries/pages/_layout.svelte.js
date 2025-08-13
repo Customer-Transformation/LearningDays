@@ -21,7 +21,7 @@ function resolve(id, params) {
 function _layout($$payload, $$props) {
   push();
   let { children } = $$props;
-  $$payload.out.push(`<main><nav><a href="/">Home</a> <a${attr("href", resolve("/contact"))}>Contact</a> <a${attr("href", resolve("/schedule"))}>Schedule</a></nav> <div>`);
+  $$payload.out.push(`<main><nav><a${attr("href", resolve("/"))}>Home</a> <a${attr("href", resolve("/contact"))}>Contact</a> <a${attr("href", resolve("/schedule"))}>Schedule</a></nav> <div>`);
   children?.($$payload);
   $$payload.out.push(`<!----></div></main>`);
   pop();
