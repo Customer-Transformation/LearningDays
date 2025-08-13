@@ -1,5 +1,6 @@
-import { a as attr, r as resolve } from "../../chunks/index2.js";
+import { a as attr } from "../../chunks/attributes.js";
 import { v as pop, t as push } from "../../chunks/index.js";
+import { r as resolve } from "../../chunks/index2.js";
 function _layout($$payload, $$props) {
   push();
   let { children } = $$props;

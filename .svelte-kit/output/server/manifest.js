@@ -10,7 +10,7 @@ return {
 	assets: new Set([".nojekyll","events.json","favicon.svg","robots.txt"]),
 	mimeTypes: {".json":"application/json",".svg":"image/svg+xml",".txt":"text/plain"},
 	_: {
-		client: {start:"_app/immutable/entry/start.Ba_ROEzX.js",app:"_app/immutable/entry/app.BTlNNbI_.js",imports:["_app/immutable/entry/start.Ba_ROEzX.js","_app/immutable/chunks/BloqiZHy.js","_app/immutable/chunks/BmX6cc9D.js","_app/immutable/chunks/CEnWzjMi.js","_app/immutable/chunks/FLUXDTUD.js","_app/immutable/chunks/DrQt9GDK.js","_app/immutable/entry/app.BTlNNbI_.js","_app/immutable/chunks/CEnWzjMi.js","_app/immutable/chunks/BmX6cc9D.js","_app/immutable/chunks/FLUXDTUD.js","_app/immutable/chunks/DsnmJJEf.js"],stylesheets:[],fonts:[],uses_env_dynamic_public:false},
+		client: {start:"_app/immutable/entry/start.BCVOjK_n.js",app:"_app/immutable/entry/app.I5D0vyMl.js",imports:["_app/immutable/entry/start.BCVOjK_n.js","_app/immutable/chunks/sovl0vNR.js","_app/immutable/chunks/BcTUKEQ-.js","_app/immutable/chunks/BT6KussZ.js","_app/immutable/chunks/ysPryp9P.js","_app/immutable/chunks/-QX5y4Md.js","_app/immutable/chunks/SQlIY1xE.js","_app/immutable/entry/app.I5D0vyMl.js","_app/immutable/chunks/BT6KussZ.js","_app/immutable/chunks/ysPryp9P.js","_app/immutable/chunks/DsnmJJEf.js","_app/immutable/chunks/BcTUKEQ-.js","_app/immutable/chunks/-QX5y4Md.js"],stylesheets:[],fonts:[],uses_env_dynamic_public:false},
 		nodes: [
 			__memo(() => import('./nodes/0.js')),
 			__memo(() => import('./nodes/1.js'))
@@ -21,7 +21,7 @@ return {
 		routes: [
 			
 		],
-		prerendered_routes: new Set(["/LearningDays/","/LearningDays/contact","/LearningDays/schedule"]),
+		prerendered_routes: new Set(["/LearningDays/","/LearningDays/events.json","/LearningDays/contact","/LearningDays/schedule"]),
 		matchers: async () => {
 			
 			return {  };

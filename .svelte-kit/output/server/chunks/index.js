@@ -161,6 +161,12 @@ function render(component, options = {}) {
     abort();
   }
 }
+function ensure_array_like(array_like_or_iterator) {
+  if (array_like_or_iterator) {
+    return array_like_or_iterator.length !== void 0 ? array_like_or_iterator : Array.from(array_like_or_iterator);
+  }
+  return [];
+}
 export {
   ASYNC as A,
   BOUNDARY_EFFECT as B,
@@ -196,5 +202,6 @@ export {
   push as t,
   setContext as u,
   pop as v,
-  getContext as w
+  getContext as w,
+  ensure_array_like as x
 };
