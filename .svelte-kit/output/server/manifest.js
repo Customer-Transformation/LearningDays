@@ -10,41 +10,18 @@ return {
 	assets: new Set([".nojekyll","events.json","favicon.svg","robots.txt"]),
 	mimeTypes: {".json":"application/json",".svg":"image/svg+xml",".txt":"text/plain"},
 	_: {
-		client: {start:"_app/immutable/entry/start.B8Dr4Rbj.js",app:"_app/immutable/entry/app.BIQJaYK6.js",imports:["_app/immutable/entry/start.B8Dr4Rbj.js","_app/immutable/chunks/BuimVhld.js","_app/immutable/chunks/DBPTPgPI.js","_app/immutable/chunks/DxtYXHON.js","_app/immutable/chunks/ybtgscEw.js","_app/immutable/chunks/gyqUrlvT.js","_app/immutable/entry/app.BIQJaYK6.js","_app/immutable/chunks/DxtYXHON.js","_app/immutable/chunks/DBPTPgPI.js","_app/immutable/chunks/ybtgscEw.js","_app/immutable/chunks/DsnmJJEf.js"],stylesheets:[],fonts:[],uses_env_dynamic_public:false},
+		client: {start:"_app/immutable/entry/start.Ba_ROEzX.js",app:"_app/immutable/entry/app.BTlNNbI_.js",imports:["_app/immutable/entry/start.Ba_ROEzX.js","_app/immutable/chunks/BloqiZHy.js","_app/immutable/chunks/BmX6cc9D.js","_app/immutable/chunks/CEnWzjMi.js","_app/immutable/chunks/FLUXDTUD.js","_app/immutable/chunks/DrQt9GDK.js","_app/immutable/entry/app.BTlNNbI_.js","_app/immutable/chunks/CEnWzjMi.js","_app/immutable/chunks/BmX6cc9D.js","_app/immutable/chunks/FLUXDTUD.js","_app/immutable/chunks/DsnmJJEf.js"],stylesheets:[],fonts:[],uses_env_dynamic_public:false},
 		nodes: [
 			__memo(() => import('./nodes/0.js')),
-			__memo(() => import('./nodes/1.js')),
-			__memo(() => import('./nodes/2.js')),
-			__memo(() => import('./nodes/3.js')),
-			__memo(() => import('./nodes/4.js'))
+			__memo(() => import('./nodes/1.js'))
 		],
 		remotes: {
 			
 		},
 		routes: [
-			{
-				id: "/",
-				pattern: /^\/$/,
-				params: [],
-				page: { layouts: [0,], errors: [1,], leaf: 2 },
-				endpoint: null
-			},
-			{
-				id: "/contact",
-				pattern: /^\/contact\/?$/,
-				params: [],
-				page: { layouts: [0,], errors: [1,], leaf: 3 },
-				endpoint: null
-			},
-			{
-				id: "/schedule",
-				pattern: /^\/schedule\/?$/,
-				params: [],
-				page: { layouts: [0,], errors: [1,], leaf: 4 },
-				endpoint: null
-			}
+			
 		],
-		prerendered_routes: new Set([]),
+		prerendered_routes: new Set(["/LearningDays/","/LearningDays/contact","/LearningDays/schedule"]),
 		matchers: async () => {
 			
 			return {  };

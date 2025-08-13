@@ -1,5 +1,12 @@
 {
-	"/": [],
-	"/contact": [],
-	"/schedule": []
+	"/": [
+		"src/routes/+layout.ts",
+		"src/routes/+layout.ts"
+	],
+	"/contact": [
+		"src/routes/+layout.ts"
+	],
+	"/schedule": [
+		"src/routes/+layout.ts"
+	]
 }
