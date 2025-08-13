@@ -1,4 +1,4 @@
 <script lang="ts">
 </script>
 
-<img src="/favicon.svg" alt="">
+<img src="./favicon.svg" alt="">
