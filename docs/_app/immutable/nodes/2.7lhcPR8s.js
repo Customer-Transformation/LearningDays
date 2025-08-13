@@ -1,1 +1,0 @@
-import"../chunks/DsnmJJEf.js";import"../chunks/CxEST59w.js";import{j as a,k as m}from"../chunks/CtsRHMLE.js";var t=a('<img src="./favicon.svg" alt=""/>');function s(o){var r=t();m(o,r)}export{s as component};

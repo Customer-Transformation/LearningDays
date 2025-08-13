@@ -47,6 +47,15 @@
       "_false.js"
     ]
   },
+  "_index2.js": {
+    "file": "chunks/index2.js",
+    "name": "index",
+    "imports": [
+      "_escaping.js",
+      "_paths.js",
+      "_routing.js"
+    ]
+  },
   "_internal.js": {
     "file": "chunks/internal.js",
     "name": "internal",
@@ -117,17 +126,19 @@
     "src": "src/routes/+layout.svelte",
     "isEntry": true,
     "imports": [
-      "_escaping.js",
-      "_index.js",
-      "_paths.js",
-      "_routing.js"
+      "_index2.js",
+      "_index.js"
     ]
   },
   "src/routes/+page.svelte": {
     "file": "entries/pages/_page.svelte.js",
     "name": "entries/pages/_page.svelte",
     "src": "src/routes/+page.svelte",
-    "isEntry": true
+    "isEntry": true,
+    "imports": [
+      "_index2.js",
+      "_index.js"
+    ]
   },
   "src/routes/contact/+page.svelte": {
     "file": "entries/pages/contact/_page.svelte.js",
