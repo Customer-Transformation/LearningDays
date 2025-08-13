@@ -1,0 +1,20 @@
+{
+    "events": [
+        {
+            "slug": "opening-night",
+            "title": "Opening Night",
+            "date": "2025-09-01",
+            "time": "18:00",
+            "location": "Main Hall",
+            "description": "Kickoff with welcome drinks."
+        },
+        {
+            "slug": "keynote",
+            "title": "Keynote",
+            "date": "2025-09-02",
+            "time": "10:00",
+            "location": "Auditorium A",
+            "description": "Keynote by the special guest."
+        }
+    ]
+}

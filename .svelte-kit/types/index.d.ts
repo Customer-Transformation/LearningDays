@@ -18,4 +18,4 @@ export type Pathname = "/" | "/contact" | "/schedule";
 
 export type ResolvedPathname = `${"" | `/${string}`}${Pathname}`;
 
-export type Asset = "/events.json" | "/robots.txt";
+export type Asset = "/events.json" | "/favicon.svg" | "/robots.txt";
