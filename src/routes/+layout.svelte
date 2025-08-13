@@ -10,5 +10,3 @@
 	<a href={resolve("/schedule")}>Schedule</a>
 </nav>
 {@render children?.()}
-
-

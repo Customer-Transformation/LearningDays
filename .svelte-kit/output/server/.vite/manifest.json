@@ -150,6 +150,10 @@
     "file": "entries/pages/schedule/_page.svelte.js",
     "name": "entries/pages/schedule/_page.svelte",
     "src": "src/routes/schedule/+page.svelte",
-    "isEntry": true
+    "isEntry": true,
+    "imports": [
+      "_index2.js",
+      "_index.js"
+    ]
   }
 }
