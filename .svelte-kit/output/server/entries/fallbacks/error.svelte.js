@@ -1,10 +1,10 @@
-import { e as escape_html } from "../../chunks/escaping.js";
+import { y as getContext, z as escape_html, v as pop, t as push } from "../../chunks/index2.js";
 import "clsx";
-import { w as getContext, v as pop, t as push } from "../../chunks/index.js";
-import { n as noop } from "../../chunks/equality.js";
+import "../../chunks/state.svelte.js";
 import "@sveltejs/kit/internal";
-import { w as writable } from "../../chunks/exports.js";
+import "../../chunks/exports.js";
 import "../../chunks/utils.js";
+import { w as writable } from "../../chunks/index.js";
 function create_updated_store() {
   const { set, subscribe } = writable(false);
   {
@@ -14,19 +14,6 @@ function create_updated_store() {
       check: async () => false
     };
   }
-}
-const is_legacy = noop.toString().includes("$$") || /function \w+\(\) \{\}/.test(noop.toString());
-if (is_legacy) {
-  ({
-    data: {},
-    form: null,
-    error: null,
-    params: {},
-    route: { id: null },
-    state: {},
-    status: -1,
-    url: new URL("https://example.com")
-  });
 }
 const stores = {
   updated: /* @__PURE__ */ create_updated_store()

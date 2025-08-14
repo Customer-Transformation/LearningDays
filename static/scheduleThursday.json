@@ -1,0 +1,32 @@
+[
+    {
+        "time": "10:00-12:00",
+        "place": "Cityterminalen",
+        "activity": "Transport to Sandhamn"
+    },
+    {
+        "time": "12:10-12:40",
+        "place": "Sandhamn Seglarhotell Restaurant",
+        "activity": "Lunch"
+    },
+    {
+        "time": "12:40-16:00",
+        "place": "Conference room",
+        "activity": "Conferende agenda"
+    },
+    {
+        "time": "10:00-12:00",
+        "place": "Cityterminalen",
+        "activity": "Transport to Sandhamn"
+    },
+    {
+        "time": "12:10-12:40",
+        "place": "Sandhamn Seglarhotell Restaurant",
+        "activity": "Lunch"
+    },
+    {
+        "time": "12:40-16:00",
+        "place": "Conference room",
+        "activity": "Conferende agenda"
+    }
+]

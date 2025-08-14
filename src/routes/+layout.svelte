@@ -5,35 +5,64 @@
 
 	let { children } = $props();
 	let isMenuShown = $state(false)
+
+	function onpointerdown() {
+		isMenuShown = !isMenuShown
+	}
+
 	onNavigate(() => {isMenuShown = false})
 </script>
 
-<header>
-	<button onpointerdown={() => isMenuShown = true}>Menu</button>
-	
-	<nav style:display={isMenuShown ? "flex" : "none"}>
-		<!-- svelte-ignore a11y_consider_explicit_label -->
+{@render children?.()}
+
+
+
+<footer>
+	<nav class:hidden={!isMenuShown}>
 		<a href={resolve("/")}>Home</a>
 		<a href={resolve("/contact")}>Contact</a>
 		<a href={resolve("/schedule")}>Schedule</a>
 	</nav>
-</header>
-
-{@render children?.()}
+	<button class:active={isMenuShown} {onpointerdown}>+</button>
+</footer>
 
 <style>
-	header {
-		height: 32px;
-		background-color: #222;
+	footer {
+		position: fixed;
+		inset: auto 1rem 1rem auto;
 	}
 
 	nav {
-		position: fixed; inset: 0 auto auto 0;
-		display: flex; flex-direction: column; gap: 8px;
-		background-color: #222;
+		display: flex; flex-direction: column; gap: 12px;
+		padding-bottom: 12px;
+		transition: all 200ms;
+	}
+
+	.hidden {
+		transform: translateY(20%);
+		opacity: 0;
+		pointer-events: none;
 	}
 
 	a {
 		color: white;
+	}
+
+	button, a {
+		width: 64px; height: 64px;
+		border-radius: 50%;
+		background-color: rgb(99, 21, 172);
+		border: none;
+		color: white;
+		text-align: center;
+	}
+
+	button {
+		font-size: 2rem;
+		transition: 200ms;
+	}
+
+	button.active {
+		transform: rotate(-45deg);
 	}
 </style>
