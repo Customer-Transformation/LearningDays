@@ -10,13 +10,6 @@
       "_paths.js"
     ]
   },
-  "_attributes.js": {
-    "file": "chunks/attributes.js",
-    "name": "attributes",
-    "imports": [
-      "_escaping.js"
-    ]
-  },
   "_environment.js": {
     "file": "chunks/environment.js",
     "name": "environment"
@@ -58,6 +51,7 @@
     "file": "chunks/index2.js",
     "name": "index",
     "imports": [
+      "_escaping.js",
       "_paths.js",
       "_routing.js"
     ]
@@ -132,9 +126,8 @@
     "src": "src/routes/+layout.svelte",
     "isEntry": true,
     "imports": [
-      "_attributes.js",
-      "_index.js",
-      "_index2.js"
+      "_index2.js",
+      "_index.js"
     ]
   },
   "src/routes/+layout.ts": {
@@ -149,19 +142,8 @@
     "src": "src/routes/+page.svelte",
     "isEntry": true,
     "imports": [
-      "_index.js",
       "_index2.js",
-      "_attributes.js",
-      "_escaping.js"
-    ]
-  },
-  "src/routes/+page.ts": {
-    "file": "entries/pages/_page.ts.js",
-    "name": "entries/pages/_page.ts",
-    "src": "src/routes/+page.ts",
-    "isEntry": true,
-    "imports": [
-      "_index2.js"
+      "_index.js"
     ]
   },
   "src/routes/contact/+page.svelte": {
@@ -176,9 +158,8 @@
     "src": "src/routes/schedule/+page.svelte",
     "isEntry": true,
     "imports": [
-      "_attributes.js",
-      "_index.js",
-      "_index2.js"
+      "_index2.js",
+      "_index.js"
     ]
   }
 }
