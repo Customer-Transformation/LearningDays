@@ -18,6 +18,10 @@
     "file": "chunks/equality.js",
     "name": "equality"
   },
+  "_escaping.js": {
+    "file": "chunks/escaping.js",
+    "name": "escaping"
+  },
   "_event-state.js": {
     "file": "chunks/event-state.js",
     "name": "event-state",
@@ -48,6 +52,14 @@
       "_false.js"
     ]
   },
+  "_index3.js": {
+    "file": "chunks/index3.js",
+    "name": "index",
+    "imports": [
+      "_escaping.js",
+      "_paths.js"
+    ]
+  },
   "_internal.js": {
     "file": "chunks/internal.js",
     "name": "internal",
@@ -63,10 +75,6 @@
   "_paths.js": {
     "file": "chunks/paths.js",
     "name": "paths"
-  },
-  "_routing.js": {
-    "file": "chunks/routing.js",
-    "name": "routing"
   },
   "_state.svelte.js": {
     "file": "chunks/state.svelte.js",
@@ -101,6 +109,7 @@
     "src": "node_modules/@sveltejs/kit/src/runtime/components/svelte-5/error.svelte",
     "isEntry": true,
     "imports": [
+      "_escaping.js",
       "_index2.js",
       "_state.svelte.js",
       "_exports.js",
@@ -121,9 +130,20 @@
       "_utils.js",
       "_index.js",
       "_internal.js",
-      "_routing.js",
       "_environment.js"
     ]
+  },
+  "src/lib/assets/fonts/KPMG-BOLD.TTF": {
+    "file": "_app/immutable/assets/KPMG-BOLD.D-EGVOxG.TTF",
+    "src": "src/lib/assets/fonts/KPMG-BOLD.TTF"
+  },
+  "src/lib/assets/fonts/UNIVERSFORKPMG-BOLD.TTF": {
+    "file": "_app/immutable/assets/UNIVERSFORKPMG-BOLD.y_TkL8fO.TTF",
+    "src": "src/lib/assets/fonts/UNIVERSFORKPMG-BOLD.TTF"
+  },
+  "src/lib/assets/fonts/UNIVERSFORKPMG.TTF": {
+    "file": "_app/immutable/assets/UNIVERSFORKPMG.CbZDkGZU.TTF",
+    "src": "src/lib/assets/fonts/UNIVERSFORKPMG.TTF"
   },
   "src/routes/+layout.svelte": {
     "file": "entries/pages/_layout.svelte.js",
@@ -131,15 +151,16 @@
     "src": "src/routes/+layout.svelte",
     "isEntry": true,
     "imports": [
-      "_index2.js",
-      "_exports.js",
-      "_utils.js",
-      "_state.svelte.js",
-      "_paths.js",
-      "_routing.js"
+      "_index3.js",
+      "_index2.js"
     ],
     "css": [
-      "_app/immutable/assets/_layout.D4Ir6pts.css"
+      "_app/immutable/assets/_layout.CBhn66S_.css"
+    ],
+    "assets": [
+      "_app/immutable/assets/KPMG-BOLD.D-EGVOxG.TTF",
+      "_app/immutable/assets/UNIVERSFORKPMG.CbZDkGZU.TTF",
+      "_app/immutable/assets/UNIVERSFORKPMG-BOLD.y_TkL8fO.TTF"
     ]
   },
   "src/routes/+layout.ts": {
@@ -152,24 +173,83 @@
     "file": "entries/pages/_page.svelte.js",
     "name": "entries/pages/_page.svelte",
     "src": "src/routes/+page.svelte",
-    "isEntry": true
-  },
-  "src/routes/contact/+page.svelte": {
-    "file": "entries/pages/contact/_page.svelte.js",
-    "name": "entries/pages/contact/_page.svelte",
-    "src": "src/routes/contact/+page.svelte",
-    "isEntry": true
-  },
-  "src/routes/schedule/+page.svelte": {
-    "file": "entries/pages/schedule/_page.svelte.js",
-    "name": "entries/pages/schedule/_page.svelte",
-    "src": "src/routes/schedule/+page.svelte",
     "isEntry": true,
     "imports": [
-      "_index2.js"
+      "_index2.js",
+      "_exports.js",
+      "_utils.js",
+      "_index3.js",
+      "_state.svelte.js",
+      "_escaping.js"
+    ],
+    "css": [
+      "_app/immutable/assets/_page.CbfXHomx.css"
+    ]
+  },
+  "src/routes/agenda/+page.svelte": {
+    "file": "entries/pages/agenda/_page.svelte.js",
+    "name": "entries/pages/agenda/_page.svelte",
+    "src": "src/routes/agenda/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index2.js",
+      "_escaping.js"
     ],
     "css": [
       "_app/immutable/assets/_page.CPLj2v-v.css"
     ]
+  },
+  "src/routes/crew/+page.svelte": {
+    "file": "entries/pages/crew/_page.svelte.js",
+    "name": "entries/pages/crew/_page.svelte",
+    "src": "src/routes/crew/+page.svelte",
+    "isEntry": true
+  },
+  "src/routes/dinner/+page.svelte": {
+    "file": "entries/pages/dinner/_page.svelte.js",
+    "name": "entries/pages/dinner/_page.svelte",
+    "src": "src/routes/dinner/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index2.js",
+      "_escaping.js"
+    ],
+    "css": [
+      "_app/immutable/assets/_page.CPLj2v-v.css"
+    ]
+  },
+  "src/routes/explore/+page.svelte": {
+    "file": "entries/pages/explore/_page.svelte.js",
+    "name": "entries/pages/explore/_page.svelte",
+    "src": "src/routes/explore/+page.svelte",
+    "isEntry": true
+  },
+  "src/routes/menu/+page.svelte": {
+    "file": "entries/pages/menu/_page.svelte.js",
+    "name": "entries/pages/menu/_page.svelte",
+    "src": "src/routes/menu/+page.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index2.js",
+      "_exports.js",
+      "_utils.js",
+      "_escaping.js",
+      "_state.svelte.js"
+    ],
+    "css": [
+      "_app/immutable/assets/_page.BQ7r3Mdm.css"
+    ]
+  },
+  "src/routes/prep/+page.svelte": {
+    "file": "entries/pages/prep/_page.svelte.js",
+    "name": "entries/pages/prep/_page.svelte",
+    "src": "src/routes/prep/+page.svelte",
+    "isEntry": true
+  },
+  "src/routes/welcome/+page.svelte": {
+    "file": "entries/pages/welcome/_page.svelte.js",
+    "name": "entries/pages/welcome/_page.svelte",
+    "src": "src/routes/welcome/+page.svelte",
+    "isEntry": true
   }
 }

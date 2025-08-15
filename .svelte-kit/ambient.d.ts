@@ -39,7 +39,11 @@ declare module '$env/static/private' {
 	export const ComSpec: string;
 	export const DriverData: string;
 	export const EDITOR: string;
-	export const EFC_19388_1592913036: string;
+	export const EFC_3280_1262719628: string;
+	export const EFC_3280_1592913036: string;
+	export const EFC_3280_2283032206: string;
+	export const EFC_3280_2775293581: string;
+	export const EFC_3280_3789132940: string;
 	export const FPS_BROWSER_APP_PROFILE_STRING: string;
 	export const FPS_BROWSER_USER_PROFILE_STRING: string;
 	export const GEMINI_API_KEY: string;
@@ -157,7 +161,11 @@ declare module '$env/dynamic/private' {
 		ComSpec: string;
 		DriverData: string;
 		EDITOR: string;
-		EFC_19388_1592913036: string;
+		EFC_3280_1262719628: string;
+		EFC_3280_1592913036: string;
+		EFC_3280_2283032206: string;
+		EFC_3280_2775293581: string;
+		EFC_3280_3789132940: string;
 		FPS_BROWSER_APP_PROFILE_STRING: string;
 		FPS_BROWSER_USER_PROFILE_STRING: string;
 		GEMINI_API_KEY: string;

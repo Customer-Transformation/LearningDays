@@ -1,6 +1,10 @@
 body {
     margin: 0; padding: 0;
-    background-color: black;
+}
+
+:root {
+    --background-color: #000;
+    --primary-color: #4C00FF;
 }
 
 *, *::before, *::after {
@@ -8,4 +12,22 @@ body {
     list-style: none;
     text-decoration: none;
     color: white;
+    box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'KPMGBold';
+  src: url("./lib/assets/fonts/KPMG-BOLD.TTF") format("truetype");
+}
+
+@font-face {
+  font-family: 'Univers';
+  src: url("./lib/assets/fonts/UNIVERSFORKPMG.TTF") format("truetype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Univers';
+  src: url("./lib/assets/fonts/UNIVERSFORKPMG-BOLD.TTF") format("truetype");
+  font-weight: 700;
 }

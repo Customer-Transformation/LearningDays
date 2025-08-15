@@ -4,17 +4,22 @@ type DynamicRoutes = {
 
 type Layouts = {
 	"/": undefined;
-	"/contact": undefined;
-	"/schedule": undefined
+	"/agenda": undefined;
+	"/crew": undefined;
+	"/dinner": undefined;
+	"/explore": undefined;
+	"/menu": undefined;
+	"/prep": undefined;
+	"/welcome": undefined
 };
 
-export type RouteId = "/" | "/contact" | "/schedule";
+export type RouteId = "/" | "/agenda" | "/crew" | "/dinner" | "/explore" | "/menu" | "/prep" | "/welcome";
 
 export type RouteParams<T extends RouteId> = T extends keyof DynamicRoutes ? DynamicRoutes[T] : Record<string, never>;
 
 export type LayoutParams<T extends RouteId> = Layouts[T] | Record<string, never>;
 
-export type Pathname = "/" | "/contact" | "/schedule";
+export type Pathname = "/" | "/agenda" | "/crew" | "/dinner" | "/explore" | "/menu" | "/prep" | "/welcome";
 
 export type ResolvedPathname = `${"" | `/${string}`}${Pathname}`;
 

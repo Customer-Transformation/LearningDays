@@ -1,1 +1,0 @@
-import"../chunks/DsnmJJEf.js";import"../chunks/DYwPg3ZH.js";import{f as t,a as r,n}from"../chunks/YIMjayOj.js";var p=t("<h1>Welcome to Learning Days</h1> <p>Sit!</p>",1);function f(o){var a=p();n(2),r(o,a)}export{f as component};

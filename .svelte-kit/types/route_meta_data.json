@@ -3,10 +3,25 @@
 		"src/routes/+layout.ts",
 		"src/routes/+layout.ts"
 	],
-	"/contact": [
+	"/agenda": [
 		"src/routes/+layout.ts"
 	],
-	"/schedule": [
+	"/crew": [
+		"src/routes/+layout.ts"
+	],
+	"/dinner": [
+		"src/routes/+layout.ts"
+	],
+	"/explore": [
+		"src/routes/+layout.ts"
+	],
+	"/menu": [
+		"src/routes/+layout.ts"
+	],
+	"/prep": [
+		"src/routes/+layout.ts"
+	],
+	"/welcome": [
 		"src/routes/+layout.ts"
 	]
 }

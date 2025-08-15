@@ -1,5 +1,6 @@
-import { y as getContext, z as escape_html, v as pop, t as push } from "../../chunks/index2.js";
+import { e as escape_html } from "../../chunks/escaping.js";
 import "clsx";
+import { w as getContext, v as pop, t as push } from "../../chunks/index2.js";
 import "../../chunks/state.svelte.js";
 import "@sveltejs/kit/internal";
 import "../../chunks/exports.js";
