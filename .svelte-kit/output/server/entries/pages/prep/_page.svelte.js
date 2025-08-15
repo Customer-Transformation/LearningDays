@@ -1,11 +1,12 @@
-import { x as attr, v as pop, t as push } from "../../../chunks/index2.js";
+import { T as attr, P as pop, N as push } from "../../../chunks/index2.js";
 import "@sveltejs/kit/internal";
 import "../../../chunks/exports.js";
 import "../../../chunks/utils.js";
 import "../../../chunks/state.svelte.js";
 import { a as asset } from "../../../chunks/index3.js";
 import { B as BulletInfo } from "../../../chunks/BulletInfo.js";
-import { M as MenuButton } from "../../../chunks/MenuButton.js";
+import { M as MenuButton, F as FooterNav } from "../../../chunks/MenuButton.js";
+import { p as pages } from "../../../chunks/pages.js";
 function _page($$payload, $$props) {
   push();
   $$payload.out.push(`<div class="container svelte-3f5mkr">`);
@@ -28,7 +29,9 @@ function _page($$payload, $$props) {
     header: "Pool / sauna",
     body: "Swimwear if you want to use the hotel's outdoor pool or sauna"
   });
-  $$payload.out.push(`<!----></div> <figure class="rooms svelte-3f5mkr"><h3 class="svelte-3f5mkr">Room Sharing</h3></figure></div>`);
+  $$payload.out.push(`<!----></div> <figure class="rooms svelte-3f5mkr"><h3 class="svelte-3f5mkr">Room Sharing</h3></figure></div> `);
+  FooterNav($$payload, { previousPage: pages[1], nextPage: pages[3] });
+  $$payload.out.push(`<!---->`);
   pop();
 }
 export {

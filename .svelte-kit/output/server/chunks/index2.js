@@ -1,5 +1,30 @@
 import "clsx";
 import { B as BROWSER } from "./false.js";
+var is_array = Array.isArray;
+var index_of = Array.prototype.indexOf;
+var array_from = Array.from;
+var define_property = Object.defineProperty;
+var get_descriptor = Object.getOwnPropertyDescriptor;
+var object_prototype = Object.prototype;
+var array_prototype = Array.prototype;
+var get_prototype_of = Object.getPrototypeOf;
+var is_extensible = Object.isExtensible;
+const noop = () => {
+};
+function run_all(arr) {
+  for (var i = 0; i < arr.length; i++) {
+    arr[i]();
+  }
+}
+function deferred() {
+  var resolve;
+  var reject;
+  var promise = new Promise((res, rej) => {
+    resolve = res;
+    reject = rej;
+  });
+  return { promise, resolve, reject };
+}
 const DERIVED = 1 << 1;
 const EFFECT = 1 << 2;
 const BLOCK_EFFECT = 1 << 4;
@@ -228,38 +253,50 @@ export {
   CLEAN as C,
   DERIVED as D,
   ERROR_VALUE as E,
-  ensure_array_like as F,
+  HYDRATION_START as F,
+  HYDRATION_END as G,
   HYDRATION_ERROR as H,
   INERT as I,
+  array_from as J,
+  render as K,
   LEGACY_PROPS as L,
   MAYBE_DIRTY as M,
+  push as N,
+  setContext as O,
+  pop as P,
+  attr_class as Q,
   ROOT_EFFECT as R,
   STATE_SYMBOL as S,
+  attr as T,
   UNOWNED as U,
+  escape_html as V,
+  getContext as W,
+  noop as X,
+  ensure_array_like as Y,
   EFFECT_RAN as a,
   EFFECT as b,
   BLOCK_EFFECT as c,
-  DIRTY as d,
-  BRANCH_EFFECT as e,
-  DESTROYED as f,
-  USER_EFFECT as g,
-  INSPECT_EFFECT as h,
-  UNINITIALIZED as i,
-  EFFECT_PRESERVED as j,
-  HEAD_EFFECT as k,
-  EFFECT_TRANSPARENT as l,
-  STALE_REACTION as m,
-  DISCONNECTED as n,
-  REACTION_IS_UPDATING as o,
-  COMMENT_NODE as p,
-  HYDRATION_START as q,
-  HYDRATION_END as r,
-  render as s,
-  push as t,
-  setContext as u,
-  pop as v,
-  attr_class as w,
-  attr as x,
-  escape_html as y,
-  getContext as z
+  define_property as d,
+  DIRTY as e,
+  deferred as f,
+  BRANCH_EFFECT as g,
+  DESTROYED as h,
+  USER_EFFECT as i,
+  INSPECT_EFFECT as j,
+  array_prototype as k,
+  UNINITIALIZED as l,
+  get_descriptor as m,
+  get_prototype_of as n,
+  object_prototype as o,
+  is_array as p,
+  is_extensible as q,
+  run_all as r,
+  EFFECT_PRESERVED as s,
+  HEAD_EFFECT as t,
+  EFFECT_TRANSPARENT as u,
+  STALE_REACTION as v,
+  DISCONNECTED as w,
+  REACTION_IS_UPDATING as x,
+  index_of as y,
+  COMMENT_NODE as z
 };
