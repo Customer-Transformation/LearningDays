@@ -22,4 +22,4 @@ export type Pathname = "/" | "/agenda" | "/crew" | "/dinner" | "/explore" | "/me
 
 export type ResolvedPathname = `${"" | `/${string}`}${Pathname}`;
 
-export type Asset = "/.nojekyll" | "/events.json" | "/favicon.svg" | "/robots.txt" | "/scheduleFriday.json" | "/scheduleThursday.json";
+export type Asset = "/.nojekyll" | "/arrow-down-right.png" | "/events.json" | "/favicon.svg" | "/robots.txt" | "/scheduleFriday.json" | "/scheduleThursday.json";

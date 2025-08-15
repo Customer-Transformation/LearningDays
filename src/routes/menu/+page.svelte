@@ -17,7 +17,7 @@
     {#each pages as page}
     <button onpointerdown={() => goto(resolve(page.link as any))}>
 		<span>{page.name}</span>
-		<img src={asset("/favicon.svg")} alt="">
+		<img src={asset("/arrow-down-right.png")} alt="">
 	</button>
     {/each}
 </menu>

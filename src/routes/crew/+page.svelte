@@ -6,7 +6,7 @@
 <div class="container">
     <button onpointerdown={() => goto(resolve("/menu"))}>
         <span>Crew</span>
-        <img src={asset("/favicon.svg")} alt="">
+        <img src={asset("/arrow-down-right.png")} alt="">
     </button>
     <div class="mc">
         <h3>MANAGEMENT CONSULTING</h3>
@@ -89,6 +89,7 @@
 
         img {
             width: 40px; height: 40px;
+            transform: rotate(180deg);
         }
     }
 
