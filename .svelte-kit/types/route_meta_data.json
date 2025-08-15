@@ -20,8 +20,5 @@
 	],
 	"/prep": [
 		"src/routes/+layout.ts"
-	],
-	"/welcome": [
-		"src/routes/+layout.ts"
 	]
 }

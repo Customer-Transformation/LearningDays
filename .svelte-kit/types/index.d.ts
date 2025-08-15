@@ -9,17 +9,16 @@ type Layouts = {
 	"/dinner": undefined;
 	"/explore": undefined;
 	"/menu": undefined;
-	"/prep": undefined;
-	"/welcome": undefined
+	"/prep": undefined
 };
 
-export type RouteId = "/" | "/agenda" | "/crew" | "/dinner" | "/explore" | "/menu" | "/prep" | "/welcome";
+export type RouteId = "/" | "/agenda" | "/crew" | "/dinner" | "/explore" | "/menu" | "/prep";
 
 export type RouteParams<T extends RouteId> = T extends keyof DynamicRoutes ? DynamicRoutes[T] : Record<string, never>;
 
 export type LayoutParams<T extends RouteId> = Layouts[T] | Record<string, never>;
 
-export type Pathname = "/" | "/agenda" | "/crew" | "/dinner" | "/explore" | "/menu" | "/prep" | "/welcome";
+export type Pathname = "/" | "/agenda" | "/crew" | "/dinner" | "/explore" | "/menu" | "/prep";
 
 export type ResolvedPathname = `${"" | `/${string}`}${Pathname}`;
 

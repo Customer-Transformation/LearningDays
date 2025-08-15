@@ -1,56 +1,67 @@
 <script lang="ts">
 	import { goto } from "$app/navigation";
-	import { asset, resolve } from "$app/paths";
+	import { resolve } from "$app/paths";
 
-    const pages = [
-        // { name: "welcome", link: "/" },
-        // { name: "menu", link: "/menu" },
-        { name: "crew", link: "/crew" },
-        { name: "prep", link: "/prep" },
-        { name: "agenda", link: "/agenda" },
-        { name: "dinner", link: "/dinner" },
-        { name: "explore", link: "/explore" }
-    ]
+
 </script>
 
-<menu>
-    {#each pages as page}
-    <button onpointerdown={() => goto(resolve(page.link as any))}>
-		<span>{page.name}</span>
-		<img src={asset("/favicon.svg")} alt="">
-	</button>
-    {/each}
-</menu>
+<div class="container">
+    <h1>LEARNING<br>DAYS</h1>
+    <hr>
+    <h2>SAVE<br>THE<br>DATE</h2>
+    <hr>
+    <div class="info">
+        <div class="left">
+            <h3>THURSDAY<br>AUGUST 28, 2025<br><br>FRIDAY<br>AUGUST 29, 2025</h3>
+        </div>
+        <div class="right">
+            <h3>BLAssss<br>BLA<br>BLA<br>BLA<br>BLA</h3>
+        </div>
+    </div>
+    <button onpointerdown={() => goto(resolve("/menu"))}>WHAT'S ON</button>
+</div>
 
 <style>
-    :global(main) {
-        background-color: #000;
+    .container {
+        display: flex; flex-direction: column; gap: 12px;
     }
 
-    menu {
-        padding: 0px 20px;
-        display: flex; flex-direction: column;
-    }
-    
-    button {
-		width: 100%; height: 104px;
-        border: none;
-        background-color: transparent;
-        border-bottom: 1px solid white;
-
-		padding-bottom: 4px;
-		display: flex; justify-content: space-between; align-items: end;
+    h1, h2 {
+        font-size: 110px;
+        line-height: 74%;
     }
 
-	span {
-		font-size: 88px;
-		text-align: start;
-		line-height: 88px;
+    h2 {
         color: var(--primary-color);
-        font-family: "KPMGBold";
-	}
+    }
 
-	img {
-		width: 40px; height: 40px;
-	}
+    hr {
+        height: .8px;
+        background-color: #75778B;
+    }
+
+    .info {
+        display: flex; justify-content: space-between;
+    }
+
+    h3 {
+        font-size: 12px;
+    }
+
+    .right {
+        h3 {
+            text-align: end;
+        }
+    }
+
+    button {
+        margin-top: 66px;
+        height: 50px;
+        background-color: var(--primary-color);
+        border-radius: 4px;
+        padding: 8px 10px;
+        font-family: "Univers";
+        font-size: 16px;
+        font-weight: 700;
+    }
 </style>
