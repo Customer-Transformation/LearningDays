@@ -1,13 +1,12 @@
 <script lang="ts">
 	import { goto } from "$app/navigation";
 	import { asset, resolve } from "$app/paths"
+	import BulletInfo from "$lib/components/BulletInfo.svelte";
+	import MenuButton from "$lib/components/MenuButton.svelte";
 </script>
 
 <div class="container">
-    <button onpointerdown={() => goto(resolve("/menu"))}>
-        <span>Prep</span>
-        <img src={asset("/arrow-down-right.png")} alt="">
-    </button>
+    <MenuButton name="Prep"/>
 
     <div class="welcome">
         <h3>Welcome to FSC and MC Learning Days</h3>
@@ -22,16 +21,16 @@
             <h3>Skogshem & Wijk</h3>
             <div class="info-figures">
                 <figure>
-                    <img src={asset("/favicon.svg")} alt="">
+                    <img class="icon" src={asset("/favicon.svg")} alt="">
                     <span>28-29 August</span>
                 </figure>
                 <figure>
-                    <img src={asset("/favicon.svg")} alt="">
+                    <img class="icon" src={asset("/favicon.svg")} alt="">
                     <span>Hustegavägen 1, Lidingö</span>
                 </figure>
             </div>
         </div>
-        <button class="card-button">GETTING THERE</button>
+        <button class="card-button" onpointerdown={() => goto(resolve("/prep/directions"))}>GETTING THERE</button>
     </div>
 
     <div class="info">
@@ -46,29 +45,24 @@
 
     <div class="info">
         <h3>Suggested pack list</h3>
-        <div class="bullet">
-            <figure>
-                <img class="icon" src={asset("/favicon.svg")} alt="">
-                <h4>Festive dinner</h4>
-            </figure>
-            <p>Business formal clothes for the festive dinner in the evening</p>
-        </div>
 
-        <div class="bullet">
-            <figure>
-                <img class="icon" src={asset("/favicon.svg")} alt="">
-                <h4>Conference</h4>
-            </figure>
-            <p>Clothes and shoes for two days</p>
-        </div>
+        <BulletInfo 
+            img={asset("/favicon.svg")} 
+            header="Festive dinner" 
+            body="Business formal clothes for the festive dinner in the evening<"
+        />
 
-        <div class="bullet">
-            <figure>
-                <img class="icon" src={asset("/favicon.svg")} alt="">
-                <h4>Pool / sauna</h4>
-            </figure>
-            <p>Swimwear if you want to use the hotel's outdoor pool or sauna</p>
-        </div>
+        <BulletInfo 
+            img={asset("/favicon.svg")} 
+            header="Conference" 
+            body="Clothes and shoes for two days"
+        />
+
+        <BulletInfo 
+            img={asset("/favicon.svg")} 
+            header="Pool / sauna" 
+            body="Swimwear if you want to use the hotel's outdoor pool or sauna"
+        />
     </div>
 
     <figure class="rooms">
@@ -79,29 +73,6 @@
 <style>
     .container {
         display: flex; flex-direction: column; gap: 40px;
-    }
-
-    button {
-		width: 100%; height: 104px;
-        border: none;
-        background-color: transparent;
-        border-top: .8px solid var(--primary-color);
-
-		padding-top: 4px;
-		display: flex; justify-content: space-between; align-items: flex-start;
-        
-        span {
-            font-size: 100px;
-            text-align: start;
-            line-height: 94px;
-            color: var(--primary-color);
-            font-family: "KPMGBold";
-        }
-
-        img {
-            width: 40px; height: 40px;
-            transform: rotate(180deg);
-        }
     }
 
     .welcome {
@@ -135,7 +106,28 @@
         }
 
         .card-info {
-            position: relative;
+            position: absolute;
+            inset: auto auto 94px 16px;
+
+            .info-figures {
+                display: flex; gap: 8px;
+
+                figure {
+                    display: flex; gap: 4px;
+
+                    span {
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+
+        .card-button {
+            position: absolute;
+            inset: auto auto 20px 16px;
+            height: 50px; width: 186px;
+            background-color: var(--primary-color);
+            border-radius: 4px;
         }
     }
     
@@ -151,23 +143,6 @@
     .info {
         margin-top: 8px;
         display: flex; flex-direction: column; gap: 16px;
-    }
-
-    .bullet {
-        display: flex; flex-direction: column; gap: 10px;
-        
-        figure {
-            display: flex; gap: 10px;
-
-            h4 {
-                font-weight: 700;
-                font-size: 16px;
-            }
-        }
-
-        p {
-            font-size: 16px;
-        }
     }
 
     .icon {

@@ -20,5 +20,8 @@
 	],
 	"/prep": [
 		"src/routes/+layout.ts"
+	],
+	"/prep/directions": [
+		"src/routes/+layout.ts"
 	]
 }

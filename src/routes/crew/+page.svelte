@@ -1,13 +1,13 @@
 <script lang="ts">
 	import { goto } from "$app/navigation";
 	import { asset, resolve } from "$app/paths"
+	import MenuButton from "$lib/components/MenuButton.svelte";
+	import NavButton from "$lib/components/NavButton.svelte";
 </script>
 
 <div class="container">
-    <button onpointerdown={() => goto(resolve("/menu"))}>
-        <span>Crew</span>
-        <img src={asset("/arrow-down-right.png")} alt="">
-    </button>
+    <MenuButton name="Crew" />
+
     <div class="mc">
         <h3>MANAGEMENT CONSULTING</h3>
         <ul class="top">
@@ -68,29 +68,6 @@
 <style>
     .container {
         display: flex; flex-direction: column; gap: 40px;
-    }
-
-    button {
-		width: 100%; height: 104px;
-        border: none;
-        background-color: transparent;
-        border-top: .8px solid var(--primary-color);
-
-		padding-top: 4px;
-		display: flex; justify-content: space-between; align-items: flex-start;
-        
-        span {
-            font-size: 100px;
-            text-align: start;
-            line-height: 94px;
-            color: var(--primary-color);
-            font-family: "KPMGBold";
-        }
-
-        img {
-            width: 40px; height: 40px;
-            transform: rotate(180deg);
-        }
     }
 
     .mc, .fs {
