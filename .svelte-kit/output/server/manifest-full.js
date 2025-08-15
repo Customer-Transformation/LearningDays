@@ -7,10 +7,10 @@ function __memo(fn) {
 return {
 	appDir: "_app",
 	appPath: "LearningDays/_app",
-	assets: new Set([".nojekyll","events.json","favicon.svg","robots.txt","scheduleFriday.json","scheduleThursday.json"]),
-	mimeTypes: {".json":"application/json",".svg":"image/svg+xml",".txt":"text/plain"},
+	assets: new Set([".nojekyll","arrow-down-right.png","events.json","favicon.svg","robots.txt","scheduleFriday.json","scheduleThursday.json"]),
+	mimeTypes: {".png":"image/png",".json":"application/json",".svg":"image/svg+xml",".txt":"text/plain"},
 	_: {
-		client: {start:"_app/immutable/entry/start.C0QOGwxj.js",app:"_app/immutable/entry/app.CIXNmj-q.js",imports:["_app/immutable/entry/start.C0QOGwxj.js","_app/immutable/chunks/QXjQ3xjf.js","_app/immutable/chunks/9HigdQ3-.js","_app/immutable/chunks/Dyf8U2Jx.js","_app/immutable/chunks/DIeogL5L.js","_app/immutable/chunks/B-9RPjKj.js","_app/immutable/chunks/Dp5WQ9kC.js","_app/immutable/entry/app.CIXNmj-q.js","_app/immutable/chunks/Dyf8U2Jx.js","_app/immutable/chunks/DIeogL5L.js","_app/immutable/chunks/9HigdQ3-.js","_app/immutable/chunks/B-9RPjKj.js","_app/immutable/chunks/DsnmJJEf.js"],stylesheets:[],fonts:[],uses_env_dynamic_public:false},
+		client: {start:"_app/immutable/entry/start.B0VxRm4w.js",app:"_app/immutable/entry/app.PdTNVEMx.js",imports:["_app/immutable/entry/start.B0VxRm4w.js","_app/immutable/chunks/MtSJW0sH.js","_app/immutable/chunks/CmVSiT4v.js","_app/immutable/chunks/DIeogL5L.js","_app/immutable/chunks/kKHo1dyQ.js","_app/immutable/entry/app.PdTNVEMx.js","_app/immutable/chunks/CmVSiT4v.js","_app/immutable/chunks/DIeogL5L.js","_app/immutable/chunks/DsnmJJEf.js","_app/immutable/chunks/0lf3E6gj.js","_app/immutable/chunks/C3kECGm-.js"],stylesheets:[],fonts:[],uses_env_dynamic_public:false},
 		nodes: [
 			__memo(() => import('./nodes/0.js')),
 			__memo(() => import('./nodes/1.js')),
@@ -77,8 +77,8 @@ return {
 				endpoint: null
 			},
 			{
-				id: "/welcome",
-				pattern: /^\/welcome\/?$/,
+				id: "/prep/directions",
+				pattern: /^\/prep\/directions\/?$/,
 				params: [],
 				page: { layouts: [0,], errors: [1,], leaf: 9 },
 				endpoint: null

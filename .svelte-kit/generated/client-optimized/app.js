@@ -23,7 +23,7 @@ export const dictionary = {
 		"/explore": [6],
 		"/menu": [7],
 		"/prep": [8],
-		"/welcome": [9]
+		"/prep/directions": [9]
 	};
 
 export const hooks = {
