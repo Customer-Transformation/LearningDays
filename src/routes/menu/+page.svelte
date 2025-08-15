@@ -1,8 +1,5 @@
 <script lang="ts">
-	import { goto } from "$app/navigation";
-	import { asset, resolve } from "$app/paths";
 	import NavButton from "$lib/components/NavButton.svelte";
-
     import { pages } from "$lib/data/pages"
 </script>
 

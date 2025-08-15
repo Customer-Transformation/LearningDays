@@ -20,10 +20,18 @@
     .bullet {
         display: flex; flex-direction: column; gap: 2px;
     }
+
+    header {
+        display: flex; justify-content: space-between;
+    }
     
     h3 {
         font-size: 16px;
         line-height: 120%;
+    }
+
+    span {
+        font-size: 14px;
     }
 
     hr {

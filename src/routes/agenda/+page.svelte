@@ -1,5 +1,8 @@
 <script lang="ts">
 	import { asset } from "$app/paths";
+	import FooterNav from "$lib/components/FooterNav.svelte";
+	import MenuButton from "$lib/components/MenuButton.svelte";
+	import { pages } from "$lib/data/pages";
 	import { onMount } from "svelte";
 
     type Item = {
@@ -37,54 +40,78 @@
     onMount(fetchSchedules)
 </script>
 
-<table>
-    <thead>
-        <tr>
-            <th>Time</th>
-            <th>Place</th>
-            <th>Activity</th>
-        </tr>
-    </thead>
-    <tbody>
-        {#each scheduleThursday as item}
-        <tr>
-            <th>{item.time}</th>
-            <td>{item.activity}</td>
-            <td>{item.place}</td>
-        </tr>
-        {/each}
-    </tbody>
-</table>
+<MenuButton name="Agenda"/>
 
-<table>
-    <thead>
-        <tr>
-            <th>Time</th>
-            <th>Place</th>
-            <th>Activity</th>
-        </tr>
-    </thead>
-    <tbody>
-        {#each scheduleFriday as item}
-        <tr>
-            <th>{item.time}</th>
-            <td>{item.activity}</td>
-            <td>{item.place}</td>
-        </tr>
-        {/each}
-    </tbody>
-</table>
+<div class="table-container">
+    <table>
+        <caption>THURSDAY 28TH</caption>
+        <thead>
+            <tr>
+                <th>Time</th>
+                <th>Activity</th>
+            </tr>
+        </thead>
+        <tbody>
+            {#each scheduleThursday as item}
+            <tr>
+                <th>{item.time}</th>
+                <td>{item.activity}</td>
+            </tr>
+            {/each}
+        </tbody>
+    </table>
+    
+    <table>
+        <caption>FRIDAY 29TH</caption>
+        <thead>
+            <tr>
+                <th>Time</th>
+                <th>Place</th>
+            </tr>
+        </thead>
+        <tbody>
+            {#each scheduleFriday as item}
+            <tr>
+                <th>{item.time}</th>
+                <td>{item.activity}</td>
+            </tr>
+            {/each}
+        </tbody>
+    </table>
+</div>
+
+<FooterNav previousPage={pages[2]} nextPage={pages[4]}/>
 
 <style>
+    .table-container {
+        margin-top: 40px;
+
+        display: flex; flex-direction: column; gap: 48px;
+    }
+
     table {
         border-collapse: collapse;
     }
 
-    th {
-        border: 1px solid;
+    caption {
+        text-align: start;
     }
 
-    td {
-     border: 1px solid;
+    thead {
+        background-color: var(--primary-color);
+        height: 30px;
+    }
+
+    tr {
+        margin: 10px 0px;
+    }
+
+    th, td {
+        font-size: 14px;
+        text-align: start;
+        padding: 10px;
+        border-bottom: .8px solid;
+        border-top: .8px solid;
+        border-color: #75778B;
     }
 </style>

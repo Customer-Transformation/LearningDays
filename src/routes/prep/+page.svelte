@@ -2,7 +2,9 @@
 	import { goto } from "$app/navigation";
 	import { asset, resolve } from "$app/paths"
 	import BulletInfo from "$lib/components/BulletInfo.svelte";
+	import FooterNav from "$lib/components/FooterNav.svelte";
 	import MenuButton from "$lib/components/MenuButton.svelte";
+	import { pages } from "$lib/data/pages";
 </script>
 
 <div class="container">
@@ -69,6 +71,8 @@
         <h3>Room Sharing</h3>
     </figure>
 </div>
+
+<FooterNav previousPage={pages[1]} nextPage={pages[3]}/>
 
 <style>
     .container {

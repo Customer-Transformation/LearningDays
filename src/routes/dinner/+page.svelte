@@ -1,90 +1,66 @@
 <script lang="ts">
-	import { asset } from "$app/paths";
-	import { onMount } from "svelte";
+	import { asset } from "$app/paths"
+	import FooterNav from "$lib/components/FooterNav.svelte"
+	import MenuButton from "$lib/components/MenuButton.svelte"
+    import { pages } from "$lib/data/pages"
+</script>
 
-    type Item = {
-        time: string
-        place: string
-        activity: string
+<MenuButton name="Dinner" />
+
+<div class="poster"></div>
+
+<h3>Bring your best outfit & dancing shoes - leave the rest to us.</h3>
+
+<div class="hosts">
+    <h2>Hosted by</h2>
+    <div class="people">
+        <figure>
+            <img src={asset("/favicon.svg")} alt="">
+            <label for="">Carina Elgendahl</label>
+        </figure>
+        <figure>
+            <img src={asset("/favicon.svg")} alt="">
+            <label for="">Carina Elgendahl</label>
+        </figure>
+    </div>
+</div>
+
+<FooterNav previousPage={pages[3]} nextPage={pages[5]}/>
+
+<style>
+    .poster {
+        height: 475px;
+        background-color: var(--primary-color);
+        margin-top: 40px;
     }
 
-    let loading = $state(true)
-    let scheduleThursday = $state<Item[]>([])
-    let scheduleFriday = $state<Item[]>([])
+    h3 {
+        margin: 64px 0px;
+        font-size: 32px;
+    }
 
-    async function fetchSchedules() {
-        loading = true
+    .hosts {
+        display: flex; flex-direction: column; gap: 20px;
+    }
 
-        try {
-            const response = await fetch(asset("/scheduleThursday.json"), { cache: "no-store"})
-            if (!response.ok) throw new Error("failed to load schedule")
-            scheduleThursday = await response.json()
-        } catch (e) {
+    .people {
+        display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px;
+    }
 
-        } 
+    figure {
+        display: flex; flex-direction: column; gap: 12px;
 
-        try {
-            const response = await fetch(asset("/scheduleFriday.json"), { cache: "no-store"})
-            if (!response.ok) throw new Error("failed to load schedule")
-            scheduleFriday = await response.json()
-        } catch (e) {
+        img {
+            width: 174px; height: 224px;
+            border: 1px dotted;
+            object-fit: cover;
+        }
 
-        } finally {
-            loading = false
+        label {
+            font-size: 12px;
+            text-align: center;
         }
     }
 
-    onMount(fetchSchedules)
-</script>
-
-<table>
-    <thead>
-        <tr>
-            <th>Time</th>
-            <th>Place</th>
-            <th>Activity</th>
-        </tr>
-    </thead>
-    <tbody>
-        {#each scheduleThursday as item}
-        <tr>
-            <th>{item.time}</th>
-            <td>{item.activity}</td>
-            <td>{item.place}</td>
-        </tr>
-        {/each}
-    </tbody>
-</table>
-
-<table>
-    <thead>
-        <tr>
-            <th>Time</th>
-            <th>Place</th>
-            <th>Activity</th>
-        </tr>
-    </thead>
-    <tbody>
-        {#each scheduleFriday as item}
-        <tr>
-            <th>{item.time}</th>
-            <td>{item.activity}</td>
-            <td>{item.place}</td>
-        </tr>
-        {/each}
-    </tbody>
-</table>
-
-<style>
-    table {
-        border-collapse: collapse;
-    }
-
-    th {
-        border: 1px solid;
-    }
-
-    td {
-     border: 1px solid;
-    }
+    
 </style>

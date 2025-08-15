@@ -6,9 +6,9 @@ export type Page = {
 export const pages = [
     { name: "Welcome", link: "/" },
     { name: "Menu", link: "/menu" },
-    { name: "Crew", link: "/crew" },
     { name: "Prep", link: "/prep" },
     { name: "Agenda", link: "/agenda" },
     { name: "Dinner", link: "/dinner" },
-    { name: "Explore", link: "/explore" }
+    { name: "Explore", link: "/explore" },
+    { name: "Crew", link: "/crew" }
 ]

@@ -23,10 +23,10 @@
     <div class="bullet-container">
         <h3>From Stockholm</h3>
         <TransportBullet header="MEETING POINT" body="CITYTERMINALEN" />
-        <TransportBullet header="MEETING POINT" body="CITYTERMINALEN" />
-        <TransportBullet header="MEETING POINT" body="CITYTERMINALEN" />
-        <TransportBullet header="MEETING POINT" body="CITYTERMINALEN" />
-        <TransportBullet header="MEETING POINT" body="CITYTERMINALEN" />
+        <TransportBullet header="DESTINATION" body="SKOGSHEM & WIJK" />
+        <TransportBullet header="GATHER" body="09:45" note="Be early - bus leaves on time!" />
+        <TransportBullet header="DEPARTURE" body="10:00" />
+        <TransportBullet header="ARRIVAL" body="10:30" />
     </div>
 
     <div class="bullet-container">

@@ -16,9 +16,10 @@ h1, h2 {
     font-family: "KPMGBold";
 }
 
-h3, h4, p, label, button, span {
+h3, h4, p, label, button, span, caption, th, td {
     font-family: "Univers";
     font-weight: 400;
+    font-size: 16px;
 }
 
 @font-face {
