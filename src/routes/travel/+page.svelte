@@ -5,6 +5,86 @@
 	import FooterNav from "$lib/components/FooterNav.svelte";
 	import MenuButton from "$lib/components/MenuButton.svelte";
 	import { pages } from "$lib/data/pages";
+	import { onMount } from "svelte";
+
+    let rooms = $state<Room[]>([])
+    let isLoading = $state(true)
+    let searchString = $state<string>("")
+
+    let filteredRooms: Room[] = $derived.by(() => {
+        return searchString === "" ?
+            rooms :
+            rooms.filter(r =>
+                r.people.some(p => {
+                    const [first, last] = p.split(" ")
+                    return (
+                        first.toLowerCase().startsWith(searchString.toLowerCase()) ||
+                        last.toLowerCase().startsWith(searchString.toLowerCase())
+                    )
+                })
+            )
+    })
+
+    let filteredPeople: string[] = $derived.by(() => {
+        const people = [""]
+        if (searchString === "")
+            return people
+        return rooms
+            .flatMap(r => r.people)
+            .filter(p => {
+                const [first, last] = p.split(" ")
+                return first.toLowerCase().startsWith(searchString.toLowerCase()) || 
+                    last.toLowerCase().startsWith(searchString.toLowerCase())
+            })
+    })
+
+    type Room = {
+        id: string
+        people: string[]
+    }
+
+    type Match = {
+        person: string, room: string, others: string[]
+    }
+
+    let matches: Match[] = $derived.by(() => {
+        const q = searchString.trim().toLowerCase();
+        if (!q) return [];
+
+        return rooms.flatMap((r) =>
+            r.people
+                .filter((full) => {
+                    const [first = "", last = ""] = full.split(" ");
+                    return (
+                        first.toLowerCase().startsWith(q) ||
+                        last.toLowerCase().startsWith(q)
+                    );
+                })
+                .map((person) => ({
+                    person,
+                    room: r.id,
+                    others: r.people.filter((o) => o !== person)
+                }))
+        );
+    });
+
+    let matchi
+
+    async function fetchRooms() {
+        isLoading = true
+
+        try {
+            const response = await fetch(asset("/rooms.json"))
+            if (!response.ok) throw new Error("failed to load rooms")
+            rooms = await response.json()
+        } catch (e) {
+            console.log(e)
+        } finally {
+            isLoading = false
+        }
+    }
+
+    onMount(fetchRooms)
 </script>
 
 <div class="container">
@@ -51,7 +131,7 @@
         <BulletInfo 
             img={asset("/hanger.png")} 
             header="Festive dinner" 
-            body="Business formal clothes for the festive dinner in the evening<"
+            body="Business formal clothes for the festive dinner in the evening"
         />
 
         <BulletInfo 
@@ -68,7 +148,18 @@
     </div>
 
     <figure class="rooms">
-        <h3>Room Sharing</h3>
+        <input type="text" bind:value={searchString}>
+        <ul>
+            {#each matches as match}
+            <li>
+                <span class="room-person">{match.person}:</span>
+                <span class="room-info">Room {match.room} with {match.others}</span>
+            </li>
+            {/each}
+        </ul>
+        <!-- {#each filteredRooms as room}
+        <p>{room.people}</p>
+        {/each} -->
     </figure>
 </div>
 
@@ -161,5 +252,25 @@
         background: linear-gradient(106deg, #16171F 0%, #000 100%);
         
         display: grid; place-items: center;
+
+        input {
+            color: #000;
+        }
+
+        ul {
+            display: flex; flex-direction: column; gap: 8px;
+        }
+
+        li {
+            display: flex; gap: 4px; align-items: center;
+        }
+
+        .room-person {
+            font-weight: 700;
+        }
+
+        .room-info {
+
+        }
     }
 </style>

@@ -1,0 +1,14 @@
+[
+    {
+        "id": "001",
+        "people": ["Alfred Berg", "Robin Dafnäs"]
+    },
+    {
+        "id": "002",
+        "people": ["Zihan Persson", "Carina Elgendahl"]
+    },
+    {
+        "id": "003",
+        "people": ["Daniel Peng", "Alexander Örbratt"]
+    }
+]

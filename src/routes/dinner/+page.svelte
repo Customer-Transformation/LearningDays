@@ -39,12 +39,12 @@
     <h2>Hosted by</h2>
     <div class="people">
         <figure>
-            <img src={asset("/favicon.svg")} alt="">
-            <label for="">Carina Elgendahl</label>
+            <img src={asset("/fata.png")} alt="">
+            <label for="">Fanny Taube Persson</label>
         </figure>
         <figure>
-            <img src={asset("/favicon.svg")} alt="">
-            <label for="">Carina Elgendahl</label>
+            <img src={asset("/adwi.png")} alt="">
+            <label for="">Adam Wiberg</label>
         </figure>
     </div>
 </div>
@@ -147,15 +147,17 @@
     }
 
     .people {
-        display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px;
+        display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; align-items: start; justify-items: center;
     }
 
     figure {
-        display: flex; flex-direction: column; gap: 12px;
+        min-width: 100px; max-width: 250px;
+
+        display: flex; flex-direction: column; gap: 6px;
 
         img {
-            width: 174px; height: 224px;
-            border: 1px dotted;
+            height: auto; width: 100%;
+            border-radius: 4px;
             object-fit: cover;
         }
 

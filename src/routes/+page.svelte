@@ -15,7 +15,13 @@
             <h3>THURSDAY<br>AUGUST 28, 2025<br><br>FRIDAY<br>AUGUST 29, 2025</h3>
         </div>
         <div class="right">
-            <h3>BLAssss<br>BLA<br>BLA<br>BLA<br>BLA</h3>
+            <h3>
+                SKOGSHEM & WIJK<br>
+                HUSTEGAVÄGEN 1<br>
+                LIDINGÖ<br>
+                181 24<br>
+                STOCKHOLM
+            </h3>
         </div>
     </div>
     <button onpointerdown={() => goto(resolve("/menu"))}>WHAT'S ON</button>

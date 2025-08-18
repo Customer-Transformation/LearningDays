@@ -52,10 +52,10 @@
     button {
         width: 40px; height: 40px;
         background-color: transparent;
-        border: .5px dotted;
 
         img {
             width: 100%;
+            transform: rotate(135deg);
         }
     }
 

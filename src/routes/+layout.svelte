@@ -19,10 +19,10 @@
 </main>
 
 <style>
-	main { min-height: 100dvh; width: 100dvw; position: relative; padding: 80px 20px 80px 20px; background: #000; }
+	main { min-height: 100dvh; width: 100dvw; position: relative; padding: 80px 20px 0px 20px; background: #000; }
 	main.welcome { background: var(--gradient); }
 	header { position: absolute; inset: 0; height: 80px; padding: 20px; }
 	img { width: 48px; height: 20px; object-fit: cover; }
-	footer { margin-top: 40px; }
+	footer { margin-top: 40px; margin-bottom: 75px; }
 	span { font-size: 12px; color: var(--secondary-color); font-style: italic; }
 </style>
