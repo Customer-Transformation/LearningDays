@@ -1,0 +1,199 @@
+{
+    "associate": [
+        {
+            "time": "12:10-12:40",
+            "place": "Sandhamn Seglarhotell Restaurant",
+            "activity": "LunchA"
+        },
+        {
+            "time": "12:40-16:00",
+            "place": "Conference room",
+            "activity": "Conferende agenda"
+        },
+        {
+            "time": "10:00-12:00",
+            "place": "Cityterminalen",
+            "activity": "Transport to Sandhamn"
+        },
+        {
+            "time": "12:10-12:40",
+            "place": "Sandhamn Seglarhotell Restaurant",
+            "activity": "Lunch"
+        },
+        {
+            "time": "12:40-16:00",
+            "place": "Conference room",
+            "activity": "Conferende agenda"
+        },
+        {
+            "time": "23:00-00:00",
+            "place": "Entrance",
+            "activity": "Bus to Cityterminalen"
+        }
+    ],
+
+    "senior associate": [
+        {
+            "time": "12:10-12:40",
+            "place": "Sandhamn Seglarhotell Restaurant",
+            "activity": "LunchSA"
+        },
+        {
+            "time": "12:40-16:00",
+            "place": "Conference room",
+            "activity": "Conferende agenda"
+        },
+        {
+            "time": "10:00-12:00",
+            "place": "Cityterminalen",
+            "activity": "Transport to Sandhamn"
+        },
+        {
+            "time": "12:10-12:40",
+            "place": "Sandhamn Seglarhotell Restaurant",
+            "activity": "Lunch"
+        },
+        {
+            "time": "12:40-16:00",
+            "place": "Conference room",
+            "activity": "Conferende agenda"
+        },
+        {
+            "time": "23:00-00:00",
+            "place": "Entrance",
+            "activity": "Bus to Cityterminalen"
+        }
+    ],
+
+    "manager": [
+        {
+            "time": "12:10-12:40",
+            "place": "Sandhamn Seglarhotell Restaurant",
+            "activity": "LunchM"
+        },
+        {
+            "time": "12:40-16:00",
+            "place": "Conference room",
+            "activity": "Conferende agenda"
+        },
+        {
+            "time": "10:00-12:00",
+            "place": "Cityterminalen",
+            "activity": "Transport to Sandhamn"
+        },
+        {
+            "time": "12:10-12:40",
+            "place": "Sandhamn Seglarhotell Restaurant",
+            "activity": "Lunch"
+        },
+        {
+            "time": "12:40-16:00",
+            "place": "Conference room",
+            "activity": "Conferende agenda"
+        },
+        {
+            "time": "23:00-00:00",
+            "place": "Entrance",
+            "activity": "Bus to Cityterminalen"
+        }
+    ],
+
+    "senior manager": [
+        {
+            "time": "12:10-12:40",
+            "place": "Sandhamn Seglarhotell Restaurant",
+            "activity": "LunchSM"
+        },
+        {
+            "time": "12:40-16:00",
+            "place": "Conference room",
+            "activity": "Conferende agenda"
+        },
+        {
+            "time": "10:00-12:00",
+            "place": "Cityterminalen",
+            "activity": "Transport to Sandhamn"
+        },
+        {
+            "time": "12:10-12:40",
+            "place": "Sandhamn Seglarhotell Restaurant",
+            "activity": "Lunch"
+        },
+        {
+            "time": "12:40-16:00",
+            "place": "Conference room",
+            "activity": "Conferende agenda"
+        },
+        {
+            "time": "23:00-00:00",
+            "place": "Entrance",
+            "activity": "Bus to Cityterminalen"
+        }
+    ],
+
+    "director": [
+        {
+            "time": "12:10-12:40",
+            "place": "Sandhamn Seglarhotell Restaurant",
+            "activity": "LunchD"
+        },
+        {
+            "time": "12:40-16:00",
+            "place": "Conference room",
+            "activity": "Conferende agenda"
+        },
+        {
+            "time": "10:00-12:00",
+            "place": "Cityterminalen",
+            "activity": "Transport to Sandhamn"
+        },
+        {
+            "time": "12:10-12:40",
+            "place": "Sandhamn Seglarhotell Restaurant",
+            "activity": "Lunch"
+        },
+        {
+            "time": "12:40-16:00",
+            "place": "Conference room",
+            "activity": "Conferende agenda"
+        },
+        {
+            "time": "23:00-00:00",
+            "place": "Entrance",
+            "activity": "Bus to Cityterminalen"
+        }
+    ],
+
+    "partner": [
+        {
+            "time": "12:10-12:40",
+            "place": "Sandhamn Seglarhotell Restaurant",
+            "activity": "LunchP"
+        },
+        {
+            "time": "12:40-16:00",
+            "place": "Conference room",
+            "activity": "Conferende agenda"
+        },
+        {
+            "time": "10:00-12:00",
+            "place": "Cityterminalen",
+            "activity": "Transport to Sandhamn"
+        },
+        {
+            "time": "12:10-12:40",
+            "place": "Sandhamn Seglarhotell Restaurant",
+            "activity": "Lunch"
+        },
+        {
+            "time": "12:40-16:00",
+            "place": "Conference room",
+            "activity": "Conferende agenda"
+        },
+        {
+            "time": "23:00-00:00",
+            "place": "Entrance",
+            "activity": "Bus to Cityterminalen"
+        }
+    ]
+}
