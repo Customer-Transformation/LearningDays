@@ -8,7 +8,7 @@
 <div class="container">
     <h1>LEARNING<br>DAYS</h1>
     <hr>
-    <h2>SAVE<br>THE<br>DATE</h2>
+    <h2>SAVE THE<br>DATE</h2>
     <hr>
     <div class="info">
         <div class="left">
@@ -52,6 +52,7 @@
 
     h3 {
         font-size: 12px;
+        line-height: 1.1;
     }
 
     .right {
@@ -61,7 +62,7 @@
     }
 
     button {
-        margin-top: 66px;
+        margin-top: 40px;
         height: 50px;
         background-color: var(--primary-color);
         border-radius: 4px;

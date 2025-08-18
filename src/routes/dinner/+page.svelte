@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { asset } from "$app/paths"
+	import DinnerSeating from "$lib/components/DinnerSeating.svelte";
 	import FooterNav from "$lib/components/FooterNav.svelte"
 	import MenuButton from "$lib/components/MenuButton.svelte"
     import { pages } from "$lib/data/pages"
@@ -48,6 +49,8 @@
         </figure>
     </div>
 </div>
+
+<DinnerSeating />
 
 <FooterNav previousPage={pages[3]} nextPage={pages[5]}/>
 
@@ -124,7 +127,7 @@
     }
 
     .center {
-        margin-top: 185px;
+        margin-top: 185px; z-index: 1;
 
         display: flex; flex-direction: column; align-items: center; gap: 16px;
 
