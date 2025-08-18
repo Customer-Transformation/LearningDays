@@ -9,7 +9,7 @@ import { p as pages } from "../../../chunks/pages.js";
 function NavButton($$payload, $$props) {
   push();
   let { page = { name: "Welcome", link: "/welcome" } } = $$props;
-  $$payload.out.push(`<button class="svelte-h3xhdf"><span class="svelte-h3xhdf">${escape_html(page.name)}</span> <img${attr("src", asset("/arrow-down-right.png"))} alt="" class="svelte-h3xhdf"/></button>`);
+  $$payload.out.push(`<button class="svelte-1ftypix"><span class="svelte-1ftypix">${escape_html(page.name)}</span> <img${attr("src", asset("/arrow-down-right.png"))} alt="" class="svelte-1ftypix"/></button>`);
   pop();
 }
 function _page($$payload) {

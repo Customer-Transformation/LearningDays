@@ -60,9 +60,9 @@
       "_app/immutable/assets/MenuButton.CG3MZso2.css"
     ]
   },
-  "_NavButton.BY8mmTD5.css": {
-    "file": "_app/immutable/assets/NavButton.BY8mmTD5.css",
-    "src": "_NavButton.BY8mmTD5.css"
+  "_NavButton.CXSzKB4l.css": {
+    "file": "_app/immutable/assets/NavButton.CXSzKB4l.css",
+    "src": "_NavButton.CXSzKB4l.css"
   },
   "_environment.js": {
     "file": "chunks/environment.js",
@@ -272,7 +272,7 @@
     ],
     "css": [
       "_app/immutable/assets/_page.BCyx30-M.css",
-      "_app/immutable/assets/NavButton.BY8mmTD5.css"
+      "_app/immutable/assets/NavButton.CXSzKB4l.css"
     ]
   },
   "src/routes/dinner/+page.svelte": {
@@ -322,7 +322,7 @@
     ],
     "css": [
       "_app/immutable/assets/_page.BHlj59yF.css",
-      "_app/immutable/assets/NavButton.BY8mmTD5.css"
+      "_app/immutable/assets/NavButton.CXSzKB4l.css"
     ]
   },
   "src/routes/travel/+page.svelte": {

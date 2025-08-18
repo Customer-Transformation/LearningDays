@@ -18,6 +18,8 @@
         background-color: transparent;
         border-bottom: .8px solid var(--primary-color);
 
+		touch-action: manipulation;
+
 		padding-bottom: 4px;
 		display: flex; justify-content: space-between; align-items: flex-end;
     }
