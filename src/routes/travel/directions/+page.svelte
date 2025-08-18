@@ -8,7 +8,7 @@
 </script>
 
 <div class="container">
-    <button onpointerdown={() => goto(resolve("/prep"))}>
+    <button onpointerdown={() => goto(resolve("/travel"))}>
         <img src={asset("/arrow-down-right.png")} alt="">
     </button>
 

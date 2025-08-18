@@ -18,10 +18,10 @@
 	"/menu": [
 		"src/routes/+layout.ts"
 	],
-	"/prep": [
+	"/travel": [
 		"src/routes/+layout.ts"
 	],
-	"/prep/directions": [
+	"/travel/directions": [
 		"src/routes/+layout.ts"
 	]
 }

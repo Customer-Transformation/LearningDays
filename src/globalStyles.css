@@ -1,6 +1,7 @@
 :root {
     --gradient: linear-gradient(223deg, #FFD9D1 2.77%, #7042D2 27.03%, #000 48.7%);
     --primary-color: #4C00FF;
+    --secondary-color: #75778B
 }
 
 *, *::before, *::after {
@@ -10,6 +11,10 @@
     color: white;
     box-sizing: border-box;
     border: none;
+}
+
+body {
+  background-color: #000;
 }
 
 h1, h2 {

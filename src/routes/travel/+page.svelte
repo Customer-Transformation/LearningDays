@@ -8,7 +8,7 @@
 </script>
 
 <div class="container">
-    <MenuButton name="Prep"/>
+    <MenuButton name="Travel"/>
 
     <div class="welcome">
         <h3>Welcome to FSC and MC Learning Days</h3>
@@ -16,23 +16,23 @@
     </div>
 
     <div class="card">
-        <img class="card-img" src={"https://picsum.photos/900"} alt="">
+        <img class="card-img" src={asset("/travel.png")} alt="">
         <div class="fade"></div>
         
         <div class="card-info">
             <h3>Skogshem & Wijk</h3>
             <div class="info-figures">
-                <figure>
-                    <img class="icon" src={asset("/favicon.svg")} alt="">
+                <figure class="info-figure">
+                    <img class="icon" src={asset("/calendar-07.png")} alt="">
                     <span>28-29 August</span>
                 </figure>
-                <figure>
-                    <img class="icon" src={asset("/favicon.svg")} alt="">
+                <figure class="info-figure">
+                    <img class="icon" src={asset("/marker-06.png")} alt="">
                     <span>Hustegavägen 1, Lidingö</span>
                 </figure>
             </div>
         </div>
-        <button class="card-button" onpointerdown={() => goto(resolve("/prep/directions"))}>GETTING THERE</button>
+        <button class="card-button" onpointerdown={() => goto(resolve("/travel/directions"))}>GETTING THERE</button>
     </div>
 
     <div class="info">
@@ -115,23 +115,23 @@
 
             .info-figures {
                 display: flex; gap: 8px;
-
-                figure {
-                    display: flex; gap: 4px;
-
-                    span {
-                        font-size: 12px;
-                    }
-                }
             }
         }
-
+        
         .card-button {
             position: absolute;
             inset: auto auto 20px 16px;
             height: 50px; width: 186px;
             background-color: var(--primary-color);
             border-radius: 4px;
+        }
+    }
+    
+    .info-figure {
+        display: flex; gap: 4px; align-items: center;
+
+        span {
+            font-size: 12px;
         }
     }
     
