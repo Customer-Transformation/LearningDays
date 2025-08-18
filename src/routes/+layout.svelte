@@ -16,7 +16,7 @@
 
 	{@render children?.()}
 
-	<footer class:reduced={page.route.id === "/" || page.route.id === "/menu"}>
+	<footer class:welcome={page.route.id === "/"} class:menu={page.route.id === "/menu"}>
 		<span>Designed & built by Customer Team MC</span>
 	</footer>
 </main>
@@ -28,6 +28,7 @@
 	button { width: 48px; height: 20px; background-color: transparent; }
 	img { width: 100%; height: 100%; object-fit: cover; }
 	footer { margin-top: 80px; margin-bottom: 75px; }
-	.reduced { margin-top: 40px; }
+	footer.welcome { margin-top: 60px; }
+	footer.menu { margin-top: 83px; }
 	span { font-size: 12px; color: var(--secondary-color); font-style: italic; }
 </style>
