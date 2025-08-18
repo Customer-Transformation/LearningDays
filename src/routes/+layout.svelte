@@ -16,7 +16,7 @@
 
 	{@render children?.()}
 
-	<footer class:reduced={page.url.pathname === "/" || page.url.pathname === "/menu"}>
+	<footer class:reduced={page.route.id === "/" || page.route.id === "/menu"}>
 		<span>Designed & built by Customer Team MC</span>
 	</footer>
 </main>
