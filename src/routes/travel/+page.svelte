@@ -115,6 +115,8 @@
         <button class="card-button" onpointerdown={() => goto(resolve("/travel/directions"))}>TO & FROM</button>
     </div>
 
+    <h2>General info</h2>
+
     <div class="info">
         <h3>Time reporting</h3>
         <p>96 -894 (Learning), Fill in ”KPMG” in company and “Learning Days” in Course</p>
@@ -166,13 +168,18 @@
 <FooterNav previousPage={pages[1]} nextPage={pages[3]}/>
 
 <style>
-    .container {
+    /* .container {
         display: flex; flex-direction: column; gap: 40px;
-    }
+    } */
 
     .welcome {
         display: flex; flex-direction: column; gap: 10px;
 
+    }
+
+    h2 {
+        margin-top: 48px;
+        font-size: 64px;
     }
 
     h3 {
@@ -186,6 +193,8 @@
     }
 
     .card {
+        margin-top: 40px;
+
         position: relative;
         height: 424px;
         border-radius: 8px;
@@ -236,7 +245,7 @@
 
 
     .info {
-        margin-top: 8px;
+        margin-top: 32px;
         display: flex; flex-direction: column; gap: 16px;
     }
 
@@ -245,7 +254,7 @@
     }
 
     .rooms {
-        margin-top: 8px;
+        margin-top: 80px;
         height: 303px;
         border-radius: 8px;
         border: 1px solid #373946;
