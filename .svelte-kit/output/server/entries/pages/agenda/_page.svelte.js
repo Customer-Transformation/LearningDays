@@ -1,5 +1,6 @@
 import { Y as ensure_array_like, V as escape_html, P as pop, N as push } from "../../../chunks/index2.js";
-import { M as MenuButton, F as FooterNav } from "../../../chunks/MenuButton.js";
+import { F as FooterNav } from "../../../chunks/FooterNav.js";
+import { M as MenuButton } from "../../../chunks/MenuButton.js";
 import { p as pages } from "../../../chunks/pages.js";
 function _page($$payload, $$props) {
   push();

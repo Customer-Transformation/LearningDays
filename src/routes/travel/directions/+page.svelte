@@ -46,7 +46,7 @@
     </div>
 </div>
 
-<FooterNav previousPage={pages[2]} />
+<FooterNav previousPage={{ name: "Back to Travel", link: pages[2].link}} />
 
 <style>
     button {

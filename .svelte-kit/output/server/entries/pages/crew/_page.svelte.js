@@ -4,7 +4,8 @@ import "../../../chunks/exports.js";
 import "../../../chunks/utils.js";
 import "../../../chunks/state.svelte.js";
 import { a as asset } from "../../../chunks/index3.js";
-import { M as MenuButton, F as FooterNav } from "../../../chunks/MenuButton.js";
+import { F as FooterNav } from "../../../chunks/FooterNav.js";
+import { M as MenuButton } from "../../../chunks/MenuButton.js";
 /* empty css                                                      */
 import { p as pages } from "../../../chunks/pages.js";
 function _page($$payload, $$props) {

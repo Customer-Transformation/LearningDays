@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { goto } from "$app/navigation";
-	import { resolve } from "$app/paths";
+	import { asset, resolve } from "$app/paths";
 	import type { Page } from "$lib/data/pages";
     
     let { previousPage, nextPage }: { previousPage?: Page, nextPage?: Page } = $props()
@@ -9,14 +9,18 @@
 <footer>
     <div>
         {#if previousPage}
-        <button onpointerdown={() => goto(resolve(previousPage.link as any))}>L</button>
+        <button onpointerdown={() => goto(resolve(previousPage.link as any))}>
+            <img src={asset("/leftArrow.png")} alt="">
+        </button>
         <label for="">{previousPage.name}</label>
         {/if}
     </div>
     <div>
         {#if nextPage}
         <label for="">{nextPage.name}</label>
-        <button onpointerdown={() => goto(resolve(nextPage.link as any))}>R</button>
+        <button onpointerdown={() => goto(resolve(nextPage.link as any))}>
+            <img class="right-arrow" src={asset("/leftArrow.png")} alt="">
+        </button>
         {/if}
     </div>
 </footer>
@@ -35,6 +39,16 @@
             width: 50px; height: 50px;
             border-radius: 50%;
             background-color: var(--primary-color);
+
+            display: grid; place-items: center;
+        }
+
+        img {
+            width: 40px; height: 40px;
+        }
+
+        .right-arrow {
+            transform: rotate(180deg);
         }
     }
 </style>
