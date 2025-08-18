@@ -23,4 +23,4 @@ export type Pathname = "/" | "/agenda" | "/crew" | "/dinner" | "/explore" | "/me
 
 export type ResolvedPathname = `${"" | `/${string}`}${Pathname}`;
 
-export type Asset = "/.nojekyll" | "/arrow-down-right.png" | "/Bastu.png" | "/calendar-07.png" | "/Cornhole.png" | "/dinner.png" | "/events.json" | "/favicon.svg" | "/Gym.png" | "/hanger.png" | "/leftArrow.png" | "/logo.png" | "/marker-06.png" | "/Mingle.png" | "/Pool.png" | "/robots.txt" | "/scheduleFriday.json" | "/scheduleThursday.json" | "/ticket-02.png" | "/travel.png";
+export type Asset = "/.nojekyll" | "/adwi.png" | "/arrow-down-right.png" | "/Bastu.png" | "/cael.png" | "/caev.png" | "/calendar-07.png" | "/Cornhole.png" | "/dinner.png" | "/elbe.png" | "/emis.png" | "/events.json" | "/fata.png" | "/favicon.svg" | "/Gym.png" | "/hanger.png" | "/leftArrow.png" | "/lial.png" | "/lime.png" | "/logo.png" | "/marker-06.png" | "/Mingle.png" | "/nama.png" | "/nifo.png" | "/Pool.png" | "/robots.txt" | "/scheduleFriday.json" | "/scheduleThursday.json" | "/stva.png" | "/ticket-02.png" | "/travel.png";

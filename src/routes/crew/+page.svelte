@@ -14,26 +14,26 @@
         <h3>MANAGEMENT CONSULTING</h3>
         <ul class="top">
             <figure>
-                <img src={asset("/favicon.svg")} alt="">
+                <img src={asset("/cael.png")} alt="">
                 <label for="">Carina Elgendahl</label>
             </figure>
             <figure>
                 <img src={asset("/favicon.svg")} alt="">
-                <label for="">Carina Elgendahl</label>
+                <label for="">David Kåverud</label>
             </figure>
             <figure>
-                <img src={asset("/favicon.svg")} alt="">
-                <label for="">Carina Elgendahl</label>
+                <img src={asset("/nifo.png")} alt="">
+                <label for="">Nicole Fogelgren Broberg</label>
             </figure>
         </ul>
         <ul class="bottom">
             <figure>
-                <img src={asset("/favicon.svg")} alt="">
-                <label for="">Carina Elgendahl</label>
+                <img src={asset("/elbe.png")} alt="">
+                <label for="">Ellen Bergkrans</label>
             </figure>
             <figure>
-                <img src={asset("/favicon.svg")} alt="">
-                <label for="">Carina Elgendahl</label>
+                <img src={asset("/emis.png")} alt="">
+                <label for="">Emil Isaksson Torgilsman</label>
             </figure>
         </ul>
     </div>
@@ -42,26 +42,26 @@
         <h3>FINANCIAL SERVICES</h3>
         <ul class="top">
             <figure>
-                <img src={asset("/favicon.svg")} alt="">
-                <label for="">Carina Elgendahl</label>
+                <img src={asset("/stva.png")} alt="">
+                <label for="">Stefan Varnelid</label>
             </figure>
             <figure>
-                <img src={asset("/favicon.svg")} alt="">
-                <label for="">Carina Elgendahl</label>
+                <img src={asset("/caev.png")} alt="">
+                <label for="">Carl Evenbom</label>
             </figure>
             <figure>
-                <img src={asset("/favicon.svg")} alt="">
-                <label for="">Carina Elgendahl</label>
+                <img src={asset("/lial.png")} alt="">
+                <label for="">Lina Almbladh</label>
             </figure>
         </ul>
         <ul class="bottom">
             <figure>
-                <img src={asset("/favicon.svg")} alt="">
-                <label for="">Carina Elgendahl</label>
+                <img src={asset("/lime.png")} alt="">
+                <label for="">Linda Melander</label>
             </figure>
             <figure>
-                <img src={asset("/favicon.svg")} alt="">
-                <label for="">Carina Elgendahl</label>
+                <img src={asset("/nama.png")} alt="">
+                <label for="">Natalie Mattsson</label>
             </figure>
         </ul>
     </div>
@@ -82,13 +82,19 @@
         }
 
         ul {
-            display: grid; grid-template-columns: repeat(3, 1fr);
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px;
+            max-width: 100%;
 
             figure {
-                display: flex; flex-direction: column; gap: 12px;
+                min-width: 100px; max-width: 140px;
+
+                display: flex; flex-direction: column; gap: 12px; align-items: center;
 
                 img {
-                    width: 115px; height: 144px;
+                    height: auto; width: 100%;
+                    border-radius: 4px;
+                    object-fit: cover;
+                    object-position: top;
                 }
 
                 label {

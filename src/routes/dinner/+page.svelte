@@ -79,7 +79,7 @@
 
             span {
                 font-size: 14px;
-                margin-top: -20px;
+                margin-top: -10px;
             }
         }
 
@@ -90,7 +90,7 @@
 
             span {
                 font-size: 14px;
-                margin-top: -20px;
+                margin-top: -10px;
                 margin-right: 4px;
             }
         }
