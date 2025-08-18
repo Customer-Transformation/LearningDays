@@ -28,6 +28,9 @@ const page$1 = {
   get error() {
     return context().page.error;
   },
+  get route() {
+    return context().page.route;
+  },
   get status() {
     return context().page.status;
   },

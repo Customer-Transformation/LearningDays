@@ -6,7 +6,7 @@
     let { page = { name: "Welcome", link: "/welcome" } }: { page?: Page } = $props()
 </script>
 
-<button onclick={() => goto(resolve(page.link as any))}>
+<button onpointerdown={() => goto(resolve(page.link as any))}>
     <span>{page.name}</span>
     <img src={asset("/arrow-down-right.png")} alt="">
 </button>

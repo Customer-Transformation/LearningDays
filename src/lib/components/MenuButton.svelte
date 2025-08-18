@@ -5,7 +5,7 @@
     let { name }: { name: string} = $props()
 </script>
 
-<button onclick={() => goto(resolve("/menu"))}>
+<button onpointerdown={() => goto(resolve("/menu"))}>
     <span>{name}</span>
     <img src={asset("/arrow-down-right.png")} alt="">
 </button>

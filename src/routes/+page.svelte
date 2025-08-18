@@ -24,7 +24,7 @@
             </h3>
         </div>
     </div>
-    <button onclick={() => goto(resolve("/menu"))}>WHAT'S ON</button>
+    <button onpointerdown={() => goto(resolve("/menu"))}>WHAT'S ON</button>
 </div>
 
 <style>
