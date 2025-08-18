@@ -28,12 +28,11 @@
 </div>
 
 <div class="images">
-	<img src={asset("/favicon.svg")} alt="">
-	<img src={asset("/arrow-down-right.png")} alt="">
-	<img src={asset("/favicon.svg")} alt="">
-	<img src={asset("/favicon.svg")} alt="">
-	<img src={asset("/favicon.svg")} alt="">
-	<img src={asset("/favicon.svg")} alt="">
+	<img src={asset("/Pool.png")} alt="">
+	<img src={asset("/Bastu.png")} alt="">
+	<img src={asset("/Mingle.png")} alt="">
+	<img src={asset("/Gym.png")} alt="">
+	<img src={asset("/Cornhole.png")} alt="">
 </div>
 
 <p>If you want to do an activity that hasn’t already been set up, please go the the reception and they will help you get started.</p>
@@ -62,11 +61,15 @@
 	}
 
 	.images {
-		display: flex; flex-direction: column;
+		margin-top: 48px;
+
+		display: flex; flex-direction: column; gap: 20px;
 	}
 
 	img {
-		height: 100%; width: fit-content;
+		height: auto;
+		border-radius: 8px;
+		object-fit: cover;
 	}
 
 	p {

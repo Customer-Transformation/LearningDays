@@ -23,4 +23,4 @@ export type Pathname = "/" | "/agenda" | "/crew" | "/dinner" | "/explore" | "/me
 
 export type ResolvedPathname = `${"" | `/${string}`}${Pathname}`;
 
-export type Asset = "/.nojekyll" | "/arrow-down-right.png" | "/calendar-07.png" | "/events.json" | "/favicon.svg" | "/hanger.png" | "/logo.png" | "/marker-06.png" | "/robots.txt" | "/scheduleFriday.json" | "/scheduleThursday.json" | "/ticket-02.png" | "/travel.png";
+export type Asset = "/.nojekyll" | "/arrow-down-right.png" | "/Bastu.png" | "/calendar-07.png" | "/Cornhole.png" | "/events.json" | "/favicon.svg" | "/Gym.png" | "/hanger.png" | "/logo.png" | "/marker-06.png" | "/Mingle.png" | "/Pool.png" | "/robots.txt" | "/scheduleFriday.json" | "/scheduleThursday.json" | "/ticket-02.png" | "/travel.png";

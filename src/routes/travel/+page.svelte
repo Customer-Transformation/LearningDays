@@ -32,7 +32,7 @@
                 </figure>
             </div>
         </div>
-        <button class="card-button" onpointerdown={() => goto(resolve("/travel/directions"))}>GETTING THERE</button>
+        <button class="card-button" onpointerdown={() => goto(resolve("/travel/directions"))}>TO & FROM</button>
     </div>
 
     <div class="info">
@@ -49,19 +49,19 @@
         <h3>Suggested pack list</h3>
 
         <BulletInfo 
-            img={asset("/favicon.svg")} 
+            img={asset("/hanger.png")} 
             header="Festive dinner" 
             body="Business formal clothes for the festive dinner in the evening<"
         />
 
         <BulletInfo 
-            img={asset("/favicon.svg")} 
+            img={asset("/hanger.png")} 
             header="Conference" 
             body="Clothes and shoes for two days"
         />
 
         <BulletInfo 
-            img={asset("/favicon.svg")} 
+            img={asset("/hanger.png")} 
             header="Pool / sauna" 
             body="Swimwear if you want to use the hotel's outdoor pool or sauna"
         />
