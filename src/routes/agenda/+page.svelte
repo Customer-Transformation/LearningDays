@@ -57,6 +57,10 @@
         }
     }
 
+    let activeScheduleContainers = $state<HTMLLIElement[]>([])
+
+    $inspect(activeScheduleContainers)
+
     onMount(fetchSchedule)
 </script>
 
@@ -66,15 +70,15 @@
 
 {#if allSchedules}
 <ul class="schedules">
-    {#each allSchedules as { key, label, items}}
-    <li>
+    {#each allSchedules as { key, label, items}, i}
+    <li bind:this={activeScheduleContainers[i]}>
         <button onclick={() => activeSchedule === key ? activeSchedule = null : activeSchedule = key}>
             <span>{label}</span>
             <img src={activeSchedule === key ? asset("/dash.png") : asset("/plus-01.png")} alt="" class="icon">
         </button>
 
         {#if activeSchedule === key}
-        <div class="schedule" transition:slide={{ }}>
+        <div class="schedule" transition:slide onintroend={() => activeScheduleContainers[i].scrollIntoView({ behavior: "smooth" })}>
             <table>
                 <caption>THURSDAY 28TH</caption>
                 <thead>

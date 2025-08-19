@@ -30,6 +30,6 @@
 	footer { margin-top: 80px; margin-bottom: 75px; }
 	footer.welcome { margin-top: 24px; margin-bottom: 0px; }
 	footer.menu { margin-top: 37px; margin-bottom: 0px; }
-	footer.travel { margin-bottom: 230px; }
+	footer.travel { margin-bottom: 280px; }
 	span { font-size: 12px; color: var(--secondary-color); font-style: italic; }
 </style>
