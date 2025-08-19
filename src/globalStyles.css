@@ -21,6 +21,7 @@ body {
 
 h1, h2 {
     font-family: "KPMGBold";
+    font-weight: 700;
 }
 
 h3, h4, p, label, button, span, caption, th, td {
@@ -32,6 +33,8 @@ h3, h4, p, label, button, span, caption, th, td {
 @font-face {
   font-family: 'KPMGBold';
   src: url("./lib/assets/fonts/KPMG-BOLD.TTF") format("truetype");
+  font-weight: 700;
+  font-style: normal;
 }
 
 @font-face {
