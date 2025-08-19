@@ -22,13 +22,13 @@
 </main>
 
 <style>
-	main { min-height: 100dvh; width: 100dvw; position: relative; padding: 80px 20px 0px 20px; background: #000; }
+	main { height: 100%; width: 100%; position: relative; padding: 80px 20px 0px 20px; background: #000; }
 	main.welcome { background: var(--gradient); }
 	header { position: absolute; inset: 0; height: 80px; padding: 20px; }
 	button { width: 48px; height: 20px; background-color: transparent; }
 	img { width: 100%; height: 100%; object-fit: cover; }
 	footer { margin-top: 80px; margin-bottom: 75px; }
-	footer.welcome { margin-top: 10px; }
-	footer.menu { margin-top: 23px; }
+	footer.welcome { margin-top: 10px; margin-bottom: 0px; }
+	footer.menu { margin-top: 23px; margin-bottom: 0px; }
 	span { font-size: 12px; color: var(--secondary-color); font-style: italic; }
 </style>
