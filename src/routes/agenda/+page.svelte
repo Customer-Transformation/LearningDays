@@ -15,24 +15,17 @@
         activity: string
     }
 
-    type ScheduleData = {
-        associate: Item[]
-        seniorAssociate: Item[]
-        manager: Item[]
-        seniorManager: Item[]
-        director: Item[]
-        partner: Item[]
-    }
-
     type Schedule = {
         key: ScheduleKey
         label: string
-        items: Item[]
+        thursdayItems: Item[]
+        fridayItems: Item[]
     }
 
     let loading = $state(true)
     let activeSchedule = $state<ScheduleKey|null>(null)
     let allSchedules = $state<Schedule[]>()
+    let activeScheduleContainers = $state<HTMLLIElement[]>([])
 
 
     async function fetchSchedule() {
@@ -41,14 +34,14 @@
         try {
             const response = await fetch(asset("/schedule.json"))
             if (!response.ok) throw new Error("failed to load schedule")
-            const data: ScheduleData = await response.json()
+            const data = await response.json()
             allSchedules = [
-                { key: "associate", label: "ASSOCIATE", items: data.associate },
-                { key: "seniorAssociate", label: "SENIOR ASSOCIATE", items: data.seniorAssociate },
-                { key: "manager", label: "MANAGER", items: data.manager },
-                { key: "seniorManager", label: "SENIOR MANGER", items: data.seniorManager },
-                { key: "director", label: "DIRECTOR", items: data.director },
-                { key: "partner", label: "PARTNER", items: data.partner }
+                { key: "associate", label: "ASSOCIATE", thursdayItems: data.associate.thursday, fridayItems: data.associate.friday },
+                { key: "seniorAssociate", label: "SENIOR ASSOCIATE", thursdayItems: data.seniorAssociate.thursday, fridayItems: data.seniorAssociate.friday },
+                { key: "manager", label: "MANAGER", thursdayItems: data.manager.thursday, fridayItems: data.manager.friday },
+                { key: "seniorManager", label: "SENIOR MANGER", thursdayItems: data.seniorManager.thursday, fridayItems: data.seniorManager.friday },
+                { key: "director", label: "DIRECTOR", thursdayItems: data.director.thursday, fridayItems: data.director.friday },
+                { key: "partner", label: "PARTNER", thursdayItems: data.partner.thursday, fridayItems: data.partner.friday }
             ]
         } catch (e) {
             
@@ -56,10 +49,6 @@
             loading = false
         }
     }
-
-    let activeScheduleContainers = $state<HTMLLIElement[]>([])
-
-    $inspect(activeScheduleContainers)
 
     onMount(fetchSchedule)
 </script>
@@ -70,15 +59,15 @@
 
 {#if allSchedules}
 <ul class="schedules">
-    {#each allSchedules as { key, label, items}, i}
+    {#each allSchedules as { key, label, thursdayItems, fridayItems}, i}
     <li bind:this={activeScheduleContainers[i]}>
         <button onclick={() => activeSchedule === key ? activeSchedule = null : activeSchedule = key}>
             <span>{label}</span>
-            <img src={activeSchedule === key ? asset("/dash.png") : asset("/plus-01.png")} alt="" class="icon">
+            <img src={activeSchedule === key ? asset("/minus.svg") : asset("/plus.svg")} alt="" class="icon">
         </button>
 
         {#if activeSchedule === key}
-        <div class="schedule" transition:slide onintroend={() => activeScheduleContainers[i].scrollIntoView({ behavior: "smooth" })}>
+        <div class="schedule" transition:slide onintroend={() => activeScheduleContainers[i].scrollIntoView({ behavior: "smooth", block: "start" })}>
             <table>
                 <caption>THURSDAY 28TH</caption>
                 <thead>
@@ -88,7 +77,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {#each items as item}
+                    {#each thursdayItems as item}
                     <tr>
                         <th>{item.time}</th>
                         <td>{item.activity}</td>
@@ -106,7 +95,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {#each items as item}
+                    {#each fridayItems as item}
                     <tr>
                         <th>{item.time}</th>
                         <td>{item.activity}</td>

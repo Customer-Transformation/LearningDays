@@ -43,7 +43,7 @@
 
         <div class="bullet">
             <figure>
-                <img class="icon" src={asset("/ticket-02.png")} alt="">
+                <img class="icon" src={asset("/ticket.svg")} alt="">
                 <h4>Gothenburg / Malmö</h4>
             </figure>
             <p>The conference team will arrange your travel. You will receive your train tickets by email.</p>
@@ -52,7 +52,7 @@
 
         <div class="bullet">
             <figure>
-                <img class="icon" src={asset("/ticket-02.png")} alt="">
+                <img class="icon" src={asset("/ticket.svg")} alt="">
                 <h4>Riga / Jönköping</h4>
             </figure>
             <p>Arrange your own travel to Stockholm. You need to be there at Cityterminalen <span>no later than 09:45 on Aug 28th</span></p>

@@ -1,199 +1,769 @@
 {
-    "associate": [
-        {
-            "time": "12:10-12:40",
-            "place": "Sandhamn Seglarhotell Restaurant",
-            "activity": "LunchA"
-        },
-        {
-            "time": "12:40-16:00",
-            "place": "Conference room",
-            "activity": "Conferende agenda"
-        },
-        {
-            "time": "10:00-12:00",
-            "place": "Cityterminalen",
-            "activity": "Transport to Sandhamn"
-        },
-        {
-            "time": "12:10-12:40",
-            "place": "Sandhamn Seglarhotell Restaurant",
-            "activity": "Lunch"
-        },
-        {
-            "time": "12:40-16:00",
-            "place": "Conference room",
-            "activity": "Conferende agenda"
-        },
-        {
-            "time": "23:00-00:00",
-            "place": "Entrance",
-            "activity": "Bus to Cityterminalen"
-        }
-    ],
+    "associate": {
+        "thursday": [
+            {
+                "time": "10:00 - 10:30",
+                "place": "-",
+                "activity": "Transport to Skogshem & Wijk"
+            },
+            {
+                "time": "10:30 - 11:00",
+                "place": "-",
+                "activity": "Arrival and check-in"
+            },
+            {
+                "time": "11:00 - 12:00",
+                "place": "-",
+                "activity": "Introduction & External inspirational speaker, Marcus Tungel, Head of Finance Swedbank"
+            },
+            {
+                "time": "12:00 - 13:00",
+                "place": "-",
+                "activity": "Lunch"
+            },
+            {
+                "time": "13:00 - 13:55",
+                "place": "-",
+                "activity": "Sector Outlooks (KPMG internaltional  speakers): Consumer & Retail (Isabelle Allen), Industrial & Manufacturing, Financial Services (Camiel van Steekelenburg)"
+            },
+            {
+                "time": "14:00 - 15:00",
+                "place": "-",
+                "activity": "Power BI Digital tools for efficiency"
+            },
+            {
+                "time": "15:00 - 15:20",
+                "place": "-",
+                "activity": "Break with coffee"
+            },
+            {
+                "time": "15:20 - 16:20",
+                "place": "-",
+                "activity": "Power BI"
+            },
+            {
+                "time": "16:20 - 16:30",
+                "place": "-",
+                "activity": "Break with coffee"
+            },
+            {
+                "time": "16:30 - 17:30",
+                "place": "-",
+                "activity": "AI: Pär Edin lecture"
+            },
+            {
+                "time": "17:30 - 19:30",
+                "place": "-",
+                "activity": "Free time: spa / activities"
+            },
+            {
+                "time": "19:30 - 20:00",
+                "place": "-",
+                "activity": "Pre-drinks"
+            },
+            {
+                "time": "20:00 - 22:30",
+                "place": "-",
+                "activity": "Festive 3-course dinner"
+            },
+            {
+                "time": "22:20 - 24:00",
+                "place": "-",
+                "activity": "Party!"
+            }
+        ],
 
-    "seniorAssociate": [
-        {
-            "time": "12:10-12:40",
-            "place": "Sandhamn Seglarhotell Restaurant",
-            "activity": "LunchSA"
-        },
-        {
-            "time": "12:40-16:00",
-            "place": "Conference room",
-            "activity": "Conferende agenda"
-        },
-        {
-            "time": "10:00-12:00",
-            "place": "Cityterminalen",
-            "activity": "Transport to Sandhamn"
-        },
-        {
-            "time": "12:10-12:40",
-            "place": "Sandhamn Seglarhotell Restaurant",
-            "activity": "Lunch"
-        },
-        {
-            "time": "12:40-16:00",
-            "place": "Conference room",
-            "activity": "Conferende agenda"
-        },
-        {
-            "time": "23:00-00:00",
-            "place": "Entrance",
-            "activity": "Bus to Cityterminalen"
-        }
-    ],
+        "friday": [
+            {
+                "time": "07:00 - 08:15",
+                "place": "-",
+                "activity": "Breakfast buffet"
+            },
+            {
+                "time": "08:15 - 09:15",
+                "place": "-",
+                "activity": "Well-being lecture"
+            },
+            {
+                "time": "09:15 - 10:00",
+                "place": "-",
+                "activity": "Sales"
+            },
+            {
+                "time": "10:00 - 10:15",
+                "place": "-",
+                "activity": "Break with coffee"
+            },
+            {
+                "time": "10:15 - 12:15",
+                "place": "-",
+                "activity": "Visualization Power BI"
+            },
+            {
+                "time": "12:15 - 13:15",
+                "place": "-",
+                "activity": "Lunch"
+            },
+            {
+                "time": "13:15 - 15:15",
+                "place": "-",
+                "activity": "Present with impact"
+            },
+            {
+                "time": "15:15 - 15:30",
+                "place": "-",
+                "activity": "Closing session"
+            },
+            {
+                "time": "15:30 - 15:45",
+                "place": "-",
+                "activity": "Checkout / Go to bus"
+            },
+            {
+                "time": "15:45 - 16:15",
+                "place": "-",
+                "activity": "Transport to Cityterminalen"
+            }
+        ]
+    },
 
-    "manager": [
-        {
-            "time": "12:10-12:40",
-            "place": "Sandhamn Seglarhotell Restaurant",
-            "activity": "LunchM"
-        },
-        {
-            "time": "12:40-16:00",
-            "place": "Conference room",
-            "activity": "Conferende agenda"
-        },
-        {
-            "time": "10:00-12:00",
-            "place": "Cityterminalen",
-            "activity": "Transport to Sandhamn"
-        },
-        {
-            "time": "12:10-12:40",
-            "place": "Sandhamn Seglarhotell Restaurant",
-            "activity": "Lunch"
-        },
-        {
-            "time": "12:40-16:00",
-            "place": "Conference room",
-            "activity": "Conferende agenda"
-        },
-        {
-            "time": "23:00-00:00",
-            "place": "Entrance",
-            "activity": "Bus to Cityterminalen"
-        }
-    ],
+    "seniorAssociate": {
+        "thursday": [
+            {
+                "time": "10:00 - 10:30",
+                "place": "-",
+                "activity": "Transport to Skogshem & Wijk"
+            },
+            {
+                "time": "10:30 - 11:00",
+                "place": "-",
+                "activity": "Arrival and check-in"
+            },
+            {
+                "time": "11:00 - 12:00",
+                "place": "-",
+                "activity": "Introduction & External inspirational speaker, Marcus Tungel, Head of Finance Swedbank"
+            },
+            {
+                "time": "12:00 - 13:00",
+                "place": "-",
+                "activity": "Lunch"
+            },
+            {
+                "time": "13:00 - 13:55",
+                "place": "-",
+                "activity": "Sector Outlooks (KPMG internaltional  speakers): Consumer & Retail (Isabelle Allen), Industrial & Manufacturing, Financial Services (Camiel van Steekelenburg)"
+            },
+            {
+                "time": "14:00 - 15:00",
+                "place": "-",
+                "activity": "Ways of Working: Starting a project"
+            },
+            {
+                "time": "15:00 - 15:20",
+                "place": "-",
+                "activity": "Break with coffee"
+            },
+            {
+                "time": "15:20 - 16:20",
+                "place": "-",
+                "activity": "Ways of Working: Delivering / End a project"
+            },
+            {
+                "time": "16:20 - 16:30",
+                "place": "-",
+                "activity": "Break with coffee"
+            },
+            {
+                "time": "16:30 - 17:30",
+                "place": "-",
+                "activity": "AI: Pär Edin lecture"
+            },
+            {
+                "time": "17:30 - 19:30",
+                "place": "-",
+                "activity": "Free time: spa / activities"
+            },
+            {
+                "time": "19:30 - 20:00",
+                "place": "-",
+                "activity": "Pre-drinks"
+            },
+            {
+                "time": "20:00 - 22:30",
+                "place": "-",
+                "activity": "Festive 3-course dinner"
+            },
+            {
+                "time": "22:20 - 24:00",
+                "place": "-",
+                "activity": "Party!"
+            }
+        ],
 
-    "seniorManager": [
-        {
-            "time": "12:10-12:40",
-            "place": "Sandhamn Seglarhotell Restaurant",
-            "activity": "LunchSM"
-        },
-        {
-            "time": "12:40-16:00",
-            "place": "Conference room",
-            "activity": "Conferende agenda"
-        },
-        {
-            "time": "10:00-12:00",
-            "place": "Cityterminalen",
-            "activity": "Transport to Sandhamn"
-        },
-        {
-            "time": "12:10-12:40",
-            "place": "Sandhamn Seglarhotell Restaurant",
-            "activity": "Lunch"
-        },
-        {
-            "time": "12:40-16:00",
-            "place": "Conference room",
-            "activity": "Conferende agenda"
-        },
-        {
-            "time": "23:00-00:00",
-            "place": "Entrance",
-            "activity": "Bus to Cityterminalen"
-        }
-    ],
+        "friday": [
+            {
+                "time": "07:00 - 08:15",
+                "place": "-",
+                "activity": "Breakfast buffet"
+            },
+            {
+                "time": "08:15 - 10:00",
+                "place": "-",
+                "activity": "Visualization Present with impact"
+            },
+            {
+                "time": "10:00 - 10:15",
+                "place": "-",
+                "activity": "Break with coffee"
+            },
+            {
+                "time": "10:15 - 12:15",
+                "place": "-",
+                "activity": "Present with impact Velocity"
+            },
+            {
+                "time": "12:15 - 13:15",
+                "place": "-",
+                "activity": "Lunch"
+            },
+            {
+                "time": "13:15 - 14:15",
+                "place": "-",
+                "activity": "Sales"
+            },
+            {
+                "time": "14:15 - 15:15",
+                "place": "-",
+                "activity": "Well being"
+            },
+            {
+                "time": "15:15 - 15:30",
+                "place": "-",
+                "activity": "Closing session"
+            },
+            {
+                "time": "15:30 - 15:45",
+                "place": "-",
+                "activity": "Checkout / Go to bus"
+            },
+            {
+                "time": "15:45 - 16:15",
+                "place": "-",
+                "activity": "Transport to Cityterminalen"
+            }
+        ]
+    },
 
-    "director": [
-        {
-            "time": "12:10-12:40",
-            "place": "Sandhamn Seglarhotell Restaurant",
-            "activity": "LunchD"
-        },
-        {
-            "time": "12:40-16:00",
-            "place": "Conference room",
-            "activity": "Conferende agenda"
-        },
-        {
-            "time": "10:00-12:00",
-            "place": "Cityterminalen",
-            "activity": "Transport to Sandhamn"
-        },
-        {
-            "time": "12:10-12:40",
-            "place": "Sandhamn Seglarhotell Restaurant",
-            "activity": "Lunch"
-        },
-        {
-            "time": "12:40-16:00",
-            "place": "Conference room",
-            "activity": "Conferende agenda"
-        },
-        {
-            "time": "23:00-00:00",
-            "place": "Entrance",
-            "activity": "Bus to Cityterminalen"
-        }
-    ],
+    "manager": {
+        "thursday": [
+            {
+                "time": "10:00 - 10:30",
+                "place": "-",
+                "activity": "Transport to Skogshem & Wijk"
+            },
+            {
+                "time": "10:30 - 11:00",
+                "place": "-",
+                "activity": "Arrival and check-in"
+            },
+            {
+                "time": "11:00 - 12:00",
+                "place": "-",
+                "activity": "Introduction & External inspirational speaker, Marcus Tungel, Head of Finance Swedbank"
+            },
+            {
+                "time": "12:00 - 13:00",
+                "place": "-",
+                "activity": "Lunch"
+            },
+            {
+                "time": "13:00 - 13:55",
+                "place": "-",
+                "activity": "Sector Outlooks (KPMG internaltional  speakers): Consumer & Retail (Isabelle Allen), Industrial & Manufacturing, Financial Services (Camiel van Steekelenburg)"
+            },
+            {
+                "time": "14:00 - 15:00",
+                "place": "-",
+                "activity": "Power BI Digital tools for efficiency"
+            },
+            {
+                "time": "15:00 - 15:20",
+                "place": "-",
+                "activity": "Break with coffee"
+            },
+            {
+                "time": "15:20 - 16:20",
+                "place": "-",
+                "activity": "Power BI"
+            },
+            {
+                "time": "16:20 - 16:30",
+                "place": "-",
+                "activity": "Break with coffee"
+            },
+            {
+                "time": "16:30 - 17:30",
+                "place": "-",
+                "activity": "AI: Pär Edin lecture"
+            },
+            {
+                "time": "17:30 - 19:30",
+                "place": "-",
+                "activity": "Free time: spa / activities"
+            },
+            {
+                "time": "19:30 - 20:00",
+                "place": "-",
+                "activity": "Pre-drinks"
+            },
+            {
+                "time": "20:00 - 22:30",
+                "place": "-",
+                "activity": "Festive 3-course dinner"
+            },
+            {
+                "time": "22:20 - 24:00",
+                "place": "-",
+                "activity": "Party!"
+            }
+        ],
 
-    "partner": [
-        {
-            "time": "12:10-12:40",
-            "place": "Sandhamn Seglarhotell Restaurant",
-            "activity": "LunchP"
-        },
-        {
-            "time": "12:40-16:00",
-            "place": "Conference room",
-            "activity": "Conferende agenda"
-        },
-        {
-            "time": "10:00-12:00",
-            "place": "Cityterminalen",
-            "activity": "Transport to Sandhamn"
-        },
-        {
-            "time": "12:10-12:40",
-            "place": "Sandhamn Seglarhotell Restaurant",
-            "activity": "Lunch"
-        },
-        {
-            "time": "12:40-16:00",
-            "place": "Conference room",
-            "activity": "Conferende agenda"
-        },
-        {
-            "time": "23:00-00:00",
-            "place": "Entrance",
-            "activity": "Bus to Cityterminalen"
-        }
-    ]
+        "friday": [
+            {
+                "time": "07:00 - 08:15",
+                "place": "-",
+                "activity": "Transport to Skogshem & Wijk"
+            },
+            {
+                "time": "08:15 - 09:15",
+                "place": "-",
+                "activity": "Well-being lecture"
+            },
+            {
+                "time": "09:15 - 10:00",
+                "place": "-",
+                "activity": "Sales"
+            },
+            {
+                "time": "10:00 - 10:15",
+                "place": "-",
+                "activity": "Break with coffee"
+            },
+            {
+                "time": "10:15 - 12:15",
+                "place": "-",
+                "activity": "Visualization Power BI"
+            },
+            {
+                "time": "12:15 - 13:15",
+                "place": "-",
+                "activity": "Lunch"
+            },
+            {
+                "time": "13:15 - 15:15",
+                "place": "-",
+                "activity": "Present with impact"
+            },
+            {
+                "time": "15:15 - 15:30",
+                "place": "-",
+                "activity": "Closing session"
+            },
+            {
+                "time": "15:30 - 15:45",
+                "place": "-",
+                "activity": "Checkout / Go to bus"
+            },
+            {
+                "time": "15:45 - 16:15",
+                "place": "-",
+                "activity": "Transport to Cityterminalen"
+            }
+        ]
+    },
+
+    "seniorManager": {
+        "thursday": [
+            {
+                "time": "10:00 - 10:30",
+                "place": "-",
+                "activity": "Transport to Skogshem & Wijk"
+            },
+            {
+                "time": "10:30 - 11:00",
+                "place": "-",
+                "activity": "Arrival and check-in"
+            },
+            {
+                "time": "11:00 - 12:00",
+                "place": "-",
+                "activity": "Introduction & External inspirational speaker, Marcus Tungel, Head of Finance Swedbank"
+            },
+            {
+                "time": "12:00 - 13:00",
+                "place": "-",
+                "activity": "Lunch"
+            },
+            {
+                "time": "13:00 - 13:55",
+                "place": "-",
+                "activity": "Sector Outlooks (KPMG internaltional  speakers): Consumer & Retail (Isabelle Allen), Industrial & Manufacturing, Financial Services (Camiel van Steekelenburg)"
+            },
+            {
+                "time": "14:00 - 15:00",
+                "place": "-",
+                "activity": "Power BI Digital tools for efficiency"
+            },
+            {
+                "time": "15:00 - 15:20",
+                "place": "-",
+                "activity": "Break with coffee"
+            },
+            {
+                "time": "15:20 - 16:20",
+                "place": "-",
+                "activity": "Power BI"
+            },
+            {
+                "time": "16:20 - 16:30",
+                "place": "-",
+                "activity": "Break with coffee"
+            },
+            {
+                "time": "16:30 - 17:30",
+                "place": "-",
+                "activity": "AI: Pär Edin lecture"
+            },
+            {
+                "time": "17:30 - 19:30",
+                "place": "-",
+                "activity": "Free time: spa / activities"
+            },
+            {
+                "time": "19:30 - 20:00",
+                "place": "-",
+                "activity": "Pre-drinks"
+            },
+            {
+                "time": "20:00 - 22:30",
+                "place": "-",
+                "activity": "Festive 3-course dinner"
+            },
+            {
+                "time": "22:20 - 24:00",
+                "place": "-",
+                "activity": "Party!"
+            }
+        ],
+
+        "friday": [
+            {
+                "time": "07:00 - 08:15",
+                "place": "-",
+                "activity": "Transport to Skogshem & Wijk"
+            },
+            {
+                "time": "08:15 - 09:15",
+                "place": "-",
+                "activity": "Well-being lecture"
+            },
+            {
+                "time": "09:15 - 10:00",
+                "place": "-",
+                "activity": "Sales"
+            },
+            {
+                "time": "10:00 - 10:15",
+                "place": "-",
+                "activity": "Break with coffee"
+            },
+            {
+                "time": "10:15 - 12:15",
+                "place": "-",
+                "activity": "Visualization Power BI"
+            },
+            {
+                "time": "12:15 - 13:15",
+                "place": "-",
+                "activity": "Lunch"
+            },
+            {
+                "time": "13:15 - 15:15",
+                "place": "-",
+                "activity": "Present with impact"
+            },
+            {
+                "time": "15:15 - 15:30",
+                "place": "-",
+                "activity": "Closing session"
+            },
+            {
+                "time": "15:30 - 15:45",
+                "place": "-",
+                "activity": "Checkout / Go to bus"
+            },
+            {
+                "time": "15:45 - 16:15",
+                "place": "-",
+                "activity": "Transport to Cityterminalen"
+            }
+        ]
+    },
+
+    "director": {
+        "thursday": [
+            {
+                "time": "10:00 - 10:30",
+                "place": "-",
+                "activity": "Transport to Skogshem & Wijk"
+            },
+            {
+                "time": "10:30 - 11:00",
+                "place": "-",
+                "activity": "Arrival and check-in"
+            },
+            {
+                "time": "11:00 - 12:00",
+                "place": "-",
+                "activity": "Introduction & External inspirational speaker, Marcus Tungel, Head of Finance Swedbank"
+            },
+            {
+                "time": "12:00 - 13:00",
+                "place": "-",
+                "activity": "Lunch"
+            },
+            {
+                "time": "13:00 - 13:55",
+                "place": "-",
+                "activity": "Sector Outlooks (KPMG internaltional  speakers): Consumer & Retail (Isabelle Allen), Industrial & Manufacturing, Financial Services (Camiel van Steekelenburg)"
+            },
+            {
+                "time": "14:00 - 15:00",
+                "place": "-",
+                "activity": "Power BI Digital tools for efficiency"
+            },
+            {
+                "time": "15:00 - 15:20",
+                "place": "-",
+                "activity": "Break with coffee"
+            },
+            {
+                "time": "15:20 - 16:20",
+                "place": "-",
+                "activity": "Power BI"
+            },
+            {
+                "time": "16:20 - 16:30",
+                "place": "-",
+                "activity": "Break with coffee"
+            },
+            {
+                "time": "16:30 - 17:30",
+                "place": "-",
+                "activity": "AI: Pär Edin lecture"
+            },
+            {
+                "time": "17:30 - 19:30",
+                "place": "-",
+                "activity": "Free time: spa / activities"
+            },
+            {
+                "time": "19:30 - 20:00",
+                "place": "-",
+                "activity": "Pre-drinks"
+            },
+            {
+                "time": "20:00 - 22:30",
+                "place": "-",
+                "activity": "Festive 3-course dinner"
+            },
+            {
+                "time": "22:20 - 24:00",
+                "place": "-",
+                "activity": "Party!"
+            }
+        ],
+
+        "friday": [
+            {
+                "time": "07:00 - 08:15",
+                "place": "-",
+                "activity": "Transport to Skogshem & Wijk"
+            },
+            {
+                "time": "08:15 - 09:15",
+                "place": "-",
+                "activity": "Well-being lecture"
+            },
+            {
+                "time": "09:15 - 10:00",
+                "place": "-",
+                "activity": "Sales"
+            },
+            {
+                "time": "10:00 - 10:15",
+                "place": "-",
+                "activity": "Break with coffee"
+            },
+            {
+                "time": "10:15 - 12:15",
+                "place": "-",
+                "activity": "Visualization Power BI"
+            },
+            {
+                "time": "12:15 - 13:15",
+                "place": "-",
+                "activity": "Lunch"
+            },
+            {
+                "time": "13:15 - 15:15",
+                "place": "-",
+                "activity": "Present with impact"
+            },
+            {
+                "time": "15:15 - 15:30",
+                "place": "-",
+                "activity": "Closing session"
+            },
+            {
+                "time": "15:30 - 15:45",
+                "place": "-",
+                "activity": "Checkout / Go to bus"
+            },
+            {
+                "time": "15:45 - 16:15",
+                "place": "-",
+                "activity": "Transport to Cityterminalen"
+            }
+        ]
+    },
+
+    "partner": {
+        "thursday": [
+            {
+                "time": "10:00 - 10:30",
+                "place": "-",
+                "activity": "Transport to Skogshem & Wijk"
+            },
+            {
+                "time": "10:30 - 11:00",
+                "place": "-",
+                "activity": "Arrival and check-in"
+            },
+            {
+                "time": "11:00 - 12:00",
+                "place": "-",
+                "activity": "Introduction & External inspirational speaker, Marcus Tungel, Head of Finance Swedbank"
+            },
+            {
+                "time": "12:00 - 13:00",
+                "place": "-",
+                "activity": "Lunch"
+            },
+            {
+                "time": "13:00 - 13:55",
+                "place": "-",
+                "activity": "Sector Outlooks (KPMG internaltional  speakers): Consumer & Retail (Isabelle Allen), Industrial & Manufacturing, Financial Services (Camiel van Steekelenburg)"
+            },
+            {
+                "time": "14:00 - 15:00",
+                "place": "-",
+                "activity": "Power BI Digital tools for efficiency"
+            },
+            {
+                "time": "15:00 - 15:20",
+                "place": "-",
+                "activity": "Break with coffee"
+            },
+            {
+                "time": "15:20 - 16:20",
+                "place": "-",
+                "activity": "Power BI"
+            },
+            {
+                "time": "16:20 - 16:30",
+                "place": "-",
+                "activity": "Break with coffee"
+            },
+            {
+                "time": "16:30 - 17:30",
+                "place": "-",
+                "activity": "AI: Pär Edin lecture"
+            },
+            {
+                "time": "17:30 - 19:30",
+                "place": "-",
+                "activity": "Free time: spa / activities"
+            },
+            {
+                "time": "19:30 - 20:00",
+                "place": "-",
+                "activity": "Pre-drinks"
+            },
+            {
+                "time": "20:00 - 22:30",
+                "place": "-",
+                "activity": "Festive 3-course dinner"
+            },
+            {
+                "time": "22:20 - 24:00",
+                "place": "-",
+                "activity": "Party!"
+            }
+        ],
+
+        "friday": [
+            {
+                "time": "07:00 - 08:15",
+                "place": "-",
+                "activity": "Transport to Skogshem & Wijk"
+            },
+            {
+                "time": "08:15 - 09:15",
+                "place": "-",
+                "activity": "Well-being lecture"
+            },
+            {
+                "time": "09:15 - 10:00",
+                "place": "-",
+                "activity": "Sales"
+            },
+            {
+                "time": "10:00 - 10:15",
+                "place": "-",
+                "activity": "Break with coffee"
+            },
+            {
+                "time": "10:15 - 12:15",
+                "place": "-",
+                "activity": "Visualization Power BI"
+            },
+            {
+                "time": "12:15 - 13:15",
+                "place": "-",
+                "activity": "Lunch"
+            },
+            {
+                "time": "13:15 - 15:15",
+                "place": "-",
+                "activity": "Present with impact"
+            },
+            {
+                "time": "15:15 - 15:30",
+                "place": "-",
+                "activity": "Closing session"
+            },
+            {
+                "time": "15:30 - 15:45",
+                "place": "-",
+                "activity": "Checkout / Go to bus"
+            },
+            {
+                "time": "15:45 - 16:15",
+                "place": "-",
+                "activity": "Transport to Cityterminalen"
+            }
+        ]
+    }
 }

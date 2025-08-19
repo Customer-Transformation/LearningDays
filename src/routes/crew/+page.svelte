@@ -1,12 +1,17 @@
 <script lang="ts">
 	import { asset } from "$app/paths"
-	import FooterNav from "$lib/components/FooterNav.svelte";
-	import MenuButton from "$lib/components/MenuButton.svelte";
-	import { pages } from "$lib/data/pages";
+	import FooterNav from "$lib/components/FooterNav.svelte"
+	import MenuButton from "$lib/components/MenuButton.svelte"
+	import { pages } from "$lib/data/pages"
 </script>
 
 <div class="container">
     <MenuButton name="Crew" />
+
+    <div class="intro">
+        <p>This is the incredible team that has worked hard to bring this conference together and make everything happen!</p>
+        <p>If you have any questions or concerns, don’t hesitate to reach out to any of us. We’re all here to make sure we have an incredible two days together.</p>
+    </div>
 
     <div class="mc">
         <h3>MANAGEMENT CONSULTING</h3>
@@ -86,11 +91,13 @@
 <FooterNav previousPage={pages[5]}/>
 
 <style>
-    .container {
-        display: flex; flex-direction: column; gap: 40px;
+    .intro {
+        margin-top: 40px;
+        display: flex; flex-direction: column; gap: 16px;
     }
 
     .mc, .fs, .ct {
+        margin-top: 48px;
         display: flex; flex-direction: column; gap: 20px;
 
         h3 {

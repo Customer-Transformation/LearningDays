@@ -17,7 +17,14 @@
 	{@render children?.()}
 
 	<footer class:welcome={page.route.id === "/"} class:menu={page.route.id === "/menu"} class:travel={page.route.id === "/travel"}>
+		{#if page.route.id === "/"}
 		<span>Designed & built by Customer Team MC</span>
+		{:else}
+		<p>
+			Can't find what you're looking for?<br>
+			Email us → <a href="mailto:se-fmlearningfscmc@kpmg.se">se-fmlearningfscmc@kpmg.se</a>
+		</p>
+		{/if}
 	</footer>
 </main>
 
@@ -27,9 +34,10 @@
 	header { position: absolute; inset: 0; height: 60px; padding: 20px; }
 	button { width: 48px; height: 20px; background-color: transparent; }
 	img { width: 100%; height: 100%; object-fit: cover; }
-	footer { margin-top: 80px; margin-bottom: 75px; }
+	footer { margin-top: 100px; margin-bottom: 100px; }
 	footer.welcome { margin-top: 24px; margin-bottom: 0px; }
 	footer.menu { margin-top: 37px; margin-bottom: 0px; }
 	footer.travel { margin-bottom: 280px; }
-	span { font-size: 12px; color: var(--secondary-color); font-style: italic; }
+	span, p, a { font-size: 12px; color: var(--secondary-color); font-style: italic; }
+	a { color: var(--primary-color); }
 </style>
