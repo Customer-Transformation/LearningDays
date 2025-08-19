@@ -20,12 +20,12 @@ function _page($$payload, $$props) {
   ];
   const each_array = ensure_array_like(activities);
   MenuButton($$payload, { name: "Explore" });
-  $$payload.out.push(`<!----> <div class="activities svelte-11emly7"><!--[-->`);
+  $$payload.out.push(`<!----> <div class="activities svelte-msd3c3"><!--[-->`);
   for (let $$index = 0, $$length = each_array.length; $$index < $$length; $$index++) {
     let activity = each_array[$$index];
-    $$payload.out.push(`<span class="activity svelte-11emly7">${escape_html(activity)}</span>`);
+    $$payload.out.push(`<span class="activity svelte-msd3c3">${escape_html(activity)}</span>`);
   }
-  $$payload.out.push(`<!--]--></div> <div class="images svelte-11emly7"><img${attr("src", asset("/Pool.png"))} alt="" class="svelte-11emly7"/> <img${attr("src", asset("/Bastu.png"))} alt="" class="svelte-11emly7"/> <img${attr("src", asset("/Mingle.png"))} alt="" class="svelte-11emly7"/> <img${attr("src", asset("/Gym.png"))} alt="" class="svelte-11emly7"/> <img${attr("src", asset("/Cornhole.png"))} alt="" class="svelte-11emly7"/></div> <p class="svelte-11emly7">If you want to do an activity that hasn’t already been set up, please go the the reception and they will help you get started.</p> `);
+  $$payload.out.push(`<!--]--></div> <div class="images svelte-msd3c3"><img${attr("src", asset("/Pool.png"))} alt="" class="svelte-msd3c3"/> <img${attr("src", asset("/Bastu.png"))} alt="" class="svelte-msd3c3"/> <img${attr("src", asset("/Mingle.png"))} alt="" class="svelte-msd3c3"/> <img${attr("src", asset("/Gym.png"))} alt="" class="svelte-msd3c3"/> <img${attr("src", asset("/Cornhole.png"))} alt="" class="svelte-msd3c3"/></div> <p class="svelte-msd3c3">If you want to do an activity that hasn’t already been set up, please go the the reception and they will help you get started.</p> `);
   FooterNav($$payload, { previousPage: pages[4], nextPage: pages[6] });
   $$payload.out.push(`<!---->`);
   pop();

@@ -46,7 +46,8 @@
 	
 	.activity {
 		display: inline;
-		font-size: 32px;
+		font-size: 34px;
+		letter-spacing: -3%;
 	}
 
 	.activity:not(:last-child)::after{
