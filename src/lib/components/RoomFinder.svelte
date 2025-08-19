@@ -1,7 +1,9 @@
 <script lang="ts">
 	import { asset } from "$app/paths"
 	import { onMount } from "svelte";
-	import { fade, fly, slide } from "svelte/transition";
+	import { fade, fly, slide, blur } from "svelte/transition";
+
+    let { callback }: { callback: () => void } = $props()
 
     type Room = {
         id: string
@@ -16,6 +18,10 @@
     let isLoading = $state(true)
     let isSearching = $state(false)
     let searchString = $state<string>("")
+
+    function onfocus() { isSearching = true; callback() }
+    // function oninput() { onClick() }
+    function onblur() { isSearching = false; }
 
     let matches: Match[] = $derived.by(() => {
         const q = searchString.trim().toLowerCase();
@@ -59,29 +65,20 @@
     onMount(fetchRooms)
 </script>
 
-<div class="container" class:fixed={isSearching}>
-    <div class="searchbar" class:active={isSearching}>
-        <img src={asset("/calendar-07.png")} alt="" class="icon">    
-        <input type="text" bind:value={searchString} placeholder="Enter your name here" onfocus={() => isSearching = true} onblur={() => isSearching = false}>
-    </div>
-    
-    {#if matches.length > 0}
-    <div class="results" transition:slide>
-        {#each matches.slice(0, 5) as match}
-        <p class="result"><span class="match-person">{match.person}</span> + {match.others}</p>
-        {/each}
-    </div>
-    {/if}
+<label class="searchbar" class:active={isSearching}>
+    <img src={asset("/calendar-07.png")} alt="" class="icon">    
+    <input type="text" bind:value={searchString} placeholder="Enter your name here" {onfocus} {onblur}>
+</label>
+
+{#if matches.length > 0}
+<div class="results" transition:slide onintroend={() => callback()}>
+    {#each matches.slice(0, 5) as match}
+    <p class="result"><span class="match-person">{match.person}</span> + {match.others}</p>
+    {/each}
 </div>
+{/if}
     
 <style>
-    .container.fixed {
-        position: fixed; inset: 0;
-        background-color: black;
-
-        padding: 60px 20px;
-    }
-
     .searchbar {
         margin-top: 16px;
         width: 100%;

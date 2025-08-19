@@ -6,58 +6,13 @@
 	import MenuButton from "$lib/components/MenuButton.svelte";
 	import RoomFinder from "$lib/components/RoomFinder.svelte";
 	import { pages } from "$lib/data/pages";
-	import { onMount } from "svelte";
 
-    type Room = {
-        id: string
-        people: string[]
+    function scrollToBottom() {
+        window.scrollTo({
+            top: document.body.scrollHeight,
+            behavior: "smooth"
+        })
     }
-    
-    type Match = {
-        person: string, room: string, others: string[]
-    }
-    
-    let rooms = $state<Room[]>([])
-    let isLoading = $state(true)
-    let isSearching = $state(false)
-    let searchString = $state<string>("")
-
-    let matches: Match[] = $derived.by(() => {
-        const q = searchString.trim().toLowerCase();
-        if (!q) return [];
-
-        return rooms.flatMap((r) =>
-            r.people
-                .filter((full) => {
-                    const [first = "", last = ""] = full.split(" ");
-                    return (
-                        first.toLowerCase().startsWith(q) ||
-                        last.toLowerCase().startsWith(q)
-                    );
-                })
-                .map((person) => ({
-                    person,
-                    room: r.id,
-                    others: r.people.filter((o) => o !== person)
-                }))
-        );
-    });
-
-    async function fetchRooms() {
-        isLoading = true
-
-        try {
-            const response = await fetch(asset("/rooms.json"))
-            if (!response.ok) throw new Error("failed to load rooms")
-            rooms = await response.json()
-        } catch (e) {
-            console.log(e)
-        } finally {
-            isLoading = false
-        }
-    }
-
-    onMount(fetchRooms)
 </script>
 
 <div class="container">
@@ -125,8 +80,8 @@
     
     <div class="rooms">
         <h2>Room sharing</h2>
-        <p>Here you can find the colleague you are sharing the room with. If you name is not on the list, you have your own room.</p>
-        <RoomFinder />
+        <p>Here you can find more information about your stay at Skogshem & Wijk.</p>
+        <RoomFinder callback={scrollToBottom}/>
     </div>
 </div>
 
