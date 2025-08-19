@@ -44,6 +44,8 @@ declare module '$env/static/private' {
 	export const EFC_19052_2283032206: string;
 	export const EFC_19052_2775293581: string;
 	export const EFC_19052_3789132940: string;
+	export const FPS_BROWSER_APP_PROFILE_STRING: string;
+	export const FPS_BROWSER_USER_PROFILE_STRING: string;
 	export const GEMINI_API_KEY: string;
 	export const GIT_ASKPASS: string;
 	export const GOOGLE_API_KEY: string;
@@ -164,6 +166,8 @@ declare module '$env/dynamic/private' {
 		EFC_19052_2283032206: string;
 		EFC_19052_2775293581: string;
 		EFC_19052_3789132940: string;
+		FPS_BROWSER_APP_PROFILE_STRING: string;
+		FPS_BROWSER_USER_PROFILE_STRING: string;
 		GEMINI_API_KEY: string;
 		GIT_ASKPASS: string;
 		GOOGLE_API_KEY: string;

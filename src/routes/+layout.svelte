@@ -28,7 +28,7 @@
 	button { width: 48px; height: 20px; background-color: transparent; }
 	img { width: 100%; height: 100%; object-fit: cover; }
 	footer { margin-top: 80px; margin-bottom: 75px; }
-	footer.welcome { margin-top: 60px; }
-	footer.menu { margin-top: 83px; }
+	footer.welcome { margin-top: 10px; }
+	footer.menu { margin-top: 23px; }
 	span { font-size: 12px; color: var(--secondary-color); font-style: italic; }
 </style>

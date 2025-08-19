@@ -62,7 +62,7 @@
     }
 
     button {
-        margin-top: 40px;
+        margin-top: 30px;
         height: 50px;
         background-color: var(--primary-color);
         border-radius: 4px;
