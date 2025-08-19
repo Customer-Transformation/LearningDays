@@ -7,10 +7,10 @@ function __memo(fn) {
 return {
 	appDir: "_app",
 	appPath: "LearningDays/_app",
-	assets: new Set([".nojekyll","adwi.png","albe.png","arrow-down-right.png","arrow-down-right.svg","arrow-left.svg","Bastu.png","cael.png","caev.png","calendar-07.png","calendar.svg","Cornhole.png","daka.png","dash.png","dinner.png","elbe.png","emis.png","events.json","fata.png","favicon.svg","Gym.png","hanger.png","hanger.svg","leftArrow.png","lial.png","lime.png","logo.png","logo.svg","luggage.svg","marker-06.png","marker.svg","Mingle.png","nama.png","nifo.png","plus-01.png","Pool.png","robots.txt","roda.png","rooms.json","schedule.json","search.svg","stva.png","ticket-02.png","ticket.svg","travel.png","zipe.png"]),
-	mimeTypes: {".png":"image/png",".svg":"image/svg+xml",".json":"application/json",".txt":"text/plain"},
+	assets: new Set([".nojekyll","adwi.png","albe.png","arrow-down-right.svg","arrow-left.svg","Bastu.png","cael.png","caev.png","calendar.svg","Cornhole.png","daka.png","dinner.png","elbe.png","emis.png","fata.png","Gym.png","hanger.svg","lial.png","lime.png","logo.svg","luggage.svg","marker.svg","Mingle.png","minus.svg","nama.png","nifo.png","plus.svg","Pool.png","robots.txt","roda.png","rooms.json","schedule.json","search.svg","stva.png","ticket.svg","travel.png","zipe.png"]),
+	mimeTypes: {".png":"image/png",".svg":"image/svg+xml",".txt":"text/plain",".json":"application/json"},
 	_: {
-		client: {start:"_app/immutable/entry/start.DVOIS_BH.js",app:"_app/immutable/entry/app.BWL5ecC6.js",imports:["_app/immutable/entry/start.DVOIS_BH.js","_app/immutable/chunks/BpKOQssX.js","_app/immutable/chunks/BsNi6Uy5.js","_app/immutable/entry/app.BWL5ecC6.js","_app/immutable/chunks/BsNi6Uy5.js","_app/immutable/chunks/DsnmJJEf.js","_app/immutable/chunks/BMdzP_H-.js","_app/immutable/chunks/nRAefTaj.js","_app/immutable/chunks/x7PuOBDj.js"],stylesheets:[],fonts:[],uses_env_dynamic_public:false},
+		client: {start:"_app/immutable/entry/start.CLxtA0r3.js",app:"_app/immutable/entry/app.D1OM5Pt5.js",imports:["_app/immutable/entry/start.CLxtA0r3.js","_app/immutable/chunks/mHZAXGpe.js","_app/immutable/chunks/jNx6r4rr.js","_app/immutable/entry/app.D1OM5Pt5.js","_app/immutable/chunks/jNx6r4rr.js","_app/immutable/chunks/DsnmJJEf.js","_app/immutable/chunks/Dfez_mVo.js","_app/immutable/chunks/YQ14GtV-.js","_app/immutable/chunks/cKKT_LOb.js"],stylesheets:[],fonts:[],uses_env_dynamic_public:false},
 		nodes: [
 			__memo(() => import('./nodes/0.js')),
 			__memo(() => import('./nodes/1.js')),

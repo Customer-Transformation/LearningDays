@@ -3,72 +3,72 @@
         "thursday": [
             {
                 "time": "10:00 - 10:30",
-                "place": "-",
+                "style": "grey",
                 "activity": "Transport to Skogshem & Wijk"
             },
             {
                 "time": "10:30 - 11:00",
-                "place": "-",
+                "style": "grey",
                 "activity": "Arrival and check-in"
             },
             {
                 "time": "11:00 - 12:00",
-                "place": "-",
+                "style": "-",
                 "activity": "Introduction & External inspirational speaker, Marcus Tungel, Head of Finance Swedbank"
             },
             {
                 "time": "12:00 - 13:00",
-                "place": "-",
+                "style": "grey",
                 "activity": "Lunch"
             },
             {
                 "time": "13:00 - 13:55",
-                "place": "-",
+                "style": "-",
                 "activity": "Sector Outlooks (KPMG internaltional  speakers): Consumer & Retail (Isabelle Allen), Industrial & Manufacturing, Financial Services (Camiel van Steekelenburg)"
             },
             {
                 "time": "14:00 - 15:00",
-                "place": "-",
+                "style": "-",
                 "activity": "Power BI Digital tools for efficiency"
             },
             {
                 "time": "15:00 - 15:20",
-                "place": "-",
+                "style": "grey",
                 "activity": "Break with coffee"
             },
             {
                 "time": "15:20 - 16:20",
-                "place": "-",
+                "style": "-",
                 "activity": "Power BI"
             },
             {
                 "time": "16:20 - 16:30",
-                "place": "-",
+                "style": "grey",
                 "activity": "Break with coffee"
             },
             {
                 "time": "16:30 - 17:30",
-                "place": "-",
+                "style": "-",
                 "activity": "AI: Pär Edin lecture"
             },
             {
                 "time": "17:30 - 19:30",
-                "place": "-",
+                "style": "grey",
                 "activity": "Free time: spa / activities"
             },
             {
                 "time": "19:30 - 20:00",
-                "place": "-",
+                "style": "-",
                 "activity": "Pre-drinks"
             },
             {
                 "time": "20:00 - 22:30",
-                "place": "-",
+                "style": "-",
                 "activity": "Festive 3-course dinner"
             },
             {
                 "time": "22:20 - 24:00",
-                "place": "-",
+                "style": "-",
                 "activity": "Party!"
             }
         ],
@@ -76,52 +76,52 @@
         "friday": [
             {
                 "time": "07:00 - 08:15",
-                "place": "-",
+                "style": "grey",
                 "activity": "Breakfast buffet"
             },
             {
                 "time": "08:15 - 09:15",
-                "place": "-",
+                "style": "-",
                 "activity": "Well-being lecture"
             },
             {
                 "time": "09:15 - 10:00",
-                "place": "-",
+                "style": "-",
                 "activity": "Sales"
             },
             {
                 "time": "10:00 - 10:15",
-                "place": "-",
+                "style": "grey",
                 "activity": "Break with coffee"
             },
             {
                 "time": "10:15 - 12:15",
-                "place": "-",
+                "style": "-",
                 "activity": "Visualization Power BI"
             },
             {
                 "time": "12:15 - 13:15",
-                "place": "-",
+                "style": "grey",
                 "activity": "Lunch"
             },
             {
                 "time": "13:15 - 15:15",
-                "place": "-",
+                "style": "-",
                 "activity": "Present with impact"
             },
             {
                 "time": "15:15 - 15:30",
-                "place": "-",
+                "style": "-",
                 "activity": "Closing session"
             },
             {
                 "time": "15:30 - 15:45",
-                "place": "-",
+                "style": "grey",
                 "activity": "Checkout / Go to bus"
             },
             {
                 "time": "15:45 - 16:15",
-                "place": "-",
+                "style": "grey",
                 "activity": "Transport to Cityterminalen"
             }
         ]
@@ -131,72 +131,72 @@
         "thursday": [
             {
                 "time": "10:00 - 10:30",
-                "place": "-",
+                "style": "grey",
                 "activity": "Transport to Skogshem & Wijk"
             },
             {
                 "time": "10:30 - 11:00",
-                "place": "-",
+                "style": "grey",
                 "activity": "Arrival and check-in"
             },
             {
                 "time": "11:00 - 12:00",
-                "place": "-",
+                "style": "-",
                 "activity": "Introduction & External inspirational speaker, Marcus Tungel, Head of Finance Swedbank"
             },
             {
                 "time": "12:00 - 13:00",
-                "place": "-",
+                "style": "grey",
                 "activity": "Lunch"
             },
             {
                 "time": "13:00 - 13:55",
-                "place": "-",
+                "style": "-",
                 "activity": "Sector Outlooks (KPMG internaltional  speakers): Consumer & Retail (Isabelle Allen), Industrial & Manufacturing, Financial Services (Camiel van Steekelenburg)"
             },
             {
                 "time": "14:00 - 15:00",
-                "place": "-",
+                "style": "-",
                 "activity": "Ways of Working: Starting a project"
             },
             {
                 "time": "15:00 - 15:20",
-                "place": "-",
+                "style": "grey",
                 "activity": "Break with coffee"
             },
             {
                 "time": "15:20 - 16:20",
-                "place": "-",
+                "style": "-",
                 "activity": "Ways of Working: Delivering / End a project"
             },
             {
                 "time": "16:20 - 16:30",
-                "place": "-",
+                "style": "grey",
                 "activity": "Break with coffee"
             },
             {
                 "time": "16:30 - 17:30",
-                "place": "-",
+                "style": "-",
                 "activity": "AI: Pär Edin lecture"
             },
             {
                 "time": "17:30 - 19:30",
-                "place": "-",
+                "style": "grey",
                 "activity": "Free time: spa / activities"
             },
             {
                 "time": "19:30 - 20:00",
-                "place": "-",
+                "style": "-",
                 "activity": "Pre-drinks"
             },
             {
                 "time": "20:00 - 22:30",
-                "place": "-",
+                "style": "-",
                 "activity": "Festive 3-course dinner"
             },
             {
                 "time": "22:20 - 24:00",
-                "place": "-",
+                "style": "-",
                 "activity": "Party!"
             }
         ],
@@ -204,52 +204,52 @@
         "friday": [
             {
                 "time": "07:00 - 08:15",
-                "place": "-",
+                "style": "grey",
                 "activity": "Breakfast buffet"
             },
             {
                 "time": "08:15 - 10:00",
-                "place": "-",
+                "style": "-",
                 "activity": "Visualization Present with impact"
             },
             {
                 "time": "10:00 - 10:15",
-                "place": "-",
+                "style": "grey",
                 "activity": "Break with coffee"
             },
             {
                 "time": "10:15 - 12:15",
-                "place": "-",
+                "style": "-",
                 "activity": "Present with impact Velocity"
             },
             {
                 "time": "12:15 - 13:15",
-                "place": "-",
+                "style": "grey",
                 "activity": "Lunch"
             },
             {
                 "time": "13:15 - 14:15",
-                "place": "-",
+                "style": "-",
                 "activity": "Sales"
             },
             {
                 "time": "14:15 - 15:15",
-                "place": "-",
+                "style": "-",
                 "activity": "Well being"
             },
             {
                 "time": "15:15 - 15:30",
-                "place": "-",
+                "style": "-",
                 "activity": "Closing session"
             },
             {
                 "time": "15:30 - 15:45",
-                "place": "-",
+                "style": "grey",
                 "activity": "Checkout / Go to bus"
             },
             {
                 "time": "15:45 - 16:15",
-                "place": "-",
+                "style": "grey",
                 "activity": "Transport to Cityterminalen"
             }
         ]
@@ -259,72 +259,72 @@
         "thursday": [
             {
                 "time": "10:00 - 10:30",
-                "place": "-",
+                "style": "grey",
                 "activity": "Transport to Skogshem & Wijk"
             },
             {
                 "time": "10:30 - 11:00",
-                "place": "-",
+                "style": "grey",
                 "activity": "Arrival and check-in"
             },
             {
                 "time": "11:00 - 12:00",
-                "place": "-",
+                "style": "-",
                 "activity": "Introduction & External inspirational speaker, Marcus Tungel, Head of Finance Swedbank"
             },
             {
                 "time": "12:00 - 13:00",
-                "place": "-",
+                "style": "grey",
                 "activity": "Lunch"
             },
             {
                 "time": "13:00 - 13:55",
-                "place": "-",
+                "style": "-",
                 "activity": "Sector Outlooks (KPMG internaltional  speakers): Consumer & Retail (Isabelle Allen), Industrial & Manufacturing, Financial Services (Camiel van Steekelenburg)"
             },
             {
                 "time": "14:00 - 15:00",
-                "place": "-",
+                "style": "-",
                 "activity": "Ways of Working: Starting a project"
             },
             {
                 "time": "15:00 - 15:20",
-                "place": "-",
+                "style": "grey",
                 "activity": "Break with coffee"
             },
             {
                 "time": "15:20 - 16:20",
-                "place": "-",
+                "style": "-",
                 "activity": "Ways of Working: Delivering / End a project"
             },
             {
                 "time": "16:20 - 16:30",
-                "place": "-",
+                "style": "grey",
                 "activity": "Break with coffee"
             },
             {
                 "time": "16:30 - 17:30",
-                "place": "-",
+                "style": "-",
                 "activity": "AI: Pär Edin lecture"
             },
             {
                 "time": "17:30 - 19:30",
-                "place": "-",
+                "style": "grey",
                 "activity": "Free time: spa / activities"
             },
             {
                 "time": "19:30 - 20:00",
-                "place": "-",
+                "style": "-",
                 "activity": "Pre-drinks"
             },
             {
                 "time": "20:00 - 22:30",
-                "place": "-",
+                "style": "-",
                 "activity": "Festive 3-course dinner"
             },
             {
                 "time": "22:20 - 24:00",
-                "place": "-",
+                "style": "-",
                 "activity": "Party!"
             }
         ],
@@ -332,52 +332,52 @@
         "friday": [
             {
                 "time": "07:00 - 08:15",
-                "place": "-",
+                "style": "grey",
                 "activity": "Breakfast buffet"
             },
             {
                 "time": "08:15 - 10:00",
-                "place": "-",
+                "style": "-",
                 "activity": "Project Management"
             },
             {
                 "time": "10:00 - 10:15",
-                "place": "-",
+                "style": "grey",
                 "activity": "Break with coffee"
             },
             {
                 "time": "10:15 - 12:15",
-                "place": "-",
+                "style": "-",
                 "activity": "Sales"
             },
             {
                 "time": "12:15 - 13:15",
-                "place": "-",
+                "style": "grey",
                 "activity": "Lunch"
             },
             {
                 "time": "13:15 - 14:15",
-                "place": "-",
+                "style": "-",
                 "activity": "Well-being"
             },
             {
                 "time": "14:15 - 15:15",
-                "place": "-",
+                "style": "-",
                 "activity": "Visualization as CM Digital tools for efficiency"
             },
             {
                 "time": "15:15 - 15:30",
-                "place": "-",
+                "style": "-",
                 "activity": "Closing session"
             },
             {
                 "time": "15:30 - 15:45",
-                "place": "-",
+                "style": "grey",
                 "activity": "Checkout / Go to bus"
             },
             {
                 "time": "15:45 - 16:15",
-                "place": "-",
+                "style": "grey",
                 "activity": "Transport to Cityterminalen"
             }
         ]
@@ -387,72 +387,72 @@
         "thursday": [
             {
                 "time": "10:00 - 10:30",
-                "place": "-",
+                "style": "grey",
                 "activity": "Transport to Skogshem & Wijk"
             },
             {
                 "time": "10:30 - 11:00",
-                "place": "-",
+                "style": "grey",
                 "activity": "Arrival and check-in"
             },
             {
                 "time": "11:00 - 12:00",
-                "place": "-",
+                "style": "-",
                 "activity": "Introduction & External inspirational speaker, Marcus Tungel, Head of Finance Swedbank"
             },
             {
                 "time": "12:00 - 13:00",
-                "place": "-",
+                "style": "grey",
                 "activity": "Lunch"
             },
             {
                 "time": "13:00 - 13:55",
-                "place": "-",
+                "style": "-",
                 "activity": "Sector Outlooks (KPMG internaltional  speakers): Consumer & Retail (Isabelle Allen), Industrial & Manufacturing, Financial Services (Camiel van Steekelenburg)"
             },
             {
                 "time": "14:00 - 15:00",
-                "place": "-",
+                "style": "-",
                 "activity": "Pricing"
             },
             {
                 "time": "15:00 - 15:20",
-                "place": "-",
+                "style": "grey",
                 "activity": "Break with coffee"
             },
             {
                 "time": "15:20 - 16:20",
-                "place": "-",
+                "style": "-",
                 "activity": "Visualization as Change Management Alliances SAP"
             },
             {
                 "time": "16:20 - 16:30",
-                "place": "-",
+                "style": "grey",
                 "activity": "Break with coffee"
             },
             {
                 "time": "16:30 - 17:30",
-                "place": "-",
+                "style": "-",
                 "activity": "AI: Pär Edin lecture"
             },
             {
                 "time": "17:30 - 19:30",
-                "place": "-",
+                "style": "grey",
                 "activity": "Free time: spa / activities"
             },
             {
                 "time": "19:30 - 20:00",
-                "place": "-",
+                "style": "-",
                 "activity": "Pre-drinks"
             },
             {
                 "time": "20:00 - 22:30",
-                "place": "-",
+                "style": "-",
                 "activity": "Festive 3-course dinner"
             },
             {
                 "time": "22:20 - 24:00",
-                "place": "-",
+                "style": "-",
                 "activity": "Party!"
             }
         ],
@@ -460,52 +460,52 @@
         "friday": [
             {
                 "time": "07:00 - 08:15",
-                "place": "-",
+                "style": "grey",
                 "activity": "Breakfast buffet"
             },
             {
                 "time": "08:15 - 10:00",
-                "place": "-",
+                "style": "-",
                 "activity": "Velocity (SM + P)"
             },
             {
                 "time": "10:00 - 10:15",
-                "place": "-",
+                "style": "grey",
                 "activity": "Break with coffee"
             },
             {
                 "time": "10:15 - 11:15",
-                "place": "-",
+                "style": "-",
                 "activity": "Wellbeing (SM + P)"
             },
             {
                 "time": "11:15 - 12:15",
-                "place": "-",
+                "style": "-",
                 "activity": "Data analysis (SM + P)"
             },
             {
                 "time": "12:15 - 13:15",
-                "place": "-",
+                "style": "grey",
                 "activity": "Lunch"
             },
             {
                 "time": "13:15 - 15:15",
-                "place": "-",
+                "style": "-",
                 "activity": "Sales (SM + P)"
             },
             {
                 "time": "15:15 - 15:30",
-                "place": "-",
+                "style": "-",
                 "activity": "Closing session"
             },
             {
                 "time": "15:30 - 15:45",
-                "place": "-",
+                "style": "grey",
                 "activity": "Checkout / Go to bus"
             },
             {
                 "time": "15:45 - 16:15",
-                "place": "-",
+                "style": "grey",
                 "activity": "Transport to Cityterminalen"
             }
         ]
@@ -515,125 +515,125 @@
         "thursday": [
             {
                 "time": "10:00 - 10:30",
-                "place": "-",
+                "style": "grey",
                 "activity": "Transport to Skogshem & Wijk"
             },
             {
                 "time": "10:30 - 11:00",
-                "place": "-",
+                "style": "grey",
                 "activity": "Arrival and check-in"
             },
             {
                 "time": "11:00 - 12:00",
-                "place": "-",
+                "style": "-",
                 "activity": "Introduction & External inspirational speaker, Marcus Tungel, Head of Finance Swedbank"
             },
             {
                 "time": "12:00 - 13:00",
-                "place": "-",
+                "style": "grey",
                 "activity": "Lunch"
             },
             {
                 "time": "13:00 - 13:55",
-                "place": "-",
+                "style": "-",
                 "activity": "Sector Outlooks (KPMG internaltional  speakers): Consumer & Retail (Isabelle Allen), Industrial & Manufacturing, Financial Services (Camiel van Steekelenburg)"
             },
             {
                 "time": "14:00 - 15:00",
-                "place": "-",
+                "style": "-",
                 "activity": "Pricing"
             },
             {
                 "time": "15:00 - 15:20",
-                "place": "-",
+                "style": "grey",
                 "activity": "Break with coffee"
             },
             {
                 "time": "15:20 - 16:20",
-                "place": "-",
+                "style": "-",
                 "activity": "Visualization as Change Management Alliances SAP"
             },
             {
                 "time": "16:20 - 16:30",
-                "place": "-",
+                "style": "grey",
                 "activity": "Break with coffee"
             },
             {
                 "time": "16:30 - 17:30",
-                "place": "-",
+                "style": "-",
                 "activity": "AI: Pär Edin lecture"
             },
             {
                 "time": "17:30 - 19:30",
-                "place": "-",
+                "style": "grey",
                 "activity": "Free time: spa / activities"
             },
             {
                 "time": "19:30 - 20:00",
-                "place": "-",
+                "style": "-",
                 "activity": "Pre-drinks"
             },
             {
                 "time": "20:00 - 22:30",
-                "place": "-",
+                "style": "-",
                 "activity": "Festive 3-course dinner"
             },
             {
                 "time": "22:20 - 24:00",
-                "place": "-",
+                "style": "-",
                 "activity": "Party!"
             }
         ],
 
         "friday": [
             {
-                "time": "Breakfast buffet",
-                "place": "-",
-                "activity": "Transport to Skogshem & Wijk"
+                "time": "07:00 - 08:15",
+                "style": "greyrey",
+                "activity": "Breakfast buffet"
             },
             {
                 "time": "08:15 - 10:00",
-                "place": "-",
+                "style": "-",
                 "activity": "Sales"
             },
             {
                 "time": "10:00 - 10:15",
-                "place": "-",
+                "style": "grey",
                 "activity": "Break with coffee"
             },
             {
                 "time": "10:15 - 11:15",
-                "place": "-",
+                "style": "-",
                 "activity": "Data analysis"
             },
             {
                 "time": "11:15 - 12:15",
-                "place": "-",
+                "style": "-",
                 "activity": "Well being"
             },
             {
                 "time": "12:15 - 13:15",
-                "place": "-",
+                "style": "grey",
                 "activity": "Lunch"
             },
             {
                 "time": "13:15 - 15:15",
-                "place": "-",
+                "style": "-",
                 "activity": "Velocity"
             },
             {
                 "time": "15:15 - 15:30",
-                "place": "-",
+                "style": "-",
                 "activity": "Closing session"
             },
             {
                 "time": "15:30 - 15:45",
-                "place": "-",
+                "style": "grey",
                 "activity": "Checkout / Go to bus"
             },
             {
                 "time": "15:45 - 16:15",
-                "place": "-",
+                "style": "grey",
                 "activity": "Transport to Cityterminalen"
             }
         ]
@@ -643,72 +643,72 @@
         "thursday": [
             {
                 "time": "10:00 - 10:30",
-                "place": "-",
+                "style": "grey",
                 "activity": "Transport to Skogshem & Wijk"
             },
             {
                 "time": "10:30 - 11:00",
-                "place": "-",
+                "style": "grey",
                 "activity": "Arrival and check-in"
             },
             {
                 "time": "11:00 - 12:00",
-                "place": "-",
+                "style": "-",
                 "activity": "Introduction & External inspirational speaker, Marcus Tungel, Head of Finance Swedbank"
             },
             {
                 "time": "12:00 - 13:00",
-                "place": "-",
+                "style": "grey",
                 "activity": "Lunch"
             },
             {
                 "time": "13:00 - 13:55",
-                "place": "-",
+                "style": "-",
                 "activity": "Sector Outlooks (KPMG internaltional  speakers): Consumer & Retail (Isabelle Allen), Industrial & Manufacturing, Financial Services (Camiel van Steekelenburg)"
             },
             {
                 "time": "14:00 - 15:00",
-                "place": "-",
+                "style": "-",
                 "activity": "Power BI Digital tools for efficiency"
             },
             {
                 "time": "15:00 - 15:20",
-                "place": "-",
+                "style": "grey",
                 "activity": "Break with coffee"
             },
             {
                 "time": "15:20 - 16:20",
-                "place": "-",
+                "style": "-",
                 "activity": "Visualization as Change Management Alliances SAP"
             },
             {
                 "time": "16:20 - 16:30",
-                "place": "-",
+                "style": "grey",
                 "activity": "Break with coffee"
             },
             {
                 "time": "16:30 - 17:30",
-                "place": "-",
+                "style": "-",
                 "activity": "AI: Pär Edin lecture"
             },
             {
                 "time": "17:30 - 19:30",
-                "place": "-",
+                "style": "grey",
                 "activity": "Free time: spa / activities"
             },
             {
                 "time": "19:30 - 20:00",
-                "place": "-",
+                "style": "-",
                 "activity": "Pre-drinks"
             },
             {
                 "time": "20:00 - 22:30",
-                "place": "-",
+                "style": "-",
                 "activity": "Festive 3-course dinner"
             },
             {
                 "time": "22:20 - 24:00",
-                "place": "-",
+                "style": "-",
                 "activity": "Party!"
             }
         ],
@@ -716,52 +716,52 @@
         "friday": [
             {
                 "time": "07:00 - 08:15",
-                "place": "-",
+                "style": "grey",
                 "activity": "Breakfast buffet"
             },
             {
                 "time": "08:15 - 10:00",
-                "place": "-",
+                "style": "-",
                 "activity": "Velocity (SM P)"
             },
             {
                 "time": "10:00 - 10:15",
-                "place": "-",
+                "style": "grey",
                 "activity": "Break with coffee"
             },
             {
                 "time": "10:15 - 11:15",
-                "place": "-",
+                "style": "-",
                 "activity": "Well being (SM + P)"
             },
             {
                 "time": "11:15 - 12:15",
-                "place": "-",
+                "style": "-",
                 "activity": "Data analysis (SM + P)"
             },
             {
                 "time": "12:15 - 13:15",
-                "place": "-",
+                "style": "grey",
                 "activity": "Lunch"
             },
             {
                 "time": "13:15 - 15:15",
-                "place": "-",
+                "style": "-",
                 "activity": "Sales (SM + P)"
             },
             {
                 "time": "15:15 - 15:30",
-                "place": "-",
+                "style": "-",
                 "activity": "Closing session"
             },
             {
                 "time": "15:30 - 15:45",
-                "place": "-",
+                "style": "grey",
                 "activity": "Checkout / Go to bus"
             },
             {
                 "time": "15:45 - 16:15",
-                "place": "-",
+                "style": "grey",
                 "activity": "Transport to Cityterminalen"
             }
         ]

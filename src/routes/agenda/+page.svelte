@@ -11,7 +11,7 @@
 
     type Item = {
         time: string
-        place: string
+        style: string
         activity: string
     }
 
@@ -72,15 +72,15 @@
                 <caption>THURSDAY 28TH</caption>
                 <thead>
                     <tr>
-                        <th>Time</th>
-                        <th>Activity</th>
+                        <th>TIME</th>
+                        <th>ACTIVITY</th>
                     </tr>
                 </thead>
                 <tbody>
                     {#each thursdayItems as item}
                     <tr>
-                        <th>{item.time}</th>
-                        <td>{item.activity}</td>
+                        <th style:color={item.style === "grey" ? "var(--secondary-color)" : "white"}>{item.time}</th>
+                        <td style:color={item.style === "grey" ? "var(--secondary-color)" : "white"}>{item.activity}</td>
                     </tr>
                     {/each}
                 </tbody>
@@ -90,15 +90,15 @@
                 <caption>FRIDAY 29TH</caption>
                 <thead>
                     <tr>
-                        <th>Time</th>
-                        <th>Place</th>
+                        <th>TIME</th>
+                        <th>ACTIVITY</th>
                     </tr>
                 </thead>
                 <tbody>
                     {#each fridayItems as item}
                     <tr>
-                        <th>{item.time}</th>
-                        <td>{item.activity}</td>
+                        <th style:color={item.style === "grey" ? "var(--secondary-color)" : "white"}>{item.time}</th>
+                        <td style:color={item.style === "grey" ? "var(--secondary-color)" : "white"}>{item.activity}</td>
                     </tr>
                     {/each}
                 </tbody>
@@ -161,9 +161,14 @@
         height: 30px;
     }
 
-    tr {
-        margin: 10px 0px;
+    tbody {
+
+        th {
+            vertical-align: top;
+            width: 110px;
+        }
     }
+
 
     th, td {
         font-size: 14px;

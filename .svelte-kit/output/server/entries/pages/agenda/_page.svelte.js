@@ -6,7 +6,7 @@ import { p as pages } from "../../../chunks/pages.js";
 function _page($$payload, $$props) {
   push();
   MenuButton($$payload, { name: "Agenda" });
-  $$payload.out.push(`<!----> <p class="svelte-18hgv8r">The MC &amp; FS Learning days will be used to drive both learning &amp; culture building. Here you will find detailed schedules for all our colleagues, select your role to find out more.</p> `);
+  $$payload.out.push(`<!----> <p class="svelte-1533m7y">The MC &amp; FS Learning days will be used to drive both learning &amp; culture building. Here you will find detailed schedules for all our colleagues, select your role to find out more.</p> `);
   {
     $$payload.out.push("<!--[!-->");
   }
