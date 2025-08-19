@@ -13,6 +13,8 @@
     border: none;
 }
 
+html { -webkit-text-size-adjust: 100%; } /* prevents auto text inflation */
+
 body {
   background-color: #000;
 }
