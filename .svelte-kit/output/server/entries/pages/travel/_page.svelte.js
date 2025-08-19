@@ -1,10 +1,9 @@
-import { T as attr, V as escape_html, Y as ensure_array_like, P as pop, N as push } from "../../../chunks/index2.js";
+import { T as attr, V as escape_html, Q as attr_class, Y as ensure_array_like, P as pop, N as push } from "../../../chunks/index2.js";
 import "@sveltejs/kit/internal";
 import "../../../chunks/exports.js";
 import "../../../chunks/utils.js";
 import "../../../chunks/state.svelte.js";
 import { a as asset } from "../../../chunks/index3.js";
-/* empty css                                                       */
 import { F as FooterNav } from "../../../chunks/FooterNav.js";
 import { M as MenuButton } from "../../../chunks/MenuButton.js";
 import { p as pages } from "../../../chunks/pages.js";
@@ -12,11 +11,44 @@ function BulletInfo($$payload, $$props) {
   let { img, header, body } = $$props;
   $$payload.out.push(`<div class="bullet svelte-zxrfb6"><figure class="svelte-zxrfb6"><img class="icon svelte-zxrfb6"${attr("src", img)} alt=""/> <h4 class="svelte-zxrfb6">${escape_html(header)}</h4></figure> <p>${escape_html(body)}</p></div>`);
 }
+function RoomFinder($$payload, $$props) {
+  push();
+  let rooms = [];
+  let isSearching = false;
+  let searchString = "";
+  let matches = (() => {
+    const q = searchString.trim().toLowerCase();
+    if (!q) return [];
+    return rooms.flatMap((r) => r.people.filter((fullName) => {
+      const [first = "", last = ""] = fullName.split(" ");
+      return first.toLowerCase().startsWith(q) || last.toLowerCase().startsWith(q);
+    }).map((person) => ({
+      person,
+      room: r.id,
+      others: r.people.filter((o) => o !== person)
+    })));
+  })();
+  $$payload.out.push(`<div${attr_class("searchbar svelte-3jyn61", void 0, { "active": isSearching })}><img${attr("src", asset("/calendar-07.png"))} alt="" class="icon"/> <input type="text"${attr("value", searchString)} placeholder="Enter your name here" class="svelte-3jyn61"/></div> `);
+  if (matches.length > 0) {
+    $$payload.out.push("<!--[-->");
+    const each_array = ensure_array_like(matches);
+    $$payload.out.push(`<div class="results svelte-3jyn61"><!--[-->`);
+    for (let $$index = 0, $$length = each_array.length; $$index < $$length; $$index++) {
+      let match = each_array[$$index];
+      $$payload.out.push(`<p class="result"><span class="match-person svelte-3jyn61">${escape_html(match.person)}</span> + <span class="match-other svelte-3jyn61">${escape_html(match.others)}</span></p>`);
+    }
+    $$payload.out.push(`<!--]--></div>`);
+  } else {
+    $$payload.out.push("<!--[!-->");
+  }
+  $$payload.out.push(`<!--]-->`);
+  pop();
+}
 function _page($$payload, $$props) {
   push();
   let rooms = [];
   let searchString = "";
-  let matches = (() => {
+  (() => {
     const q = searchString.trim().toLowerCase();
     if (!q) return [];
     return rooms.flatMap((r) => r.people.filter((full) => {
@@ -28,10 +60,9 @@ function _page($$payload, $$props) {
       others: r.people.filter((o) => o !== person)
     })));
   })();
-  const each_array = ensure_array_like(matches);
   $$payload.out.push(`<div class="container">`);
   MenuButton($$payload, { name: "Travel" });
-  $$payload.out.push(`<!----> <div class="welcome svelte-vcogbi"><h3 class="svelte-vcogbi">Welcome to FSC and MC Learning Days</h3> <p class="svelte-vcogbi">Two days. One mission. FSC and MC are joining forces to break silos, building bridges, and spart game-changing conversations.</p></div> <div class="card svelte-vcogbi"><img class="card-img svelte-vcogbi"${attr("src", asset("/travel.png"))} alt=""/> <div class="fade svelte-vcogbi"></div> <div class="card-info svelte-vcogbi"><h3 class="svelte-vcogbi">Skogshem &amp; Wijk</h3> <div class="info-figures svelte-vcogbi"><figure class="info-figure svelte-vcogbi"><img class="icon svelte-vcogbi"${attr("src", asset("/calendar-07.png"))} alt=""/> <span class="svelte-vcogbi">28-29 August</span></figure> <figure class="info-figure svelte-vcogbi"><img class="icon svelte-vcogbi"${attr("src", asset("/marker-06.png"))} alt=""/> <span class="svelte-vcogbi">Hustegavägen 1, Lidingö</span></figure></div></div> <button class="card-button svelte-vcogbi">TRAVEL INFO</button></div> <h2 class="svelte-vcogbi">General info</h2> <div class="info svelte-vcogbi"><h3 class="svelte-vcogbi">Time reporting</h3> <p class="svelte-vcogbi">96 -894 (Learning), Fill in ”KPMG” in company and “Learning Days” in Course</p></div> <div class="info svelte-vcogbi"><h3 class="svelte-vcogbi">Meals</h3> <p class="svelte-vcogbi">Lunch, fika and a 3-course dinner will be served on Thursday, and breakfast and lunch will be served on Friday</p></div> <div class="info svelte-vcogbi"><h3 class="svelte-vcogbi">Suggested pack list</h3> `);
+  $$payload.out.push(`<!----> <div class="welcome svelte-1c25fiy"><h3 class="svelte-1c25fiy">Welcome to FSC and MC Learning Days</h3> <p class="svelte-1c25fiy">Two days. One mission. FSC and MC are joining forces to break silos, building bridges, and spart game-changing conversations.</p></div> <div class="card svelte-1c25fiy"><img class="card-img svelte-1c25fiy"${attr("src", asset("/travel.png"))} alt=""/> <div class="fade svelte-1c25fiy"></div> <div class="card-info svelte-1c25fiy"><h3 class="svelte-1c25fiy">Skogshem &amp; Wijk</h3> <div class="info-figures svelte-1c25fiy"><figure class="info-figure svelte-1c25fiy"><img class="icon svelte-1c25fiy"${attr("src", asset("/calendar-07.png"))} alt=""/> <span class="svelte-1c25fiy">28-29 August</span></figure> <figure class="info-figure svelte-1c25fiy"><img class="icon svelte-1c25fiy"${attr("src", asset("/marker-06.png"))} alt=""/> <span class="svelte-1c25fiy">Hustegavägen 1, Lidingö</span></figure></div></div> <button class="card-button svelte-1c25fiy">TRAVEL INFO</button></div> <h2 class="svelte-1c25fiy">General info</h2> <div class="info svelte-1c25fiy"><h3 class="svelte-1c25fiy">Time reporting</h3> <p class="svelte-1c25fiy">96 -894 (Learning), Fill in ”KPMG” in company and “Learning Days” in Course</p></div> <div class="info svelte-1c25fiy"><h3 class="svelte-1c25fiy">Meals</h3> <p class="svelte-1c25fiy">Lunch, fika and a 3-course dinner will be served on Thursday, and breakfast and lunch will be served on Friday</p></div> <div class="info svelte-1c25fiy"><h3 class="svelte-1c25fiy">Suggested pack list</h3> `);
   BulletInfo($$payload, {
     img: asset("/hanger.png"),
     header: "Festive dinner",
@@ -49,12 +80,9 @@ function _page($$payload, $$props) {
     header: "Pool / sauna",
     body: "Swimwear if you want to use the hotel's outdoor pool or sauna"
   });
-  $$payload.out.push(`<!----></div> <figure class="rooms svelte-vcogbi"><input type="text"${attr("value", searchString)} class="svelte-vcogbi"/> <ul class="svelte-vcogbi"><!--[-->`);
-  for (let $$index = 0, $$length = each_array.length; $$index < $$length; $$index++) {
-    let match = each_array[$$index];
-    $$payload.out.push(`<li class="svelte-vcogbi"><span class="room-person svelte-vcogbi">${escape_html(match.person)}:</span> <span class="room-info svelte-vcogbi">Room ${escape_html(match.room)} with ${escape_html(match.others)}</span></li>`);
-  }
-  $$payload.out.push(`<!--]--></ul></figure></div> `);
+  $$payload.out.push(`<!----></div> <div class="rooms svelte-1c25fiy"><h2 class="svelte-1c25fiy">Room sharing</h2> <p class="svelte-1c25fiy">Here you can find the colleague you are sharing the room with. If you name is not on the list, you have your own room.</p> `);
+  RoomFinder($$payload);
+  $$payload.out.push(`<!----></div></div> `);
   FooterNav($$payload, { previousPage: pages[1], nextPage: pages[3] });
   $$payload.out.push(`<!---->`);
   pop();

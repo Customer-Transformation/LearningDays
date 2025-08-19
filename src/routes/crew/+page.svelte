@@ -1,9 +1,7 @@
 <script lang="ts">
-	import { goto } from "$app/navigation";
-	import { asset, resolve } from "$app/paths"
+	import { asset } from "$app/paths"
 	import FooterNav from "$lib/components/FooterNav.svelte";
 	import MenuButton from "$lib/components/MenuButton.svelte";
-	import NavButton from "$lib/components/NavButton.svelte";
 	import { pages } from "$lib/data/pages";
 </script>
 

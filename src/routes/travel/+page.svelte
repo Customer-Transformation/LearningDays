@@ -4,48 +4,23 @@
 	import BulletInfo from "$lib/components/BulletInfo.svelte";
 	import FooterNav from "$lib/components/FooterNav.svelte";
 	import MenuButton from "$lib/components/MenuButton.svelte";
+	import RoomFinder from "$lib/components/RoomFinder.svelte";
 	import { pages } from "$lib/data/pages";
 	import { onMount } from "svelte";
-
-    let rooms = $state<Room[]>([])
-    let isLoading = $state(true)
-    let searchString = $state<string>("")
-
-    let filteredRooms: Room[] = $derived.by(() => {
-        return searchString === "" ?
-            rooms :
-            rooms.filter(r =>
-                r.people.some(p => {
-                    const [first, last] = p.split(" ")
-                    return (
-                        first.toLowerCase().startsWith(searchString.toLowerCase()) ||
-                        last.toLowerCase().startsWith(searchString.toLowerCase())
-                    )
-                })
-            )
-    })
-
-    let filteredPeople: string[] = $derived.by(() => {
-        const people = [""]
-        if (searchString === "")
-            return people
-        return rooms
-            .flatMap(r => r.people)
-            .filter(p => {
-                const [first, last] = p.split(" ")
-                return first.toLowerCase().startsWith(searchString.toLowerCase()) || 
-                    last.toLowerCase().startsWith(searchString.toLowerCase())
-            })
-    })
 
     type Room = {
         id: string
         people: string[]
     }
-
+    
     type Match = {
         person: string, room: string, others: string[]
     }
+    
+    let rooms = $state<Room[]>([])
+    let isLoading = $state(true)
+    let isSearching = $state(false)
+    let searchString = $state<string>("")
 
     let matches: Match[] = $derived.by(() => {
         const q = searchString.trim().toLowerCase();
@@ -147,20 +122,12 @@
         />
     </div>
 
-    <figure class="rooms">
-        <input type="text" bind:value={searchString}>
-        <ul>
-            {#each matches as match}
-            <li>
-                <span class="room-person">{match.person}:</span>
-                <span class="room-info">Room {match.room} with {match.others}</span>
-            </li>
-            {/each}
-        </ul>
-        <!-- {#each filteredRooms as room}
-        <p>{room.people}</p>
-        {/each} -->
-    </figure>
+    
+    <div class="rooms">
+        <h2>Room sharing</h2>
+        <p>Here you can find the colleague you are sharing the room with. If you name is not on the list, you have your own room.</p>
+        <RoomFinder />
+    </div>
 </div>
 
 <FooterNav previousPage={pages[1]} nextPage={pages[3]}/>
@@ -254,32 +221,10 @@
     }
 
     .rooms {
-        margin-top: 80px;
-        height: 303px;
-        border-radius: 8px;
-        border: 1px solid #373946;
-        background: linear-gradient(106deg, #16171F 0%, #000 100%);
-        
-        display: grid; place-items: center;
+        margin-top: 48px;
 
-        input {
-            color: #000;
-        }
-
-        ul {
-            display: flex; flex-direction: column; gap: 8px;
-        }
-
-        li {
-            display: flex; gap: 4px; align-items: center;
-        }
-
-        .room-person {
-            font-weight: 700;
-        }
-
-        .room-info {
-
+        p {
+            margin-top: 40px;
         }
     }
 </style>

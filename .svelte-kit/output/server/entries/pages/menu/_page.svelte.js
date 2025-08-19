@@ -4,7 +4,6 @@ import "../../../chunks/exports.js";
 import "../../../chunks/utils.js";
 import "../../../chunks/state.svelte.js";
 import { a as asset } from "../../../chunks/index3.js";
-/* empty css                                                      */
 import { p as pages } from "../../../chunks/pages.js";
 function NavButton($$payload, $$props) {
   push();
