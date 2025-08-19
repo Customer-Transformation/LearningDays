@@ -16,7 +16,7 @@
 
 	{@render children?.()}
 
-	<footer class:welcome={page.route.id === "/"} class:menu={page.route.id === "/menu"}>
+	<footer class:welcome={page.route.id === "/"} class:menu={page.route.id === "/menu"} class:travel={page.route.id === "/travel"}>
 		<span>Designed & built by Customer Team MC</span>
 	</footer>
 </main>
@@ -30,5 +30,6 @@
 	footer { margin-top: 80px; margin-bottom: 75px; }
 	footer.welcome { margin-top: 24px; margin-bottom: 0px; }
 	footer.menu { margin-top: 37px; margin-bottom: 0px; }
+	footer.travel { margin-bottom: 230px; }
 	span { font-size: 12px; color: var(--secondary-color); font-style: italic; }
 </style>
