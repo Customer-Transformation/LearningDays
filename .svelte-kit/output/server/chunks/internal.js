@@ -1,5 +1,5 @@
 import { H as HYDRATION_ERROR, B as BOUNDARY_EFFECT, E as ERROR_VALUE, a as EFFECT_RAN, d as define_property, r as run_all, U as UNOWNED, M as MAYBE_DIRTY, C as CLEAN, D as DERIVED, I as INERT, b as EFFECT, A as ASYNC, c as BLOCK_EFFECT, e as DIRTY, f as deferred, g as BRANCH_EFFECT, R as ROOT_EFFECT, h as DESTROYED, i as USER_EFFECT, j as INSPECT_EFFECT, S as STATE_SYMBOL, o as object_prototype, k as array_prototype, l as UNINITIALIZED, m as get_descriptor, n as get_prototype_of, p as is_array, q as is_extensible, s as EFFECT_PRESERVED, t as HEAD_EFFECT, u as EFFECT_TRANSPARENT, v as STALE_REACTION, w as DISCONNECTED, x as REACTION_IS_UPDATING, y as index_of, z as COMMENT_NODE, F as HYDRATION_START, G as HYDRATION_END, J as array_from, L as LEGACY_PROPS, K as render, N as push$1, O as setContext, P as pop$1 } from "./index2.js";
-import { B as BROWSER } from "./false.js";
+import { D as DEV } from "./false.js";
 import { s as safe_equals, e as equals } from "./equality.js";
 import "clsx";
 import "./environment.js";
@@ -574,7 +574,7 @@ function flush_effects() {
       var batch = Batch.ensure();
       if (flush_count++ > 1e3) {
         var updates, entry;
-        if (BROWSER) ;
+        if (DEV) ;
         infinite_loop_guard();
       }
       batch.process(queued_root_effects);
@@ -1463,7 +1463,7 @@ function update_effect(effect) {
     effect.teardown = typeof teardown === "function" ? teardown : null;
     effect.wv = write_version;
     var dep;
-    if (BROWSER && tracing_mode_flag && (effect.f & DIRTY) !== 0 && effect.deps !== null) ;
+    if (DEV && tracing_mode_flag && (effect.f & DIRTY) !== 0 && effect.deps !== null) ;
   } finally {
     is_updating_effect = was_updating_effect;
     active_effect = previous_effect;
@@ -2062,7 +2062,7 @@ const options = {
 		<div class="error">
 			<span class="status">` + status + '</span>\n			<div class="message">\n				<h1>' + message + "</h1>\n			</div>\n		</div>\n	</body>\n</html>\n"
   },
-  version_hash: "16x2biz"
+  version_hash: "a5qaeu"
 };
 async function get_hooks() {
   let handle;

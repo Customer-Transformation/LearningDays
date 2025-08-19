@@ -1,4 +1,4 @@
-import { B as BROWSER } from "./chunks/false.js";
+import { D as DEV } from "./chunks/false.js";
 import { json, text, error } from "@sveltejs/kit";
 import { HttpError, SvelteKitError, Redirect, ActionFailure } from "@sveltejs/kit/internal";
 import { a as assets, b as base, c as app_dir, o as override, r as reset } from "./chunks/paths.js";
@@ -566,20 +566,20 @@ async function load_server_data({ event, state, node, parent }) {
       ...event,
       fetch: (info, init2) => {
         const url2 = new URL(info instanceof Request ? info.url : info, event.url);
-        if (BROWSER && done && !uses.dependencies.has(url2.href)) ;
+        if (DEV && done && !uses.dependencies.has(url2.href)) ;
         return event.fetch(info, init2);
       },
       /** @param {string[]} deps */
       depends: (...deps) => {
         for (const dep of deps) {
           const { href } = new URL(dep, event.url);
-          if (BROWSER) ;
+          if (DEV) ;
           uses.dependencies.add(href);
         }
       },
       params: new Proxy(event.params, {
         get: (target, key2) => {
-          if (BROWSER && done && typeof key2 === "string" && !uses.params.has(key2)) ;
+          if (DEV && done && typeof key2 === "string" && !uses.params.has(key2)) ;
           if (is_tracking) {
             uses.params.add(key2);
           }
@@ -590,7 +590,7 @@ async function load_server_data({ event, state, node, parent }) {
         }
       }),
       parent: async () => {
-        if (BROWSER && done && !uses.parent) ;
+        if (DEV && done && !uses.parent) ;
         if (is_tracking) {
           uses.parent = true;
         }
@@ -598,7 +598,7 @@ async function load_server_data({ event, state, node, parent }) {
       },
       route: new Proxy(event.route, {
         get: (target, key2) => {
-          if (BROWSER && done && typeof key2 === "string" && !uses.route) ;
+          if (DEV && done && typeof key2 === "string" && !uses.route) ;
           if (is_tracking) {
             uses.route = true;
           }
@@ -2400,7 +2400,7 @@ async function render_page(event, page, options2, manifest, state, nodes, resolv
     const ssr = nodes.ssr();
     const csr = nodes.csr();
     if (ssr === false && !(state.prerendering && should_prerender_data)) {
-      if (BROWSER && action_result && !event.request.headers.has("x-sveltekit-action")) ;
+      if (DEV && action_result && !event.request.headers.has("x-sveltekit-action")) ;
       return await render_response({
         branch: [],
         fetched,
@@ -3068,12 +3068,12 @@ async function respond(request, options2, manifest, state) {
       if (url.pathname === base || url.pathname === base + "/") {
         trailing_slash = "always";
       } else if (page_nodes) {
-        if (BROWSER) ;
+        if (DEV) ;
         trailing_slash = page_nodes.trailing_slash();
       } else if (route.endpoint) {
         const node = await route.endpoint();
         trailing_slash = node.trailingSlash ?? "never";
-        if (BROWSER) ;
+        if (DEV) ;
       }
       if (!is_data_request) {
         const normalized = normalize_path(url.pathname, trailing_slash);
@@ -3297,7 +3297,7 @@ async function respond(request, options2, manifest, state) {
         });
       }
       if (state.depth === 0) {
-        if (BROWSER && event2.url.pathname === "/.well-known/appspecific/com.chrome.devtools.json") ;
+        if (DEV && event2.url.pathname === "/.well-known/appspecific/com.chrome.devtools.json") ;
         return await respond_with_error({
           event: event2,
           options: options2,

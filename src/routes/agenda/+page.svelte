@@ -4,7 +4,10 @@
 	import MenuButton from "$lib/components/MenuButton.svelte";
 	import { pages } from "$lib/data/pages";
 	import { onMount } from "svelte";
-	import { fly, scale, slide } from "svelte/transition";
+	import { slide } from "svelte/transition";
+
+    const scheduleKeys = ["associate", "seniorAssociate", "manager", "seniorManager", "director", "partner"] as const
+    type ScheduleKey = typeof scheduleKeys[number]
 
     type Item = {
         time: string
@@ -12,69 +15,63 @@
         activity: string
     }
 
-    const schedules = ["ASSOCIATE", "SENIOR ASSOCIATE", "MANAGER", "SENIOR MANAGER", "DIRECTIOR", "PARTNER"] as const
-    type Schedule = typeof schedules[number]
+    type ScheduleData = {
+        associate: Item[]
+        seniorAssociate: Item[]
+        manager: Item[]
+        seniorManager: Item[]
+        director: Item[]
+        partner: Item[]
+    }
+
+    type Schedule = {
+        key: ScheduleKey
+        label: string
+        items: Item[]
+    }
 
     let loading = $state(true)
-    let scheduleThursdayASA = $state<Item[]>([])
-    let scheduleFridayASA = $state<Item[]>([])
-    let scheduleThursdayMD = $state<Item[]>([])
-    let scheduleFridayMD = $state<Item[]>([])
+    let activeSchedule = $state<ScheduleKey|null>(null)
+    let allSchedules = $state<Schedule[]>()
 
-    let activeSchedule = $state<Schedule|null>(null)
 
-    async function fetchSchedules() {
+    async function fetchSchedule() {
         loading = true
 
         try {
-            const response = await fetch(asset("/scheduleThursdayMD.json"), { cache: "no-store"})
+            const response = await fetch(asset("/schedule.json"))
             if (!response.ok) throw new Error("failed to load schedule")
-            scheduleThursdayASA = await response.json()
+            const data: ScheduleData = await response.json()
+            allSchedules = [
+                { key: "associate", label: "ASSOCIATE", items: data.associate },
+                { key: "seniorAssociate", label: "SENIOR ASSOCIATE", items: data.seniorAssociate },
+                { key: "manager", label: "MANAGER", items: data.manager },
+                { key: "seniorManager", label: "SENIOR MANGER", items: data.seniorManager },
+                { key: "director", label: "DIRECTOR", items: data.director },
+                { key: "partner", label: "PARTNER", items: data.partner }
+            ]
         } catch (e) {
-
-        } 
-
-        try {
-            const response = await fetch(asset("/scheduleThursdayMD.json"), { cache: "no-store"})
-            if (!response.ok) throw new Error("failed to load schedule")
-            scheduleThursdayMD = await response.json()
-        } catch (e) {
-
-        } 
-
-        try {
-            const response = await fetch(asset("/scheduleThursdayASA.json"), { cache: "no-store"})
-            if (!response.ok) throw new Error("failed to load schedule")
-            scheduleFridayASA = await response.json()
-        } catch (e) {
-
-        } 
-
-        try {
-            const response = await fetch(asset("/scheduleFridayASA.json"), { cache: "no-store"})
-            if (!response.ok) throw new Error("failed to load schedule")
-            scheduleFridayMD = await response.json()
-        } catch (e) {
-
+            
         } finally {
             loading = false
         }
     }
 
-    onMount(fetchSchedules)
+    onMount(fetchSchedule)
 </script>
 
 <MenuButton name="Agenda"/>
 
+{#if allSchedules}
 <ul class="schedules">
-    {#each schedules as schedule}
+    {#each allSchedules as { key, label, items}}
     <li>
-        <button onclick={() => activeSchedule === schedule ? activeSchedule = null : activeSchedule = schedule}>
-            <span>{schedule}</span>
-            <img src={activeSchedule === schedule ? asset("/dash.png") : asset("/plus-01.png")} alt="" class="icon">
+        <button onclick={() => activeSchedule === key ? activeSchedule = null : activeSchedule = key}>
+            <span>{label}</span>
+            <img src={activeSchedule === key ? asset("/dash.png") : asset("/plus-01.png")} alt="" class="icon">
         </button>
 
-        {#if schedule === activeSchedule}
+        {#if activeSchedule === key}
         <div class="schedule" transition:slide={{ }}>
             <table>
                 <caption>THURSDAY 28TH</caption>
@@ -85,7 +82,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {#each scheduleThursdayASA as item}
+                    {#each items as item}
                     <tr>
                         <th>{item.time}</th>
                         <td>{item.activity}</td>
@@ -103,7 +100,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {#each scheduleFridayASA as item}
+                    {#each items as item}
                     <tr>
                         <th>{item.time}</th>
                         <td>{item.activity}</td>
@@ -111,12 +108,13 @@
                     {/each}
                 </tbody>
             </table>
-        </div>
+        </div>        
         {/if}
     </li>
     <hr>
     {/each}
 </ul>
+{/if}
 
 <FooterNav previousPage={pages[2]} nextPage={pages[4]}/>
 

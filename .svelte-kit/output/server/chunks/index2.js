@@ -1,5 +1,5 @@
 import "clsx";
-import { B as BROWSER } from "./false.js";
+import { D as DEV } from "./false.js";
 var is_array = Array.isArray;
 var index_of = Array.prototype.indexOf;
 var array_from = Array.from;
@@ -208,7 +208,7 @@ function render(component, options = {}) {
     on_destroy = [];
     payload.out.push(BLOCK_OPEN);
     let reset_reset_element;
-    if (BROWSER) ;
+    if (DEV) ;
     if (options.context) {
       push();
       current_component.c = options.context;

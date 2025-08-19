@@ -33,9 +33,6 @@ const page$1 = {
   },
   get status() {
     return context().page.status;
-  },
-  get url() {
-    return context().page.url;
   }
 };
 const page = page$1;
