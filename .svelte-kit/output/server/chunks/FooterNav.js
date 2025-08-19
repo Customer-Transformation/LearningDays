@@ -10,14 +10,14 @@ function FooterNav($$payload, $$props) {
   $$payload.out.push(`<footer class="svelte-1smwpil"><div class="svelte-1smwpil">`);
   if (previousPage) {
     $$payload.out.push("<!--[-->");
-    $$payload.out.push(`<button class="svelte-1smwpil"><img${attr("src", asset("/leftArrow.png"))} alt="" class="svelte-1smwpil"/></button> <label for="">${escape_html(previousPage.name)}</label>`);
+    $$payload.out.push(`<button class="svelte-1smwpil"><img${attr("src", asset("/arrow-left.svg"))} alt="" class="svelte-1smwpil"/></button> <label for="">${escape_html(previousPage.name)}</label>`);
   } else {
     $$payload.out.push("<!--[!-->");
   }
   $$payload.out.push(`<!--]--></div> <div class="svelte-1smwpil">`);
   if (nextPage) {
     $$payload.out.push("<!--[-->");
-    $$payload.out.push(`<label for="">${escape_html(nextPage.name)}</label> <button class="svelte-1smwpil"><img class="right-arrow svelte-1smwpil"${attr("src", asset("/leftArrow.png"))} alt=""/></button>`);
+    $$payload.out.push(`<label for="">${escape_html(nextPage.name)}</label> <button class="svelte-1smwpil"><img class="right-arrow svelte-1smwpil"${attr("src", asset("/arrow-left.svg"))} alt=""/></button>`);
   } else {
     $$payload.out.push("<!--[!-->");
   }

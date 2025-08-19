@@ -10,7 +10,7 @@
 
 <div class="container">
     <button onpointerdown={() => goto(resolve("/travel"))}>
-        <img src={asset("/arrow-down-right.png")} alt="">
+        <img src={asset("/arrow-down-right.svg")} alt="">
     </button>
 
     <h2>Travel info</h2>

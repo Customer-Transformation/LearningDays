@@ -30,11 +30,11 @@
             <h3 class="card-header">Skogshem & Wijk</h3>
             <div class="info-figures">
                 <figure class="info-figure">
-                    <img class="icon" src={asset("/calendar-07.png")} alt="">
+                    <img class="icon" src={asset("/calendar.svg")} alt="">
                     <span>28-29 August</span>
                 </figure>
                 <figure class="info-figure">
-                    <img class="icon" src={asset("/marker-06.png")} alt="">
+                    <img class="icon" src={asset("/marker.svg")} alt="">
                     <span>Hustegavägen 1, Lidingö</span>
                 </figure>
             </div>
@@ -58,21 +58,27 @@
         <h3>Suggested pack list</h3>
 
         <BulletInfo 
-            img={asset("/hanger.png")} 
+            img={asset("/hanger.svg")} 
             header="Festive dinner" 
             body="Business formal clothes for the festive dinner in the evening"
         />
 
         <BulletInfo 
-            img={asset("/hanger.png")} 
+            img={asset("/hanger.svg")} 
             header="Conference" 
-            body="Clothes and shoes for two days"
+            body="Business casual clothes and shoes for two days"
         />
 
         <BulletInfo 
-            img={asset("/hanger.png")} 
+            img={asset("/hanger.svg")} 
             header="Pool / sauna" 
             body="Swimwear if you want to use the hotel's outdoor pool or sauna"
+        />
+
+        <BulletInfo 
+            img={asset("/luggage.svg")} 
+            header="Necessities" 
+            body="Work computer and charger"
         />
     </div>
 

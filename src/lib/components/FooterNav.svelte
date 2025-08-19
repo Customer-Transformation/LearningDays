@@ -10,7 +10,7 @@
     <div>
         {#if previousPage}
         <button onpointerdown={() => goto(resolve(previousPage.link as any))}>
-            <img src={asset("/leftArrow.png")} alt="">
+            <img src={asset("/arrow-left.svg")} alt="">
         </button>
         <label for="">{previousPage.name}</label>
         {/if}
@@ -19,7 +19,7 @@
         {#if nextPage}
         <label for="">{nextPage.name}</label>
         <button onpointerdown={() => goto(resolve(nextPage.link as any))}>
-            <img class="right-arrow" src={asset("/leftArrow.png")} alt="">
+            <img class="right-arrow" src={asset("/arrow-left.svg")} alt="">
         </button>
         {/if}
     </div>

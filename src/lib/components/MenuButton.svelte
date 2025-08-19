@@ -7,7 +7,7 @@
 
 <button onpointerdown={() => goto(resolve("/menu"))}>
     <span>{name}</span>
-    <img src={asset("/arrow-down-right.png")} alt="">
+    <img src={asset("/arrow-down-right.svg")} alt="">
 </button>
 
 <style>

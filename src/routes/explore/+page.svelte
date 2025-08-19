@@ -7,7 +7,7 @@
 	const activities = [
 		"SHUFFLEBOARD",
 		"HEATED OUTDOOR POOL",
-		"SAUNAS",
+		"SAUNA",
 		"GYM",
 		"POOL TABLE",
 		"PING PONG TABLE",
@@ -15,7 +15,12 @@
 		"BOARD GAMES",
 		"SEA ACCESS WITH PRIVATE PIERS",
 		"AIR HOCKEY",
-		"KUBB"
+		"KUBB",
+		"CORNHOLE",
+		"BOULE",
+		"GAME ROOM (DART, ARCADE GAMES, PS4, FLIPPER)",
+		"OUTDOOR HOT TUB",
+		"KARAOKE"
 	]
 
 </script>
@@ -46,7 +51,7 @@
 	
 	.activity {
 		display: inline;
-		font-size: 34px;
+		font-size: 32px;
 		letter-spacing: -3%;
 	}
 
@@ -59,6 +64,7 @@
 		background: white;
 		vertical-align: middle;       /* align with text */
 		margin: 0 10px;  /* control spacing */
+		transform: translateY(-50%);
 	}
 
 	.images {

@@ -10,7 +10,7 @@
 <main class:welcome={page.route.id == "/"}>
 	<header>
 		<button onpointerdown={() => goto(resolve("/"))}>
-			<img src={asset("/logo.png")} alt="">
+			<img src={asset("/logo.svg")} alt="">
 		</button>
 	</header>
 

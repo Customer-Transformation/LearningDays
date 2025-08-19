@@ -66,7 +66,7 @@
 </script>
 
 <label class="searchbar" class:active={isSearching}>
-    <img src={asset("/calendar-07.png")} alt="" class="icon">    
+    <img src={asset("/search.svg")} alt="" class="icon">    
     <input type="text" bind:value={searchString} placeholder="Enter your name here" {onfocus} {onblur}>
 </label>
 

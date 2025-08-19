@@ -7,7 +7,7 @@ import { a as asset } from "./index3.js";
 function MenuButton($$payload, $$props) {
   push();
   let { name } = $$props;
-  $$payload.out.push(`<button class="svelte-q8m6d8"><span class="svelte-q8m6d8">${escape_html(name)}</span> <img${attr("src", asset("/arrow-down-right.png"))} alt="" class="svelte-q8m6d8"/></button>`);
+  $$payload.out.push(`<button class="svelte-q8m6d8"><span class="svelte-q8m6d8">${escape_html(name)}</span> <img${attr("src", asset("/arrow-down-right.svg"))} alt="" class="svelte-q8m6d8"/></button>`);
   pop();
 }
 export {

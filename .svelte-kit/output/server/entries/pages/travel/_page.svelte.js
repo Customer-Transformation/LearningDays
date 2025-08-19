@@ -32,7 +32,7 @@ function RoomFinder($$payload, $$props) {
       }));
     });
   })();
-  $$payload.out.push(`<label${attr_class("searchbar svelte-f5sh11", void 0, { "active": isSearching })}><img${attr("src", asset("/calendar-07.png"))} alt="" class="icon"/> <input type="text"${attr("value", searchString)} placeholder="Enter your name here" class="svelte-f5sh11"/></label> `);
+  $$payload.out.push(`<label${attr_class("searchbar svelte-f5sh11", void 0, { "active": isSearching })}><img${attr("src", asset("/search.svg"))} alt="" class="icon"/> <input type="text"${attr("value", searchString)} placeholder="Enter your name here" class="svelte-f5sh11"/></label> `);
   if (matches.length > 0) {
     $$payload.out.push("<!--[-->");
     const each_array = ensure_array_like(matches.slice(0, 5));
@@ -52,23 +52,29 @@ function _page($$payload, $$props) {
   push();
   $$payload.out.push(`<div class="container">`);
   MenuButton($$payload, { name: "Travel" });
-  $$payload.out.push(`<!----> <div class="welcome svelte-1bt7yps"><h3 class="svelte-1bt7yps">Welcome to FSC and MC Learning Days</h3> <p class="svelte-1bt7yps">Two days. One mission. FSC and MC are joining forces to break silos, building bridges, and spart game-changing conversations.</p></div> <div class="card svelte-1bt7yps"><img class="card-img svelte-1bt7yps"${attr("src", asset("/travel.png"))} alt=""/> <div class="fade svelte-1bt7yps"></div> <div class="card-info svelte-1bt7yps"><h3 class="card-header svelte-1bt7yps">Skogshem &amp; Wijk</h3> <div class="info-figures svelte-1bt7yps"><figure class="info-figure svelte-1bt7yps"><img class="icon svelte-1bt7yps"${attr("src", asset("/calendar-07.png"))} alt=""/> <span class="svelte-1bt7yps">28-29 August</span></figure> <figure class="info-figure svelte-1bt7yps"><img class="icon svelte-1bt7yps"${attr("src", asset("/marker-06.png"))} alt=""/> <span class="svelte-1bt7yps">Hustegavägen 1, Lidingö</span></figure></div></div> <button class="card-button svelte-1bt7yps">TRAVEL INFO</button></div> <h2 class="svelte-1bt7yps">General info</h2> <div class="info svelte-1bt7yps"><h3 class="svelte-1bt7yps">Time reporting</h3> <p class="svelte-1bt7yps">96 -894 (Learning), Fill in ”KPMG” in company and “Learning Days” in Course</p></div> <div class="info svelte-1bt7yps"><h3 class="svelte-1bt7yps">Meals</h3> <p class="svelte-1bt7yps">Lunch, fika and a 3-course dinner will be served on Thursday, and breakfast and lunch will be served on Friday</p></div> <div class="info svelte-1bt7yps"><h3 class="svelte-1bt7yps">Suggested pack list</h3> `);
+  $$payload.out.push(`<!----> <div class="welcome svelte-1bt7yps"><h3 class="svelte-1bt7yps">Welcome to FSC and MC Learning Days</h3> <p class="svelte-1bt7yps">Two days. One mission. FSC and MC are joining forces to break silos, building bridges, and spart game-changing conversations.</p></div> <div class="card svelte-1bt7yps"><img class="card-img svelte-1bt7yps"${attr("src", asset("/travel.png"))} alt=""/> <div class="fade svelte-1bt7yps"></div> <div class="card-info svelte-1bt7yps"><h3 class="card-header svelte-1bt7yps">Skogshem &amp; Wijk</h3> <div class="info-figures svelte-1bt7yps"><figure class="info-figure svelte-1bt7yps"><img class="icon svelte-1bt7yps"${attr("src", asset("/calendar.svg"))} alt=""/> <span class="svelte-1bt7yps">28-29 August</span></figure> <figure class="info-figure svelte-1bt7yps"><img class="icon svelte-1bt7yps"${attr("src", asset("/marker.svg"))} alt=""/> <span class="svelte-1bt7yps">Hustegavägen 1, Lidingö</span></figure></div></div> <button class="card-button svelte-1bt7yps">TRAVEL INFO</button></div> <h2 class="svelte-1bt7yps">General info</h2> <div class="info svelte-1bt7yps"><h3 class="svelte-1bt7yps">Time reporting</h3> <p class="svelte-1bt7yps">96 -894 (Learning), Fill in ”KPMG” in company and “Learning Days” in Course</p></div> <div class="info svelte-1bt7yps"><h3 class="svelte-1bt7yps">Meals</h3> <p class="svelte-1bt7yps">Lunch, fika and a 3-course dinner will be served on Thursday, and breakfast and lunch will be served on Friday</p></div> <div class="info svelte-1bt7yps"><h3 class="svelte-1bt7yps">Suggested pack list</h3> `);
   BulletInfo($$payload, {
-    img: asset("/hanger.png"),
+    img: asset("/hanger.svg"),
     header: "Festive dinner",
     body: "Business formal clothes for the festive dinner in the evening"
   });
   $$payload.out.push(`<!----> `);
   BulletInfo($$payload, {
-    img: asset("/hanger.png"),
+    img: asset("/hanger.svg"),
     header: "Conference",
-    body: "Clothes and shoes for two days"
+    body: "Business casual clothes and shoes for two days"
   });
   $$payload.out.push(`<!----> `);
   BulletInfo($$payload, {
-    img: asset("/hanger.png"),
+    img: asset("/hanger.svg"),
     header: "Pool / sauna",
     body: "Swimwear if you want to use the hotel's outdoor pool or sauna"
+  });
+  $$payload.out.push(`<!----> `);
+  BulletInfo($$payload, {
+    img: asset("/luggage.svg"),
+    header: "Necessities",
+    body: "Work computer and charger"
   });
   $$payload.out.push(`<!----></div> <div class="rooms svelte-1bt7yps"><h2 class="svelte-1bt7yps">Room sharing</h2> <p class="svelte-1bt7yps">Here you can find more information about your stay at Skogshem &amp; Wijk.</p> `);
   RoomFinder($$payload);

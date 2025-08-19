@@ -8,7 +8,7 @@ import { p as page } from "../../chunks/index4.js";
 function _layout($$payload, $$props) {
   push();
   let { children } = $$props;
-  $$payload.out.push(`<main${attr_class("svelte-1pzi8uv", void 0, { "welcome": page.route.id == "/" })}><header class="svelte-1pzi8uv"><button class="svelte-1pzi8uv"><img${attr("src", asset("/logo.png"))} alt="" class="svelte-1pzi8uv"/></button></header> `);
+  $$payload.out.push(`<main${attr_class("svelte-1pzi8uv", void 0, { "welcome": page.route.id == "/" })}><header class="svelte-1pzi8uv"><button class="svelte-1pzi8uv"><img${attr("src", asset("/logo.svg"))} alt="" class="svelte-1pzi8uv"/></button></header> `);
   children?.($$payload);
   $$payload.out.push(`<!----> <footer${attr_class("svelte-1pzi8uv", void 0, {
     "welcome": page.route.id === "/",
