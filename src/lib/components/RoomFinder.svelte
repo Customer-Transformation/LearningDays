@@ -71,7 +71,7 @@
 </label>
 
 {#if matches.length > 0}
-<div class="results" transition:slide onintroend={() => callback()}>
+<div class="results" transition:slide={{ duration: 120 }} onintroend={() => callback()}>
     {#each matches.slice(0, 5) as match}
     <p class="result"><span class="match-person">{match.person}</span> + {match.others}</p>
     {/each}

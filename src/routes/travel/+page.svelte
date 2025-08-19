@@ -7,11 +7,10 @@
 	import RoomFinder from "$lib/components/RoomFinder.svelte";
 	import { pages } from "$lib/data/pages";
 
-    function scrollToBottom() {
-        window.scrollTo({
-            top: document.body.scrollHeight,
-            behavior: "smooth"
-        })
+    let roomSharingDiv: HTMLDivElement
+
+    function scrollToRoomSharing() {
+        roomSharingDiv.scrollIntoView({ behavior: "smooth", block: "start" })
     }
 </script>
 
@@ -28,7 +27,7 @@
         <div class="fade"></div>
         
         <div class="card-info">
-            <h3>Skogshem & Wijk</h3>
+            <h3 class="card-header">Skogshem & Wijk</h3>
             <div class="info-figures">
                 <figure class="info-figure">
                     <img class="icon" src={asset("/calendar-07.png")} alt="">
@@ -78,20 +77,16 @@
     </div>
 
     
-    <div class="rooms">
+    <div bind:this={roomSharingDiv} class="rooms">
         <h2>Room sharing</h2>
         <p>Here you can find more information about your stay at Skogshem & Wijk.</p>
-        <RoomFinder callback={scrollToBottom}/>
+        <RoomFinder callback={scrollToRoomSharing}/>
     </div>
 </div>
 
 <FooterNav previousPage={pages[1]} nextPage={pages[3]}/>
 
 <style>
-    /* .container {
-        display: flex; flex-direction: column; gap: 40px;
-    } */
-
     .welcome {
         margin-top: 40px;
         display: flex; flex-direction: column; gap: 10px;
@@ -125,7 +120,7 @@
         
         .card-img {
             position: absolute; inset: 0;
-            width: 100%; height: 100%;
+            width: 100%; height: 94%;
             object-fit: cover;
             border-radius: 8px;
         }
@@ -135,6 +130,7 @@
             inset: auto auto 94px 16px;
 
             .info-figures {
+                margin-top: 8px;
                 display: flex; gap: 8px;
             }
         }
@@ -146,6 +142,10 @@
             background-color: var(--primary-color);
             border-radius: 4px;
             font-weight: 700;
+        }
+
+        .card-header {
+            font-size: 28px; font-weight: 700; line-height: 120%;
         }
     }
     
