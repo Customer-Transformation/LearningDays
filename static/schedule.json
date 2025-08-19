@@ -285,7 +285,7 @@
             {
                 "time": "14:00 - 15:00",
                 "place": "-",
-                "activity": "Power BI Digital tools for efficiency"
+                "activity": "Ways of Working: Starting a project"
             },
             {
                 "time": "15:00 - 15:20",
@@ -295,7 +295,7 @@
             {
                 "time": "15:20 - 16:20",
                 "place": "-",
-                "activity": "Power BI"
+                "activity": "Ways of Working: Delivering / End a project"
             },
             {
                 "time": "16:20 - 16:30",
@@ -333,17 +333,12 @@
             {
                 "time": "07:00 - 08:15",
                 "place": "-",
-                "activity": "Transport to Skogshem & Wijk"
+                "activity": "Breakfast buffet"
             },
             {
-                "time": "08:15 - 09:15",
+                "time": "08:15 - 10:00",
                 "place": "-",
-                "activity": "Well-being lecture"
-            },
-            {
-                "time": "09:15 - 10:00",
-                "place": "-",
-                "activity": "Sales"
+                "activity": "Project Management"
             },
             {
                 "time": "10:00 - 10:15",
@@ -353,7 +348,7 @@
             {
                 "time": "10:15 - 12:15",
                 "place": "-",
-                "activity": "Visualization Power BI"
+                "activity": "Sales"
             },
             {
                 "time": "12:15 - 13:15",
@@ -361,9 +356,14 @@
                 "activity": "Lunch"
             },
             {
-                "time": "13:15 - 15:15",
+                "time": "13:15 - 14:15",
                 "place": "-",
-                "activity": "Present with impact"
+                "activity": "Well-being"
+            },
+            {
+                "time": "14:15 - 15:15",
+                "place": "-",
+                "activity": "Visualization as CM Digital tools for efficiency"
             },
             {
                 "time": "15:15 - 15:30",
