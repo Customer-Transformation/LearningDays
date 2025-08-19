@@ -17,7 +17,7 @@
 </div>
 
 <style>
-    div {
+    .bullet {
         display: flex; flex-direction: column; gap: 10px;
     }
 
@@ -31,9 +31,6 @@
 
     h4 {
         font-weight: 700;
-        font-size: 16px;
-    }
-    p {
         font-size: 16px;
     }
 </style>

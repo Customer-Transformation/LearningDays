@@ -68,8 +68,6 @@
         );
     });
 
-    let matchi
-
     async function fetchRooms() {
         isLoading = true
 
@@ -112,7 +110,7 @@
                 </figure>
             </div>
         </div>
-        <button class="card-button" onpointerdown={() => goto(resolve("/travel/directions"))}>TO & FROM</button>
+        <button class="card-button" onpointerdown={() => goto(resolve("/travel/directions"))}>TRAVEL INFO</button>
     </div>
 
     <h2>General info</h2>
@@ -173,8 +171,8 @@
     } */
 
     .welcome {
+        margin-top: 40px;
         display: flex; flex-direction: column; gap: 10px;
-
     }
 
     h2 {
@@ -184,6 +182,7 @@
 
     h3 {
         font-size: 32px;
+        line-height: 110%;
         letter-spacing: -.96px;
     }
 
@@ -224,6 +223,7 @@
             height: 50px; width: 186px;
             background-color: var(--primary-color);
             border-radius: 4px;
+            font-weight: 700;
         }
     }
     

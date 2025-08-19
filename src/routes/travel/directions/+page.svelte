@@ -14,7 +14,7 @@
         <img src={asset("/arrow-down-right.png")} alt="">
     </button>
 
-    <h2>To & from</h2>
+    <h2>Travel info</h2>
 
     <div class="intro">
         <p>We have arranged transportation from Skogshem & Wijk from Stockholm Cityterminal through bus. See the schedule for the arranged transportation below.</p>
@@ -41,8 +41,23 @@
 
     <div class="other">
         <h3>Traveling form other cities</h3>
-        <BulletInfo img={asset("/ticket-02.png")} header="Gothenburg / Malmö" body="The conference team will arrange your travel. You will receive your train tickets by email."/>
-        <BulletInfo img={asset("/ticket-02.png")} header="Riga / Jönköping" body="Arrange your own travel to Stockholm. You need to be there at Cityterminalen no later than 09:45 on Aug 28th."/>
+
+        <div class="bullet">
+            <figure>
+                <img class="icon" src={asset("/ticket-02.png")} alt="">
+                <h4>Gothenburg / Malmö</h4>
+            </figure>
+            <p>The conference team will arrange your travel. You will receive your train tickets by email.</p>
+            <p>If you have not received your tickets, reach out to the conference team, <a href="mailto:se-fmlearningfscmc@kpmg.se" class="mail">se-fmlearningfscmc@kpmg.se</a></p>
+        </div>
+
+        <div class="bullet">
+            <figure>
+                <img class="icon" src={asset("/ticket-02.png")} alt="">
+                <h4>Riga / Jönköping</h4>
+            </figure>
+            <p>Arrange your own travel to Stockholm. You need to be there at Cityterminalen <span>no later than 09:45 on Aug 28th</span></p>
+        </div>
     </div>
 </div>
 
@@ -67,14 +82,12 @@
     .intro {
         margin-top: 40px;
         display: flex; flex-direction: column; gap: 16px;
-
-        p {
-            font-size: 16px;
-        }
     }
 
     strong {
         color: var(--primary-color);
+        text-transform: uppercase;
+        font-weight: 400;
     }
 
     .bullet-container {
@@ -94,5 +107,26 @@
 
     .mail {
         text-decoration: underline;
+    }
+
+    .bullet {
+        display: flex; flex-direction: column; gap: 10px;
+        
+        figure {
+            display: flex; gap: 10px;
+        }
+    
+        img {
+            width: 24px; height: 24px;
+        }
+    
+        h4 {
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        span {
+            color: var(--primary-color);
+        }
     }
 </style>

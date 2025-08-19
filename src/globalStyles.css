@@ -30,21 +30,25 @@ h3, h4, p, label, button, span, caption, th, td {
     font-size: 16px;
 }
 
+p { line-height: 120%; }
+
 @font-face {
-  font-family: 'KPMGBold';
-  src: url("./lib/assets/fonts/KPMG-BOLD.TTF") format("truetype");
-  font-weight: 700;
-  font-style: normal;
+    font-family: 'KPMGBold';
+    src: url("./lib/assets/fonts/KPMG-BOLD.TTF") format("truetype");
+    font-weight: 700;
+    font-style: normal;
 }
 
 @font-face {
-  font-family: 'Univers';
-  src: url("./lib/assets/fonts/UNIVERSFORKPMG.TTF") format("truetype");
-  font-weight: 400;
+    font-family: 'Univers';
+    src: url("./lib/assets/fonts/UNIVERSFORKPMG.TTF") format("truetype");
+    font-weight: 400;
+    font-style: normal;
 }
 
 @font-face {
-  font-family: 'Univers';
-  src: url("./lib/assets/fonts/UNIVERSFORKPMG-BOLD.TTF") format("truetype");
-  font-weight: 700;
+    font-family: 'Univers';
+    src: url("./lib/assets/fonts/UNIVERSFORKPMG-BOLD.TTF") format("truetype");
+    font-weight: 700;
+    font-style: normal;
 }

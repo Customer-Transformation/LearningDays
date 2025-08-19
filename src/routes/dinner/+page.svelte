@@ -58,7 +58,6 @@
     .poster {
         position: relative;
         height: 475px;
-        background-color: var(--primary-color);
         margin-top: 40px;
 
         display: flex; justify-content: center;
@@ -143,10 +142,16 @@
     h4 {
         margin: 64px 0px;
         font-size: 32px;
+        text-align: center;
+        line-height: 110%;
     }
 
     .hosts {
         display: flex; flex-direction: column; gap: 20px;
+
+        h2 {
+            font-size: 64px;
+        }
     }
 
     .people {

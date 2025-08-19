@@ -62,6 +62,8 @@
 
 <MenuButton name="Agenda"/>
 
+<p>The MC & FS Learning days will be used to drive both learning & culture building. Here you will find detailed schedules for all our colleagues, select your role to find out more.</p>
+
 {#if allSchedules}
 <ul class="schedules">
     {#each allSchedules as { key, label, items}}
@@ -119,6 +121,10 @@
 <FooterNav previousPage={pages[2]} nextPage={pages[4]}/>
 
 <style>
+    p {
+        margin-top: 40px;
+    }
+
     ul {
         margin-top: 48px;
         width: 100%;
