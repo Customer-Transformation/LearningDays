@@ -32,20 +32,20 @@ function RoomFinder($$payload, $$props) {
       }));
     });
   })();
-  $$payload.out.push(`<div${attr_class("searchbar svelte-f5sh11", void 0, { "active": isSearching })}><img${attr("src", asset("/calendar-07.png"))} alt="" class="icon"/> <input type="text"${attr("value", searchString)} placeholder="Enter your name here" class="svelte-f5sh11"/></div> `);
+  $$payload.out.push(`<div${attr_class("container svelte-1yyxu3s", void 0, { "fixed": isSearching })}><div${attr_class("searchbar svelte-1yyxu3s", void 0, { "active": isSearching })}><img${attr("src", asset("/calendar-07.png"))} alt="" class="icon"/> <input type="text"${attr("value", searchString)} placeholder="Enter your name here" class="svelte-1yyxu3s"/></div> `);
   if (matches.length > 0) {
     $$payload.out.push("<!--[-->");
     const each_array = ensure_array_like(matches.slice(0, 5));
-    $$payload.out.push(`<div class="results svelte-f5sh11"><!--[-->`);
+    $$payload.out.push(`<div class="results svelte-1yyxu3s"><!--[-->`);
     for (let $$index = 0, $$length = each_array.length; $$index < $$length; $$index++) {
       let match = each_array[$$index];
-      $$payload.out.push(`<p class="result svelte-f5sh11"><span class="match-person svelte-f5sh11">${escape_html(match.person)}</span> + ${escape_html(match.others)}</p>`);
+      $$payload.out.push(`<p class="result svelte-1yyxu3s"><span class="match-person svelte-1yyxu3s">${escape_html(match.person)}</span> + ${escape_html(match.others)}</p>`);
     }
     $$payload.out.push(`<!--]--></div>`);
   } else {
     $$payload.out.push("<!--[!-->");
   }
-  $$payload.out.push(`<!--]-->`);
+  $$payload.out.push(`<!--]--></div>`);
   pop();
 }
 function _page($$payload, $$props) {
