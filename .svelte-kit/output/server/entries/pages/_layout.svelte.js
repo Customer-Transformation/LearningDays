@@ -8,12 +8,12 @@ import { p as page } from "../../chunks/index4.js";
 function _layout($$payload, $$props) {
   push();
   let { children } = $$props;
-  $$payload.out.push(`<main${attr_class("svelte-k7ylsk", void 0, { "welcome": page.route.id == "/" })}><header class="svelte-k7ylsk"><button class="svelte-k7ylsk"><img${attr("src", asset("/logo.png"))} alt="" class="svelte-k7ylsk"/></button></header> `);
+  $$payload.out.push(`<main${attr_class("svelte-6dhzno", void 0, { "welcome": page.route.id == "/" })}><header class="svelte-6dhzno"><button class="svelte-6dhzno"><img${attr("src", asset("/logo.png"))} alt="" class="svelte-6dhzno"/></button></header> `);
   children?.($$payload);
-  $$payload.out.push(`<!----> <footer${attr_class("svelte-k7ylsk", void 0, {
+  $$payload.out.push(`<!----> <footer${attr_class("svelte-6dhzno", void 0, {
     "welcome": page.route.id === "/",
     "menu": page.route.id === "/menu"
-  })}><span class="svelte-k7ylsk">Designed &amp; built by Customer Team MC</span></footer></main>`);
+  })}><span class="svelte-6dhzno">Designed &amp; built by Customer Team MC</span></footer></main>`);
   pop();
 }
 export {

@@ -12,13 +12,13 @@
 
     <div class="mc">
         <h3>MANAGEMENT CONSULTING</h3>
-        <ul class="top">
+        <ul>
             <figure>
                 <img src={asset("/cael.png")} alt="">
                 <label for="">Carina Elgendahl</label>
             </figure>
             <figure>
-                <img src={asset("/favicon.svg")} alt="">
+                <img src={asset("/daka.png")} alt="">
                 <label for="">David Kåverud</label>
             </figure>
             <figure>
@@ -26,7 +26,7 @@
                 <label for="">Nicole Fogelgren Broberg</label>
             </figure>
         </ul>
-        <ul class="bottom">
+        <ul>
             <figure>
                 <img src={asset("/elbe.png")} alt="">
                 <label for="">Ellen Bergkrans</label>
@@ -40,7 +40,7 @@
 
     <div class="fs">
         <h3>FINANCIAL SERVICES</h3>
-        <ul class="top">
+        <ul>
             <figure>
                 <img src={asset("/stva.png")} alt="">
                 <label for="">Stefan Varnelid</label>
@@ -54,7 +54,7 @@
                 <label for="">Lina Almbladh</label>
             </figure>
         </ul>
-        <ul class="bottom">
+        <ul>
             <figure>
                 <img src={asset("/lime.png")} alt="">
                 <label for="">Linda Melander</label>
@@ -62,6 +62,24 @@
             <figure>
                 <img src={asset("/nama.png")} alt="">
                 <label for="">Natalie Mattsson</label>
+            </figure>
+        </ul>
+    </div>
+
+    <div class="ct">
+        <h3>DESIGN & DEV TEAM (MC)</h3>
+        <ul>
+            <figure>
+                <img src={asset("/roda.png")} alt="">
+                <label for="">Robin Dafnäs</label>
+            </figure>
+            <figure>
+                <img src={asset("/zipe.png")} alt="">
+                <label for="">Zihan Persson</label>
+            </figure>
+            <figure>
+                <img src={asset("/albe.png")} alt="">
+                <label for="">Alfred Berg</label>
             </figure>
         </ul>
     </div>
@@ -74,7 +92,7 @@
         display: flex; flex-direction: column; gap: 40px;
     }
 
-    .mc, .fs {
+    .mc, .fs, .ct {
         display: flex; flex-direction: column; gap: 20px;
 
         h3 {
