@@ -21,21 +21,25 @@
         const q = searchString.trim().toLowerCase();
         if (!q) return [];
 
-        return rooms.flatMap(r =>
-            r.people
-                .filter(fullName => {
+        return rooms.flatMap((r) => {
+            // tag each person with their index so identical names remain distinguishable
+            const indexed = r.people.map((fullName, idx) => ({ fullName, idx }));
+
+            return indexed
+                .filter(({ fullName }) => {
                     const [first = "", last = ""] = fullName.split(" ");
                     return (
                         first.toLowerCase().startsWith(q) ||
                         last.toLowerCase().startsWith(q)
                     );
                 })
-                .map(person => ({
-                    person,
+                .map(({ fullName, idx }) => ({
+                    person: fullName,
                     room: r.id,
-                    others: r.people.filter(o => o !== person)
-                }))
-        );
+                    // exclude only the same *slot*, not the same string
+                    others: r.people.filter((_, j) => j !== idx)
+                }));
+        });
     });
 
     async function fetchRooms() {
@@ -62,10 +66,8 @@
 
 {#if matches.length > 0}
 <div class="results" transition:slide>
-    {#each matches as match}
-    <p class="result">
-        <span class="match-person">{match.person}</span> + <span class="match-other">{match.others}</span>
-    </p>
+    {#each matches.slice(0, 5) as match}
+    <p class="result"><span class="match-person">{match.person}</span> + {match.others}</p>
     {/each}
 </div>
 {/if}
@@ -104,8 +106,11 @@
         display: flex; flex-direction: column; gap: 10px;
         padding: 8px 10px;
     }
-
-    .match-person { font-size: 14px; font-weight: 700; }
-    .match-other { font-size: 12px; font-weight: 400; }
+    
+    p, span { font-size: 14px;  }
+    p {
+        color: var(--secondary-color);
+        overflow: hidden; text-overflow: ellipsis; text-wrap: nowrap;
+    }
 
 </style>

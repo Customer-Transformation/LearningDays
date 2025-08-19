@@ -19,23 +19,27 @@ function RoomFinder($$payload, $$props) {
   let matches = (() => {
     const q = searchString.trim().toLowerCase();
     if (!q) return [];
-    return rooms.flatMap((r) => r.people.filter((fullName) => {
-      const [first = "", last = ""] = fullName.split(" ");
-      return first.toLowerCase().startsWith(q) || last.toLowerCase().startsWith(q);
-    }).map((person) => ({
-      person,
-      room: r.id,
-      others: r.people.filter((o) => o !== person)
-    })));
+    return rooms.flatMap((r) => {
+      const indexed = r.people.map((fullName, idx) => ({ fullName, idx }));
+      return indexed.filter(({ fullName }) => {
+        const [first = "", last = ""] = fullName.split(" ");
+        return first.toLowerCase().startsWith(q) || last.toLowerCase().startsWith(q);
+      }).map(({ fullName, idx }) => ({
+        person: fullName,
+        room: r.id,
+        // exclude only the same *slot*, not the same string
+        others: r.people.filter((_, j) => j !== idx)
+      }));
+    });
   })();
-  $$payload.out.push(`<div${attr_class("searchbar svelte-3jyn61", void 0, { "active": isSearching })}><img${attr("src", asset("/calendar-07.png"))} alt="" class="icon"/> <input type="text"${attr("value", searchString)} placeholder="Enter your name here" class="svelte-3jyn61"/></div> `);
+  $$payload.out.push(`<div${attr_class("searchbar svelte-f5sh11", void 0, { "active": isSearching })}><img${attr("src", asset("/calendar-07.png"))} alt="" class="icon"/> <input type="text"${attr("value", searchString)} placeholder="Enter your name here" class="svelte-f5sh11"/></div> `);
   if (matches.length > 0) {
     $$payload.out.push("<!--[-->");
-    const each_array = ensure_array_like(matches);
-    $$payload.out.push(`<div class="results svelte-3jyn61"><!--[-->`);
+    const each_array = ensure_array_like(matches.slice(0, 5));
+    $$payload.out.push(`<div class="results svelte-f5sh11"><!--[-->`);
     for (let $$index = 0, $$length = each_array.length; $$index < $$length; $$index++) {
       let match = each_array[$$index];
-      $$payload.out.push(`<p class="result"><span class="match-person svelte-3jyn61">${escape_html(match.person)}</span> + <span class="match-other svelte-3jyn61">${escape_html(match.others)}</span></p>`);
+      $$payload.out.push(`<p class="result svelte-f5sh11"><span class="match-person svelte-f5sh11">${escape_html(match.person)}</span> + ${escape_html(match.others)}</p>`);
     }
     $$payload.out.push(`<!--]--></div>`);
   } else {
