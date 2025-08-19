@@ -14,7 +14,7 @@ function _page($$payload, $$props) {
     "PING PONG TABLE",
     "INDOOR MINI GOLF",
     "BOARD GAMES",
-    "SEA ACCESS WITH PRIVATE PIERS",
+    "RELAX ON PRIVATE DOCKS",
     "AIR HOCKEY",
     "KUBB",
     "CORNHOLE",
