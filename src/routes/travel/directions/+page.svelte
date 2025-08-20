@@ -9,7 +9,7 @@
 </script>
 
 <div class="container">
-    <button onpointerdown={() => goto(resolve("/travel"))}>
+    <button onclick={() => goto(resolve("/travel"))}>
         <img src={asset("/arrow-down-right.svg")} alt="">
     </button>
 

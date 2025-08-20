@@ -9,7 +9,7 @@
 
 <main class:welcome={page.route.id == "/"}>
 	<header>
-		<button onpointerdown={() => goto(resolve("/"))}>
+		<button onclick={() => goto(resolve("/"))}>
 			<img src={asset("/logo.svg")} alt="">
 		</button>
 	</header>

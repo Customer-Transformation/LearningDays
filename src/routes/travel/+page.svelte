@@ -39,7 +39,7 @@
                 </figure>
             </div>
         </div>
-        <button class="card-button" onpointerdown={() => goto(resolve("/travel/directions"))}>TRAVEL INFO</button>
+        <button class="card-button" onclick={() => goto(resolve("/travel/directions"))}>TRAVEL INFO</button>
     </div>
 
     <h2>General info</h2>
