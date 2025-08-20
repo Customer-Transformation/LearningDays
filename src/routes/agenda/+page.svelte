@@ -1,144 +1,179 @@
 <script lang="ts">
-	import { asset } from "$app/paths";
 	import FooterNav from "$lib/components/FooterNav.svelte";
 	import MenuButton from "$lib/components/MenuButton.svelte";
 	import { pages } from "$lib/data/pages";
-	import { onMount } from "svelte";
-	import { slide } from "svelte/transition";
-
-    const scheduleKeys = ["associate", "seniorAssociate", "manager", "seniorManager", "director", "partner"] as const
-    type ScheduleKey = typeof scheduleKeys[number]
-
+    
     type Item = {
         time: string
         style: string
         activity: string
     }
-
-    type Schedule = {
-        key: ScheduleKey
-        label: string
-        thursdayItems: Item[]
-        fridayItems: Item[]
-    }
-
-    let loading = $state(true)
-    let activeSchedule = $state<ScheduleKey|null>(null)
-    let allSchedules = $state<Schedule[]>()
-    let activeScheduleContainers = $state<HTMLLIElement[]>([])
-
-
-    async function fetchSchedule() {
-        loading = true
-
-        try {
-            const response = await fetch(asset("/schedule.json"))
-            if (!response.ok) throw new Error("failed to load schedule")
-            const data = await response.json()
-            allSchedules = [
-                { key: "associate", label: "ASSOCIATE", thursdayItems: data.associate.thursday, fridayItems: data.associate.friday },
-                { key: "seniorAssociate", label: "SENIOR ASSOCIATE", thursdayItems: data.seniorAssociate.thursday, fridayItems: data.seniorAssociate.friday },
-                { key: "manager", label: "MANAGER", thursdayItems: data.manager.thursday, fridayItems: data.manager.friday },
-                { key: "seniorManager", label: "SENIOR MANGER", thursdayItems: data.seniorManager.thursday, fridayItems: data.seniorManager.friday },
-                { key: "director", label: "DIRECTOR", thursdayItems: data.director.thursday, fridayItems: data.director.friday },
-                { key: "partner", label: "PARTNER", thursdayItems: data.partner.thursday, fridayItems: data.partner.friday }
-            ]
-        } catch (e) {
-            
-        } finally {
-            loading = false
+    
+    const scheduleThursday: Item[] = [
+        {
+            time: "10:00 - 10:30",
+            style: "grey",
+            activity: "Transport to Skogshem & Wijk"
+        },
+        {
+            time: "10:30 - 11:00",
+            style: "grey",
+            activity: "Arrival and check-in"
+        },
+        {
+            time: "11:00 - 12:00",
+            style: "-",
+            activity: "Introduction & Speaker"
+        },
+        {
+            time: "12:00 - 13:00",
+            style: "grey",
+            activity: "Lunch"
+        },
+        {
+            time: "13:00 - 15:00",
+            style: "-",
+            activity: "Speakers / Lecture"
+        },
+        {
+            time: "15:00 - 15:20",
+            style: "grey",
+            activity: "Break with coffee"
+        },
+        {
+            time: "15:20 - 16:20",
+            style: "-",
+            activity: "Speakers / Lecture"
+        },
+        {
+            time: "16:20 - 16:30",
+            style: "grey",
+            activity: "Break with coffee"
+        },
+        {
+            time: "16:30 - 17:30",
+            style: "-",
+            activity: "Speakers / Lecture"
+        },
+        {
+            time: "17:30 - 19:30",
+            style: "grey",
+            activity: "Free time: spa / activities"
+        },
+        {
+            time: "19:30 - 20:00",
+            style: "-",
+            activity: "Pre-drinks"
+        },
+        {
+            time: "20:00 - 22:30",
+            style: "-",
+            activity: "Festive 3-course dinner"
+        },
+        {
+            time: "22:20 - 24:00",
+            style: "-",
+            activity: "Party!"
         }
-    }
+    ]
+    
+    const scheduleFriday: Item[] = [
+        {
+            time: "07:00 - 08:15",
+            style: "grey",
+            activity: "Breakfast buffet"
+        },
+        {
+            time: "08:15 - 10:00",
+            style: "-",
+            activity: "Speakers / Lecture"
+        },
+        {
+            time: "10:00 - 10:15",
+            style: "grey",
+            activity: "Break with coffee"
+        },
+        {
+            time: "10:15 - 12:15",
+            style: "-",
+            activity: "Speakers / Lecture"
+        },
+        {
+            time: "12:15 - 13:15",
+            style: "grey",
+            activity: "Lunch"
+        },
+        {
+            time: "13:15 - 15:15",
+            style: "-",
+            activity: "Speakers / Lecture"
+        },
+        {
+            time: "15:15 - 15:30",
+            style: "-",
+            activity: "Closing session"
+        },
+        {
+            time: "15:30 - 15:45",
+            style: "grey",
+            activity: "Checkout / Go to bus"
+        },
+        {
+            time: "15:45 - 16:15",
+            style: "grey",
+            activity: "Transport to Cityterminalen"
+        }
+    ]
 
-    onMount(fetchSchedule)
 </script>
 
 <MenuButton name="Agenda"/>
 
-<p>The MC & FS Learning days will be used to drive both learning & culture building. Here you will find detailed schedules for all our colleagues, select your role to find out more.</p>
+<p>The MC & FSC Learning days will be used to drive both learning & culture building. A detailed schedule for speakers and lectures will be published at a later time.</p>
 
-{#if allSchedules}
-<ul class="schedules">
-    {#each allSchedules as { key, label, thursdayItems, fridayItems}, i}
-    <li bind:this={activeScheduleContainers[i]}>
-        <button onclick={() => activeSchedule === key ? activeSchedule = null : activeSchedule = key}>
-            <span>{label}</span>
-            <img src={activeSchedule === key ? asset("/minus.svg") : asset("/plus.svg")} alt="" class="icon">
-        </button>
-
-        {#if activeSchedule === key}
-        <div class="schedule" transition:slide onintroend={() => activeScheduleContainers[i].scrollIntoView({ behavior: "smooth", block: "start" })}>
-            <table>
-                <caption>THURSDAY 28TH</caption>
-                <thead>
-                    <tr>
-                        <th>TIME</th>
-                        <th>ACTIVITY</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {#each thursdayItems as item}
-                    <tr>
-                        <th style:color={item.style === "grey" ? "var(--secondary-color)" : "white"}>{item.time}</th>
-                        <td style:color={item.style === "grey" ? "var(--secondary-color)" : "white"}>{item.activity}</td>
-                    </tr>
-                    {/each}
-                </tbody>
-            </table>
-            
-            <table>
-                <caption>FRIDAY 29TH</caption>
-                <thead>
-                    <tr>
-                        <th>TIME</th>
-                        <th>ACTIVITY</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {#each fridayItems as item}
-                    <tr>
-                        <th style:color={item.style === "grey" ? "var(--secondary-color)" : "white"}>{item.time}</th>
-                        <td style:color={item.style === "grey" ? "var(--secondary-color)" : "white"}>{item.activity}</td>
-                    </tr>
-                    {/each}
-                </tbody>
-            </table>
-        </div>        
-        {/if}
-    </li>
-    <hr>
-    {/each}
-</ul>
-{/if}
+<div class="schedule">
+    <table>
+        <caption>THURSDAY 28TH</caption>
+        <thead>
+            <tr>
+                <th>TIME</th>
+                <th>ACTIVITY</th>
+            </tr>
+        </thead>
+        <tbody>
+            {#each scheduleThursday as item}
+            <tr>
+                <th style:color={item.style === "grey" ? "var(--secondary-color)" : "white"}>{item.time}</th>
+                <td style:color={item.style === "grey" ? "var(--secondary-color)" : "white"}>{item.activity}</td>
+            </tr>
+            {/each}
+        </tbody>
+    </table>
+    
+    <table>
+        <caption>FRIDAY 29TH</caption>
+        <thead>
+            <tr>
+                <th>TIME</th>
+                <th>ACTIVITY</th>
+            </tr>
+        </thead>
+        <tbody>
+            {#each scheduleFriday as item}
+            <tr>
+                <th style:color={item.style === "grey" ? "var(--secondary-color)" : "white"}>{item.time}</th>
+                <td style:color={item.style === "grey" ? "var(--secondary-color)" : "white"}>{item.activity}</td>
+            </tr>
+            {/each}
+        </tbody>
+    </table>
+</div>
 
 <FooterNav previousPage={pages[2]} nextPage={pages[4]}/>
 
 <style>
     p {
         margin-top: 40px;
-    }
-
-    ul {
-        margin-top: 48px;
-        width: 100%;
-
-        display: flex; flex-direction: column; gap: 10px;
-    }
-
-    button {
-        width: 100%;
-        background-color: transparent;
-
-        display: flex; justify-content: space-between; align-items: center;
-    }
-
-    .icon {
-        width: 24px; height: 24px;
-    }
-
-    hr {
-        background-color: var(--secondary-color);
-        height: .8px;
     }
     
     .schedule {

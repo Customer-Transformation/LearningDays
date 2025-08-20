@@ -50,7 +50,12 @@
     </div>
 </div>
 
-<DinnerSeating />
+<div class="seating">
+    <h2>Dinner seating</h2>
+    <div class="temp">
+        <span>COMING SOON</span>
+    </div>
+</div>
 
 <FooterNav previousPage={pages[3]} nextPage={pages[5]}/>
 
@@ -139,6 +144,10 @@
         font-size: 56px; line-height: 90%;
     }
 
+    h2 {
+        font-size: 64px;
+    }
+
     h4 {
         margin: 64px 0px;
         font-size: 32px;
@@ -149,11 +158,8 @@
     .hosts {
         display: flex; flex-direction: column; gap: 20px;
 
-        h2 {
-            font-size: 64px;
-        }
     }
-
+    
     .people {
         display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; align-items: start; justify-items: center;
     }
@@ -173,6 +179,22 @@
             font-size: 12px;
             text-align: center;
         }
+    }
+
+    .seating {
+        margin-top: 48px;
+    }
+
+
+
+
+
+    .temp {
+        margin-top: 20px;
+
+        height: 50px; background-color: var(--primary-color);
+        border-radius: 4px;
+        display: grid; place-items: center;
     }
     
 </style>

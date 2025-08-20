@@ -35,7 +35,7 @@
         <TransportBullet header="MEETING POINT" body="SKOGSHEM & WIJK" />
         <TransportBullet header="DESTINATION" body="CITYTERMINALEN" />
         <TransportBullet header="DEPARTURE" body="15:45" />
-        <TransportBullet header="ARRIVAL" body="16:15" />
+        <TransportBullet header="ARRIVAL" body="16:15 - 16:30" />
     </div>
 
     <div class="other">
@@ -47,7 +47,7 @@
                 <h4>Gothenburg / Malmö</h4>
             </figure>
             <p>The conference team will arrange your travel. You will receive your train tickets by email.</p>
-            <p>If you have not received your tickets, reach out to the conference team, <a href="mailto:se-fmlearningfscmc@kpmg.se" class="mail">se-fmlearningfscmc@kpmg.se</a></p>
+            <p>If you have not received your tickets, reach out to the conference team as soon as possible, <a href="mailto:se-fmlearningfscmc@kpmg.se" class="mail">se-fmlearningfscmc@kpmg.se</a></p>
         </div>
 
         <div class="bullet">

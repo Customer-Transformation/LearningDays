@@ -42,7 +42,7 @@
     </div>
 
     <div class="fs">
-        <h3>FINANCIAL SERVICES</h3>
+        <h3>FINANCIAL SERVICES CONSULTING</h3>
         <ul>
             <figure>
                 <img src={asset("/stva.png")} alt="">

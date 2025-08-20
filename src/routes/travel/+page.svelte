@@ -25,7 +25,7 @@
     <div class="card">
         <img class="card-img" src={asset("/travel.png")} alt="">
         <div class="fade"></div>
-        
+
         <div class="card-info">
             <h3 class="card-header">Skogshem & Wijk</h3>
             <div class="info-figures">
@@ -86,7 +86,10 @@
     <div bind:this={roomSharingDiv} class="rooms">
         <h2>Room sharing</h2>
         <p>Here you can find more information about your stay at Skogshem & Wijk.</p>
-        <RoomFinder callback={scrollToRoomSharing}/>
+        <div class="temp">
+            <span>COMING SOON</span>
+        </div>
+        <!-- <RoomFinder callback={scrollToRoomSharing}/> -->
     </div>
 </div>
 
@@ -187,5 +190,16 @@
         p {
             margin-top: 40px;
         }
+    }
+
+
+
+
+    .temp {
+        margin-top: 16px;
+
+        height: 50px; background-color: var(--primary-color);
+        border-radius: 4px;
+        display: grid; place-items: center;
     }
 </style>
