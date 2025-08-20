@@ -119,7 +119,7 @@
             activity: "Checkout / Go to bus"
         },
         {
-            time: "15:45 - 16:15",
+            time: "15:45 - 16:30",
             style: "grey",
             activity: "Transport to Cityterminalen"
         }
