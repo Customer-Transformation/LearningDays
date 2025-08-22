@@ -39,11 +39,11 @@ declare module '$env/static/private' {
 	export const ComSpec: string;
 	export const DriverData: string;
 	export const EDITOR: string;
-	export const EFC_12828_1262719628: string;
-	export const EFC_12828_1592913036: string;
-	export const EFC_12828_2283032206: string;
-	export const EFC_12828_2775293581: string;
-	export const EFC_12828_3789132940: string;
+	export const EFC_7776_1262719628: string;
+	export const EFC_7776_1592913036: string;
+	export const EFC_7776_2283032206: string;
+	export const EFC_7776_2775293581: string;
+	export const EFC_7776_3789132940: string;
 	export const GEMINI_API_KEY: string;
 	export const GIT_ASKPASS: string;
 	export const GOOGLE_API_KEY: string;
@@ -115,6 +115,7 @@ declare module '$env/static/private' {
 	export const VSCODE_GIT_IPC_HANDLE: string;
 	export const windir: string;
 	export const ZES_ENABLE_SYSMAN: string;
+	export const __COMPAT_LAYER: string;
 }
 
 /**
@@ -159,11 +160,11 @@ declare module '$env/dynamic/private' {
 		ComSpec: string;
 		DriverData: string;
 		EDITOR: string;
-		EFC_12828_1262719628: string;
-		EFC_12828_1592913036: string;
-		EFC_12828_2283032206: string;
-		EFC_12828_2775293581: string;
-		EFC_12828_3789132940: string;
+		EFC_7776_1262719628: string;
+		EFC_7776_1592913036: string;
+		EFC_7776_2283032206: string;
+		EFC_7776_2775293581: string;
+		EFC_7776_3789132940: string;
 		GEMINI_API_KEY: string;
 		GIT_ASKPASS: string;
 		GOOGLE_API_KEY: string;
@@ -235,6 +236,7 @@ declare module '$env/dynamic/private' {
 		VSCODE_GIT_IPC_HANDLE: string;
 		windir: string;
 		ZES_ENABLE_SYSMAN: string;
+		__COMPAT_LAYER: string;
 		[key: `PUBLIC_${string}`]: undefined;
 		[key: `${string}`]: string | undefined;
 	}

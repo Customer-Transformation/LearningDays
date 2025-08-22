@@ -13,7 +13,7 @@ function _page($$payload, $$props) {
     {
       time: "10:30 - 11:00",
       style: "grey",
-      activity: "Arrival and check-in"
+      activity: "Arrival and baggage storage"
     },
     {
       time: "11:00 - 12:00",
@@ -49,7 +49,7 @@ function _page($$payload, $$props) {
     {
       time: "17:30 - 19:30",
       style: "grey",
-      activity: "Free time: spa / activities"
+      activity: "Check-in and free time"
     },
     { time: "19:30 - 20:00", style: "-", activity: "Pre-drinks" },
     {
@@ -73,7 +73,7 @@ function _page($$payload, $$props) {
     {
       time: "10:00 - 10:15",
       style: "grey",
-      activity: "Break with coffee"
+      activity: "Check-out and coffee break"
     },
     {
       time: "10:15 - 12:15",
@@ -91,11 +91,7 @@ function _page($$payload, $$props) {
       style: "-",
       activity: "Closing session"
     },
-    {
-      time: "15:30 - 15:45",
-      style: "grey",
-      activity: "Checkout / Go to bus"
-    },
+    { time: "15:30 - 15:45", style: "grey", activity: "Go to bus" },
     {
       time: "15:45 - 16:30",
       style: "grey",

@@ -18,7 +18,7 @@
         {
             time: "10:30 - 11:00",
             style: "grey",
-            activity: "Arrival and check-in"
+            activity: "Arrival and baggage storage"
         },
         {
             time: "11:00 - 12:00",
@@ -58,7 +58,7 @@
         {
             time: "17:30 - 19:30",
             style: "grey",
-            activity: "Free time: spa / activities"
+            activity: "Check-in and free time"
         },
         {
             time: "19:30 - 20:00",
@@ -91,7 +91,7 @@
         {
             time: "10:00 - 10:15",
             style: "grey",
-            activity: "Break with coffee"
+            activity: "Check-out and coffee break"
         },
         {
             time: "10:15 - 12:15",
@@ -116,7 +116,7 @@
         {
             time: "15:30 - 15:45",
             style: "grey",
-            activity: "Checkout / Go to bus"
+            activity: "Go to bus"
         },
         {
             time: "15:45 - 16:30",
