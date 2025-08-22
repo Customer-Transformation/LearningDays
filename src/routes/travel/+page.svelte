@@ -19,7 +19,7 @@
 
     <div class="welcome">
         <h3>Welcome to FSC and MC Learning Days</h3>
-        <p>Two days. One mission. FSC and MC are joining forces to break silos, building bridges, and spart game-changing conversations.</p>
+        <p>Two days. One mission. FSC and MC are joining forces to break silos, build bridges, and spark game-changing conversations.</p>
     </div>
 
     <div class="card">
