@@ -84,7 +84,7 @@
 
     <div bind:this={roomSharingDiv} class="rooms">
         <h2>Room sharing</h2>
-        <p>Here you can find more information about your stay at Skogshem & Wijk.</p>
+        <p>Here you can find more information about your stay at Skogshem & Wijk. If your name does not appear, you have you own room</p>
         <PeopleSearchRooms template="room" callback={scrollToRoomSharing}/>
     </div>
 </div>

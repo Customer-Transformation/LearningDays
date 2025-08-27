@@ -70,7 +70,7 @@ function _page($$payload, $$props) {
     header: "Necessities",
     body: "Work computer and charger"
   });
-  $$payload.out.push(`<!----></div> <div class="rooms svelte-1bt7yps"><h2 class="svelte-1bt7yps">Room sharing</h2> <p class="svelte-1bt7yps">Here you can find more information about your stay at Skogshem &amp; Wijk.</p> `);
+  $$payload.out.push(`<!----></div> <div class="rooms svelte-1bt7yps"><h2 class="svelte-1bt7yps">Room sharing</h2> <p class="svelte-1bt7yps">Here you can find more information about your stay at Skogshem &amp; Wijk. If your name does not appear, you have you own room</p> `);
   PeopleSearchRooms($$payload, { template: "room" });
   $$payload.out.push(`<!----></div></div> `);
   FooterNav($$payload, { previousPage: pages[1], nextPage: pages[3] });
