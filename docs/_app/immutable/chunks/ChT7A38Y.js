@@ -1,1 +1,0 @@
-import{T as t,U as T,V as b,W as h,X as k}from"./VEQOL6ZB.js";function u(r,i){return r===i||r?.[k]===i}function d(r={},i,a,S){return t(()=>{var f,s;return T(()=>{f=s,s=[],h(()=>{r!==a(...s)&&(i(r,...s),f&&u(a(...f),r)&&i(null,...f))})}),()=>{b(()=>{s&&u(a(...s),r)&&i(null,...s)})}}),r}export{d as b};

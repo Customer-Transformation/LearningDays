@@ -4,7 +4,7 @@
 	import BulletInfo from "$lib/components/BulletInfo.svelte";
 	import FooterNav from "$lib/components/FooterNav.svelte";
 	import MenuButton from "$lib/components/MenuButton.svelte";
-	import PeopleSearch from "$lib/components/PeopleSearch.svelte";
+	import PeopleSearchRooms from "$lib/components/PeopleSearchRooms.svelte";
 	import { pages } from "$lib/data/pages";
 
     let roomSharingDiv: HTMLDivElement
@@ -85,7 +85,7 @@
     <div bind:this={roomSharingDiv} class="rooms">
         <h2>Room sharing</h2>
         <p>Here you can find more information about your stay at Skogshem & Wijk.</p>
-        <PeopleSearch template="room" callback={scrollToRoomSharing}/>
+        <PeopleSearchRooms template="room" callback={scrollToRoomSharing}/>
     </div>
 </div>
 

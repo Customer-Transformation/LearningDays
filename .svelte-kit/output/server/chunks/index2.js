@@ -93,7 +93,7 @@ function attr(name, value, is_boolean = false) {
 }
 const whitespace = [..." 	\n\r\f \v\uFEFF"];
 function to_class(value, hash, directives) {
-  var classname = "" + value;
+  var classname = value == null ? "" : "" + value;
   if (directives) {
     for (var key in directives) {
       if (directives[key]) {
@@ -113,39 +113,6 @@ function to_class(value, hash, directives) {
     }
   }
   return classname === "" ? null : classname;
-}
-function append_styles(styles, important = false) {
-  var separator = important ? " !important;" : ";";
-  var css = "";
-  for (var key in styles) {
-    var value = styles[key];
-    if (value != null && value !== "") {
-      css += " " + key + ": " + value + separator;
-    }
-  }
-  return css;
-}
-function to_style(value, styles) {
-  if (styles) {
-    var new_style = "";
-    var normal_styles;
-    var important_styles;
-    if (Array.isArray(styles)) {
-      normal_styles = styles[0];
-      important_styles = styles[1];
-    } else {
-      normal_styles = styles;
-    }
-    if (normal_styles) {
-      new_style += append_styles(normal_styles);
-    }
-    if (important_styles) {
-      new_style += append_styles(important_styles, true);
-    }
-    new_style = new_style.trim();
-    return new_style === "" ? null : new_style;
-  }
-  return String(value);
 }
 var current_component = null;
 function getContext(key) {
@@ -274,10 +241,6 @@ function attr_class(value, hash, directives) {
   var result = to_class(value, hash, directives);
   return result ? ` class="${escape_html(result, true)}"` : "";
 }
-function attr_style(value, directives) {
-  var result = to_style(value, directives);
-  return result ? ` style="${escape_html(result, true)}"` : "";
-}
 function ensure_array_like(array_like_or_iterator) {
   if (array_like_or_iterator) {
     return array_like_or_iterator.length !== void 0 ? array_like_or_iterator : Array.from(array_like_or_iterator);
@@ -310,7 +273,6 @@ export {
   getContext as W,
   noop as X,
   ensure_array_like as Y,
-  attr_style as Z,
   EFFECT_RAN as a,
   EFFECT as b,
   BLOCK_EFFECT as c,
