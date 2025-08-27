@@ -41,6 +41,13 @@ bun.lockb
 
 ```
 
+# .vscode\settings.json
+
+```json
+{
+}
+```
+
 # eslint.config.js
 
 ```js
@@ -229,12 +236,15 @@ export {};
     border: none;
 }
 
+html { -webkit-text-size-adjust: 100%; } /* prevents auto text inflation */
+
 body {
   background-color: #000;
 }
 
 h1, h2 {
     font-family: "KPMGBold";
+    font-weight: 700;
 }
 
 h3, h4, p, label, button, span, caption, th, td {
@@ -243,21 +253,27 @@ h3, h4, p, label, button, span, caption, th, td {
     font-size: 16px;
 }
 
+p { line-height: 120%; }
+
 @font-face {
-  font-family: 'KPMGBold';
-  src: url("./lib/assets/fonts/KPMG-BOLD.TTF") format("truetype");
+    font-family: 'KPMGBold';
+    src: url("./lib/assets/fonts/KPMG-BOLD.TTF") format("truetype");
+    font-weight: 700;
+    font-style: normal;
 }
 
 @font-face {
-  font-family: 'Univers';
-  src: url("./lib/assets/fonts/UNIVERSFORKPMG.TTF") format("truetype");
-  font-weight: 400;
+    font-family: 'Univers';
+    src: url("./lib/assets/fonts/UNIVERSFORKPMG.TTF") format("truetype");
+    font-weight: 400;
+    font-style: normal;
 }
 
 @font-face {
-  font-family: 'Univers';
-  src: url("./lib/assets/fonts/UNIVERSFORKPMG-BOLD.TTF") format("truetype");
-  font-weight: 700;
+    font-family: 'Univers';
+    src: url("./lib/assets/fonts/UNIVERSFORKPMG-BOLD.TTF") format("truetype");
+    font-weight: 700;
+    font-style: normal;
 }
 ```
 
@@ -299,7 +315,7 @@ This is a binary file of the type: Binary
 </div>
 
 <style>
-    div {
+    .bullet {
         display: flex; flex-direction: column; gap: 10px;
     }
 
@@ -315,26 +331,328 @@ This is a binary file of the type: Binary
         font-weight: 700;
         font-size: 16px;
     }
-    p {
-        font-size: 16px;
-    }
 </style>
 ```
 
 # src\lib\components\DinnerSeating.svelte
 
 ```svelte
-<div class="container">
- Seating
+<script lang="ts">
+	import { asset } from "$app/paths";
+	import { onMount } from "svelte";
+	import { slide } from "svelte/transition";
+
+	let { callback }: { callback: () => void } = $props();
+
+    type Person = {
+        id: string
+        name: string
+        roomMate: string
+        table: string
+    }
+
+    let isLoading = $state(true)
+    let isSearching = $state(true)
+    let poeple = $state<Person[]>([])
+    let searchString = $state<string>("")
+    
+    let matches: Person[] = $derived.by(() => {
+        if (searchString == "") return []
+
+        const queryTokens = tokenize(searchString)
+
+        return poeple?.filter(person => {
+            const tokenizedName = tokenize(person.name)
+            return queryTokens.every(queryToken => tokenizedName.some(nameToken => nameToken.startsWith(queryToken)))
+        })
+    })
+
+	function onfocus() {
+		isSearching = true;
+		callback();
+	}
+    
+	function onblur() {
+		isSearching = false;
+	}
+
+	function normalizeStr(s: string) {
+		return s
+			.toLowerCase()
+			.normalize("NFD")
+			.replace(/\p{M}/gu, "")
+			.replace(/\s+/g, " ")
+			.trim();
+	}
+
+	function tokenize(s: string) {
+		const n = normalizeStr(s);
+		return n ? n.split(" ") : [];
+	}
+
+    async function fetchPeople() {
+        isLoading = true
+
+        try {
+            const response = await fetch(asset("/people.json"))
+            if (!response.ok) throw new Error("failed to fetch people.json")
+
+            const data: Omit<Person, "id">[] = await response.json()
+            poeple = data.map(person => ({
+                ...person,
+                id: crypto.randomUUID()
+            }))
+        } catch (e) {
+            // noop
+        } finally {
+            isLoading = false
+        }
+    }
+
+    onMount(fetchPeople)
+</script>
+
+<label class="searchbar" class:active={isSearching}>
+    <img src={asset("/search.svg")} alt="" class="icon">    
+    <input type="text" bind:value={searchString} placeholder="Enter your name here" {onfocus} {onblur}>
+</label>
+
+{#if matches.length > 0}
+<div class="results" transition:slide={{ duration: 120 }} onintroend={() => callback()}>
+    {#each matches.slice(0, 5) as match}
+    <p class="result"><span class="match-person">{match.name}</span> - Table {match.table}</p>
+    {/each}
 </div>
+{/if}
+    
+<style>
+    .searchbar {
+        margin-top: 16px;
+        width: 100%;
+        height: 50px;
+        outline: 1px solid var(--primary-color); border-radius: 4px;
+        
+        display: flex; align-items: center; gap: 10px;
+        padding: 8px 10px;
+        
+    }
+
+    .searchbar.active {
+        outline: 2px solid var(--primary-color);
+    }
+
+    input {
+        all: unset;
+        font-family: "Univers";
+        font-size: 16px;
+        
+        &::placeholder {
+            color: white;
+        }
+    }
+
+    .results {
+        margin-top: 16px;
+
+        outline: 2px solid var(--primary-color); border-radius: 4px;
+
+        display: flex; flex-direction: column; gap: 10px;
+        padding: 8px 10px;
+    }
+    
+    p, span { font-size: 14px;  }
+    p {
+        color: var(--secondary-color);
+        overflow: hidden; text-overflow: ellipsis; text-wrap: nowrap;
+    }
+
+</style>
+```
+
+# src\lib\components\FINALAGENDA.svelte
+
+```svelte
+<script lang="ts">
+	import { asset } from "$app/paths";
+	import FooterNav from "$lib/components/FooterNav.svelte";
+	import MenuButton from "$lib/components/MenuButton.svelte";
+	import { pages } from "$lib/data/pages";
+	import { onMount } from "svelte";
+	import { slide } from "svelte/transition";
+
+    const scheduleKeys = ["associate", "seniorAssociate", "manager", "seniorManager", "director", "partner"] as const
+    type ScheduleKey = typeof scheduleKeys[number]
+
+    type Item = {
+        time: string
+        style: string
+        activity: string
+    }
+
+    type Schedule = {
+        key: ScheduleKey
+        label: string
+        thursdayItems: Item[]
+        fridayItems: Item[]
+    }
+
+    let loading = $state(true)
+    let activeSchedule = $state<ScheduleKey|null>(null)
+    let allSchedules = $state<Schedule[]>()
+    let scheduleContainers = $state<HTMLLIElement[]>([])
+
+    $inspect(activeSchedule, scheduleContainers)
+
+
+    async function fetchSchedule() {
+        loading = true
+
+        try {
+            const response = await fetch(asset("/schedule.json"))
+            if (!response.ok) throw new Error("failed to load schedule")
+            const data = await response.json()
+            allSchedules = [
+                { key: "associate", label: "ASSOCIATE", thursdayItems: data.associate.thursday, fridayItems: data.associate.friday },
+                { key: "seniorAssociate", label: "SENIOR ASSOCIATE", thursdayItems: data.seniorAssociate.thursday, fridayItems: data.seniorAssociate.friday },
+                { key: "manager", label: "MANAGER", thursdayItems: data.manager.thursday, fridayItems: data.manager.friday },
+                { key: "seniorManager", label: "SENIOR MANGER", thursdayItems: data.seniorManager.thursday, fridayItems: data.seniorManager.friday },
+                { key: "director", label: "DIRECTOR", thursdayItems: data.director.thursday, fridayItems: data.director.friday },
+                { key: "partner", label: "PARTNER", thursdayItems: data.partner.thursday, fridayItems: data.partner.friday }
+            ]
+        } catch (e) {
+            
+        } finally {
+            loading = false
+        }
+    }
+
+    onMount(fetchSchedule)
+</script>
+
+<MenuButton name="Agenda"/>
+
+<p>The MC & FS Learning days will be used to drive both learning & culture building. Here you will find detailed schedules for all our colleagues, select your role to find out more.</p>
+
+{#if allSchedules}
+<ul class="schedules">
+    {#each allSchedules as { key, label, thursdayItems, fridayItems}, i}
+    <li bind:this={scheduleContainers[i]}>
+        <button onclick={() => activeSchedule === key ? activeSchedule = null : activeSchedule = key}>
+            <span>{label}</span>
+            <img src={activeSchedule === key ? asset("/minus.svg") : asset("/plus.svg")} alt="" class="icon">
+        </button>
+
+        {#if activeSchedule === key}
+        <div class="schedule" transition:slide onintroend={() => scheduleContainers[i].scrollIntoView({ behavior: "smooth", block: "start" })}>
+            <table>
+                <caption>THURSDAY 28TH</caption>
+                <thead>
+                    <tr>
+                        <th>TIME</th>
+                        <th>ACTIVITY</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {#each thursdayItems as item}
+                    <tr>
+                        <th style:color={item.style === "grey" ? "var(--secondary-color)" : "white"}>{item.time}</th>
+                        <td style:color={item.style === "grey" ? "var(--secondary-color)" : "white"}>{item.activity}</td>
+                    </tr>
+                    {/each}
+                </tbody>
+            </table>
+            
+            <table>
+                <caption>FRIDAY 29TH</caption>
+                <thead>
+                    <tr>
+                        <th>TIME</th>
+                        <th>ACTIVITY</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {#each fridayItems as item}
+                    <tr>
+                        <th style:color={item.style === "grey" ? "var(--secondary-color)" : "white"}>{item.time}</th>
+                        <td style:color={item.style === "grey" ? "var(--secondary-color)" : "white"}>{item.activity}</td>
+                    </tr>
+                    {/each}
+                </tbody>
+            </table>
+        </div>        
+        {/if}
+    </li>
+    <hr>
+    {/each}
+</ul>
+{/if}
+
+<FooterNav previousPage={pages[2]} nextPage={pages[4]}/>
 
 <style>
-    .container {
+    p {
+        margin-top: 40px;
+    }
+
+    ul {
         margin-top: 48px;
-        
-        height: 200px;
+        width: 100%;
+
+        display: flex; flex-direction: column; gap: 10px;
+    }
+
+    button {
+        width: 100%;
+        background-color: transparent;
+
+        display: flex; justify-content: space-between; align-items: center;
+    }
+
+    .icon {
+        width: 24px; height: 24px;
+    }
+
+    hr {
         background-color: var(--secondary-color);
+        height: .8px;
+    }
     
+    .schedule {
+        margin-top: 30px; margin-bottom: 10px;
+
+        display: flex; flex-direction: column; gap: 48px;
+    }
+
+    table {
+        border-collapse: collapse;
+    }
+
+    caption {
+        text-align: start;
+        margin-bottom: 8px;
+    }
+
+    thead {
+        background-color: var(--primary-color);
+        height: 30px;
+    }
+
+    tbody {
+
+        th {
+            vertical-align: top;
+            width: 110px;
+        }
+    }
+
+
+    th, td {
+        font-size: 14px;
+        text-align: start;
+        padding: 10px;
+        border-bottom: .8px solid;
+        border-top: .8px solid;
+        border-color: #75778B;
     }
 </style>
 ```
@@ -354,7 +672,7 @@ This is a binary file of the type: Binary
     <div>
         {#if previousPage}
         <button onpointerdown={() => goto(resolve(previousPage.link as any))}>
-            <img src={asset("/leftArrow.png")} alt="">
+            <img src={asset("/arrow-left.svg")} alt="">
         </button>
         <label for="">{previousPage.name}</label>
         {/if}
@@ -363,7 +681,7 @@ This is a binary file of the type: Binary
         {#if nextPage}
         <label for="">{nextPage.name}</label>
         <button onpointerdown={() => goto(resolve(nextPage.link as any))}>
-            <img class="right-arrow" src={asset("/leftArrow.png")} alt="">
+            <img class="right-arrow" src={asset("/arrow-left.svg")} alt="">
         </button>
         {/if}
     </div>
@@ -398,6 +716,27 @@ This is a binary file of the type: Binary
 </style>
 ```
 
+# src\lib\components\Icon.svelte
+
+```svelte
+<script lang="ts">
+	import { draw } from "svelte/transition";
+
+    let { width = 48, height = 20 } = $props()
+
+    let isVisible = $state(false)
+
+    $effect(() => { isVisible = true})
+</script>
+
+{#if isVisible}
+<svg width={width} height={height} viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path in:draw|global d="M5.14298 6.90176H14.7814M4.48524 1.4375V3.07698M15.3126 1.4375V3.07678M18.5001 6.07678L18.5001 17.5625C18.5001 19.2194 17.157 20.5625 15.5001 20.5625H4.50012C2.84327 20.5625 1.50012 19.2194 1.50012 17.5625V6.07678C1.50012 4.41992 2.84327 3.07678 4.50012 3.07678H15.5001C17.157 3.07678 18.5001 4.41992 18.5001 6.07678Z" stroke="#4C00FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+{/if}
+
+```
+
 # src\lib\components\MenuButton.svelte
 
 ```svelte
@@ -408,9 +747,9 @@ This is a binary file of the type: Binary
     let { name }: { name: string} = $props()
 </script>
 
-<button onpointerdown={() => goto(resolve("/menu"))}>
+<button onclick={() => goto(resolve("/menu"))}>
     <span>{name}</span>
-    <img src={asset("/arrow-down-right.png")} alt="">
+    <img src={asset("/arrow-down-right.svg")} alt="">
 </button>
 
 <style>
@@ -450,9 +789,9 @@ This is a binary file of the type: Binary
     let { page = { name: "Welcome", link: "/welcome" } }: { page?: Page } = $props()
 </script>
 
-<button onpointerdown={() => goto(resolve(page.link as any))}>
+<button onclick={() => goto(resolve(page.link as any))}>
     <span>{page.name}</span>
-    <img src={asset("/arrow-down-right.png")} alt="">
+    <img src={asset("/arrow-down-right.svg")} alt="">
 </button>
 
 <style>
@@ -482,32 +821,138 @@ This is a binary file of the type: Binary
 </style>
 ```
 
-# src\lib\components\Person.svelte
+# src\lib\components\RoomFinder.svelte
 
 ```svelte
 <script lang="ts">
-    let { imgUrl, name } = $props()
-</script>
+	import { asset } from "$app/paths";
+	import { onMount } from "svelte";
+	import { slide } from "svelte/transition";
 
-<figure>
-    <img src={imgUrl} alt="">
-    <label for="">{name}</label>
-</figure>
+	let { callback }: { callback: () => void } = $props();
 
-<style>
-    figure {
-        display: flex; flex-direction: column; gap: 12px;
+    type Person = {
+        id: string
+        name: string
+        roomMate: string
+        table: string
+    }
 
-        img {
-            width: 115px; height: 144px;
-            border: 1px dotted;
-        }
+    let isLoading = $state(true)
+    let isSearching = $state(true)
+    let poeple = $state<Person[]>([])
+    let searchString = $state<string>("")
+    
+    let matches: Person[] = $derived.by(() => {
+        if (searchString == "") return []
 
-        label {
-            font-size: 12px;
-            text-align: center;
+        const queryTokens = tokenize(searchString)
+
+        return poeple?.filter(person => {
+            const tokenizedName = tokenize(person.name)
+            return queryTokens.every(queryToken => tokenizedName.some(nameToken => nameToken.startsWith(queryToken)))
+        })
+    })
+
+	function onfocus() {
+		isSearching = true;
+		callback();
+	}
+    
+	function onblur() {
+		isSearching = false;
+	}
+
+	function normalizeStr(s: string) {
+		return s
+			.toLowerCase()
+			.normalize("NFD")
+			.replace(/\p{M}/gu, "")
+			.replace(/\s+/g, " ")
+			.trim();
+	}
+
+	function tokenize(s: string) {
+		const n = normalizeStr(s);
+		return n ? n.split(" ") : [];
+	}
+
+    async function fetchPeople() {
+        isLoading = true
+
+        try {
+            const response = await fetch(asset("/people.json"))
+            if (!response.ok) throw new Error("failed to fetch people.json")
+
+            const data: Omit<Person, "id">[] = await response.json()
+            poeple = data.map(person => ({
+                ...person,
+                id: crypto.randomUUID()
+            }))
+        } catch (e) {
+            // noop
+        } finally {
+            isLoading = false
         }
     }
+
+    onMount(fetchPeople)
+</script>
+
+<label class="searchbar" class:active={isSearching}>
+    <img src={asset("/search.svg")} alt="" class="icon">    
+    <input type="text" bind:value={searchString} placeholder="Enter your name here" {onfocus} {onblur}>
+</label>
+
+{#if matches.length > 0}
+<div class="results" transition:slide={{ duration: 120 }} onintroend={() => callback()}>
+    {#each matches.slice(0, 5) as match}
+    <p class="result"><span class="match-person">{match.name}</span> + {match.roomMate}</p>
+    {/each}
+</div>
+{/if}
+    
+<style>
+    .searchbar {
+        margin-top: 16px;
+        width: 100%;
+        height: 50px;
+        outline: 1px solid var(--primary-color); border-radius: 4px;
+        
+        display: flex; align-items: center; gap: 10px;
+        padding: 8px 10px;
+        
+    }
+
+    .searchbar.active {
+        outline: 2px solid var(--primary-color);
+    }
+
+    input {
+        all: unset;
+        font-family: "Univers";
+        font-size: 16px;
+        
+        &::placeholder {
+            color: white;
+        }
+    }
+
+    .results {
+        margin-top: 16px;
+
+        outline: 2px solid var(--primary-color); border-radius: 4px;
+
+        display: flex; flex-direction: column; gap: 10px;
+        padding: 8px 10px;
+    }
+    
+    p, span { font-size: 14px;  }
+    p {
+        color: var(--secondary-color);
+        overflow: hidden; text-overflow: ellipsis; text-wrap: nowrap;
+    }
+
 </style>
 ```
 
@@ -602,29 +1047,39 @@ export const pages = [
 	let { children } = $props()
 </script>
 
-<main class:welcome={page.url.pathname == "/"}>
+<main class:welcome={page.route.id == "/"}>
 	<header>
-		<button onpointerdown={() => goto(resolve("/"))}>
-			<img src={asset("/logo.png")} alt="">
+		<button onclick={() => goto(resolve("/"))}>
+			<img src={asset("/logo.svg")} alt="">
 		</button>
 	</header>
 
 	{@render children?.()}
 
-	<footer class:reduced={page.url.pathname === "/" || page.url.pathname === "/menu"}>
+	<footer class:welcome={page.route.id === "/"} class:menu={page.route.id === "/menu"} class:travel={page.route.id === "/travel"}>
+		{#if page.route.id === "/"}
 		<span>Designed & built by Customer Team MC</span>
+		{:else}
+		<p>
+			Can't find what you're looking for?<br>
+			Email us → <a href="mailto:se-fmlearningfscmc@kpmg.se">se-fmlearningfscmc@kpmg.se</a>
+		</p>
+		{/if}
 	</footer>
 </main>
 
 <style>
-	main { min-height: 100dvh; width: 100dvw; position: relative; padding: 80px 20px 0px 20px; background: #000; }
+	main { height: 100%; width: 100%; position: relative; padding: 60px 20px 0px 20px; background: #000; }
 	main.welcome { background: var(--gradient); }
-	header { position: absolute; inset: 0; height: 80px; padding: 20px; }
+	header { position: absolute; inset: 0; height: 60px; padding: 20px; }
 	button { width: 48px; height: 20px; background-color: transparent; }
 	img { width: 100%; height: 100%; object-fit: cover; }
-	footer { margin-top: 80px; margin-bottom: 75px; }
-	.reduced { margin-top: 40px; }
-	span { font-size: 12px; color: var(--secondary-color); font-style: italic; }
+	footer { margin-top: 100px; margin-bottom: 100px; }
+	footer.welcome { margin-top: 24px; margin-bottom: 0px; }
+	footer.menu { margin-top: 37px; margin-bottom: 0px; }
+	footer.travel { margin-bottom: 280px; }
+	span, p, a { font-size: 12px; color: var(--secondary-color); font-style: italic; }
+	a { color: var(--primary-color); }
 </style>
 ```
 
@@ -663,7 +1118,7 @@ export const prerender = true;
             </h3>
         </div>
     </div>
-    <button onpointerdown={() => goto(resolve("/menu"))}>WHAT'S ON</button>
+    <button onclick={() => goto(resolve("/menu"))}>WHAT'S ON</button>
 </div>
 
 <style>
@@ -701,7 +1156,7 @@ export const prerender = true;
     }
 
     button {
-        margin-top: 40px;
+        margin-top: 30px;
         height: 50px;
         background-color: var(--primary-color);
         border-radius: 4px;
@@ -717,63 +1172,152 @@ export const prerender = true;
 
 ```svelte
 <script lang="ts">
-	import { asset } from "$app/paths";
 	import FooterNav from "$lib/components/FooterNav.svelte";
 	import MenuButton from "$lib/components/MenuButton.svelte";
 	import { pages } from "$lib/data/pages";
-	import { onMount } from "svelte";
-
+    
     type Item = {
         time: string
-        place: string
+        style: string
         activity: string
     }
-
-    let loading = $state(true)
-    let scheduleThursday = $state<Item[]>([])
-    let scheduleFriday = $state<Item[]>([])
-
-    async function fetchSchedules() {
-        loading = true
-
-        try {
-            const response = await fetch(asset("/scheduleThursday.json"), { cache: "no-store"})
-            if (!response.ok) throw new Error("failed to load schedule")
-            scheduleThursday = await response.json()
-        } catch (e) {
-
-        } 
-
-        try {
-            const response = await fetch(asset("/scheduleFriday.json"), { cache: "no-store"})
-            if (!response.ok) throw new Error("failed to load schedule")
-            scheduleFriday = await response.json()
-        } catch (e) {
-
-        } finally {
-            loading = false
+    
+    const scheduleThursday: Item[] = [
+        {
+            time: "10:00 - 10:30",
+            style: "grey",
+            activity: "Transport to Skogshem & Wijk"
+        },
+        {
+            time: "10:30 - 11:00",
+            style: "grey",
+            activity: "Arrival and baggage storage"
+        },
+        {
+            time: "11:00 - 12:00",
+            style: "-",
+            activity: "Introduction & Speaker"
+        },
+        {
+            time: "12:00 - 13:00",
+            style: "grey",
+            activity: "Lunch"
+        },
+        {
+            time: "13:00 - 15:00",
+            style: "-",
+            activity: "Speakers / Lecture"
+        },
+        {
+            time: "15:00 - 15:20",
+            style: "grey",
+            activity: "Break with coffee"
+        },
+        {
+            time: "15:20 - 16:20",
+            style: "-",
+            activity: "Speakers / Lecture"
+        },
+        {
+            time: "16:20 - 16:30",
+            style: "grey",
+            activity: "Break with coffee"
+        },
+        {
+            time: "16:30 - 17:30",
+            style: "-",
+            activity: "Speakers / Lecture"
+        },
+        {
+            time: "17:30 - 19:30",
+            style: "grey",
+            activity: "Check-in and free time"
+        },
+        {
+            time: "19:30 - 20:00",
+            style: "-",
+            activity: "Pre-drinks"
+        },
+        {
+            time: "20:00 - 22:30",
+            style: "-",
+            activity: "Festive 3-course dinner"
+        },
+        {
+            time: "22:20 - 24:00",
+            style: "-",
+            activity: "Party!"
         }
-    }
+    ]
+    
+    const scheduleFriday: Item[] = [
+        {
+            time: "07:00 - 08:15",
+            style: "grey",
+            activity: "Breakfast buffet"
+        },
+        {
+            time: "08:15 - 10:00",
+            style: "-",
+            activity: "Speakers / Lecture"
+        },
+        {
+            time: "10:00 - 10:15",
+            style: "grey",
+            activity: "Check-out and coffee break"
+        },
+        {
+            time: "10:15 - 12:15",
+            style: "-",
+            activity: "Speakers / Lecture"
+        },
+        {
+            time: "12:15 - 13:15",
+            style: "grey",
+            activity: "Lunch"
+        },
+        {
+            time: "13:15 - 15:15",
+            style: "-",
+            activity: "Speakers / Lecture"
+        },
+        {
+            time: "15:15 - 15:30",
+            style: "-",
+            activity: "Closing session"
+        },
+        {
+            time: "15:30 - 15:45",
+            style: "grey",
+            activity: "Go to bus"
+        },
+        {
+            time: "15:45 - 16:30",
+            style: "grey",
+            activity: "Transport to Cityterminalen"
+        }
+    ]
 
-    onMount(fetchSchedules)
 </script>
 
 <MenuButton name="Agenda"/>
 
-<div class="table-container">
+<p>The MC & FSC Learning days will be used to drive both learning & culture building. A detailed schedule for speakers and lectures will be published at a later time.</p>
+
+<div class="schedule">
     <table>
         <caption>THURSDAY 28TH</caption>
         <thead>
             <tr>
-                <th>Time</th>
-                <th>Activity</th>
+                <th>TIME</th>
+                <th>ACTIVITY</th>
             </tr>
         </thead>
         <tbody>
             {#each scheduleThursday as item}
             <tr>
-                <th>{item.time}</th>
-                <td>{item.activity}</td>
+                <th style:color={item.style === "grey" ? "var(--secondary-color)" : "white"}>{item.time}</th>
+                <td style:color={item.style === "grey" ? "var(--secondary-color)" : "white"}>{item.activity}</td>
             </tr>
             {/each}
         </tbody>
@@ -783,15 +1327,15 @@ export const prerender = true;
         <caption>FRIDAY 29TH</caption>
         <thead>
             <tr>
-                <th>Time</th>
-                <th>Place</th>
+                <th>TIME</th>
+                <th>ACTIVITY</th>
             </tr>
         </thead>
         <tbody>
             {#each scheduleFriday as item}
             <tr>
-                <th>{item.time}</th>
-                <td>{item.activity}</td>
+                <th style:color={item.style === "grey" ? "var(--secondary-color)" : "white"}>{item.time}</th>
+                <td style:color={item.style === "grey" ? "var(--secondary-color)" : "white"}>{item.activity}</td>
             </tr>
             {/each}
         </tbody>
@@ -801,8 +1345,12 @@ export const prerender = true;
 <FooterNav previousPage={pages[2]} nextPage={pages[4]}/>
 
 <style>
-    .table-container {
+    p {
         margin-top: 40px;
+    }
+    
+    .schedule {
+        margin-top: 30px; margin-bottom: 10px;
 
         display: flex; flex-direction: column; gap: 48px;
     }
@@ -813,6 +1361,7 @@ export const prerender = true;
 
     caption {
         text-align: start;
+        margin-bottom: 8px;
     }
 
     thead {
@@ -820,9 +1369,14 @@ export const prerender = true;
         height: 30px;
     }
 
-    tr {
-        margin: 10px 0px;
+    tbody {
+
+        th {
+            vertical-align: top;
+            width: 110px;
+        }
     }
+
 
     th, td {
         font-size: 14px;
@@ -839,26 +1393,29 @@ export const prerender = true;
 
 ```svelte
 <script lang="ts">
-	import { goto } from "$app/navigation";
-	import { asset, resolve } from "$app/paths"
-	import FooterNav from "$lib/components/FooterNav.svelte";
-	import MenuButton from "$lib/components/MenuButton.svelte";
-	import NavButton from "$lib/components/NavButton.svelte";
-	import { pages } from "$lib/data/pages";
+	import { asset } from "$app/paths"
+	import FooterNav from "$lib/components/FooterNav.svelte"
+	import MenuButton from "$lib/components/MenuButton.svelte"
+	import { pages } from "$lib/data/pages"
 </script>
 
 <div class="container">
     <MenuButton name="Crew" />
 
+    <div class="intro">
+        <p>This is the incredible team that has worked hard to bring this conference together and make everything happen!</p>
+        <p>If you have any questions or concerns, don’t hesitate to reach out to any of us. We’re all here to make sure we have an incredible two days together.</p>
+    </div>
+
     <div class="mc">
         <h3>MANAGEMENT CONSULTING</h3>
-        <ul class="top">
+        <ul>
             <figure>
                 <img src={asset("/cael.png")} alt="">
                 <label for="">Carina Elgendahl</label>
             </figure>
             <figure>
-                <img src={asset("/favicon.svg")} alt="">
+                <img src={asset("/daka.png")} alt="">
                 <label for="">David Kåverud</label>
             </figure>
             <figure>
@@ -866,7 +1423,7 @@ export const prerender = true;
                 <label for="">Nicole Fogelgren Broberg</label>
             </figure>
         </ul>
-        <ul class="bottom">
+        <ul>
             <figure>
                 <img src={asset("/elbe.png")} alt="">
                 <label for="">Ellen Bergkrans</label>
@@ -879,8 +1436,8 @@ export const prerender = true;
     </div>
 
     <div class="fs">
-        <h3>FINANCIAL SERVICES</h3>
-        <ul class="top">
+        <h3>FINANCIAL SERVICES CONSULTING</h3>
+        <ul>
             <figure>
                 <img src={asset("/stva.png")} alt="">
                 <label for="">Stefan Varnelid</label>
@@ -894,7 +1451,7 @@ export const prerender = true;
                 <label for="">Lina Almbladh</label>
             </figure>
         </ul>
-        <ul class="bottom">
+        <ul>
             <figure>
                 <img src={asset("/lime.png")} alt="">
                 <label for="">Linda Melander</label>
@@ -905,16 +1462,36 @@ export const prerender = true;
             </figure>
         </ul>
     </div>
+
+    <div class="ct">
+        <h3>DESIGN & DEV TEAM (MC)</h3>
+        <ul>
+            <figure>
+                <img src={asset("/roda.png")} alt="">
+                <label for="">Robin Dafnäs</label>
+            </figure>
+            <figure>
+                <img src={asset("/zipe.png")} alt="">
+                <label for="">Zihan Persson</label>
+            </figure>
+            <figure>
+                <img src={asset("/albe.png")} alt="">
+                <label for="">Alfred Berg</label>
+            </figure>
+        </ul>
+    </div>
 </div>
 
 <FooterNav previousPage={pages[5]}/>
 
 <style>
-    .container {
-        display: flex; flex-direction: column; gap: 40px;
+    .intro {
+        margin-top: 40px;
+        display: flex; flex-direction: column; gap: 16px;
     }
 
-    .mc, .fs {
+    .mc, .fs, .ct {
+        margin-top: 48px;
         display: flex; flex-direction: column; gap: 20px;
 
         h3 {
@@ -1002,7 +1579,13 @@ export const prerender = true;
     </div>
 </div>
 
-<DinnerSeating />
+<div class="seating">
+    <!-- <h2>Dinner seating</h2>
+    <div class="temp">
+        <span>COMING SOON</span>
+    </div> -->
+    <DinnerSeating callback={() => { console.log("CALLBACK")}}/>
+</div>
 
 <FooterNav previousPage={pages[3]} nextPage={pages[5]}/>
 
@@ -1010,7 +1593,6 @@ export const prerender = true;
     .poster {
         position: relative;
         height: 475px;
-        background-color: var(--primary-color);
         margin-top: 40px;
 
         display: flex; justify-content: center;
@@ -1092,15 +1674,22 @@ export const prerender = true;
         font-size: 56px; line-height: 90%;
     }
 
+    h2 {
+        font-size: 64px;
+    }
+
     h4 {
         margin: 64px 0px;
         font-size: 32px;
+        text-align: center;
+        line-height: 110%;
     }
 
     .hosts {
         display: flex; flex-direction: column; gap: 20px;
-    }
 
+    }
+    
     .people {
         display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; align-items: start; justify-items: center;
     }
@@ -1121,7 +1710,10 @@ export const prerender = true;
             text-align: center;
         }
     }
-    
+
+    .seating {
+        margin-top: 48px;
+    }    
 </style>
 ```
 
@@ -1137,15 +1729,20 @@ export const prerender = true;
 	const activities = [
 		"SHUFFLEBOARD",
 		"HEATED OUTDOOR POOL",
-		"SAUNAS",
+		"SAUNA",
 		"GYM",
 		"POOL TABLE",
 		"PING PONG TABLE",
 		"INDOOR MINI GOLF",
 		"BOARD GAMES",
-		"SEA ACCESS WITH PRIVATE PIERS",
+		"RELAX ON PRIVATE DOCKS",
 		"AIR HOCKEY",
-		"KUBB"
+		"KUBB",
+		"CORNHOLE",
+		"BOULE",
+		"GAME ROOM (DART, ARCADE GAMES, PS4, FLIPPER)",
+		"OUTDOOR HOT TUB",
+		"KARAOKE"
 	]
 
 </script>
@@ -1177,6 +1774,7 @@ export const prerender = true;
 	.activity {
 		display: inline;
 		font-size: 32px;
+		letter-spacing: -3%;
 	}
 
 	.activity:not(:last-child)::after{
@@ -1188,6 +1786,7 @@ export const prerender = true;
 		background: white;
 		vertical-align: middle;       /* align with text */
 		margin: 0 10px;  /* control spacing */
+		transform: translateY(-50%);
 	}
 
 	.images {
@@ -1240,87 +1839,14 @@ export const prerender = true;
 	import BulletInfo from "$lib/components/BulletInfo.svelte";
 	import FooterNav from "$lib/components/FooterNav.svelte";
 	import MenuButton from "$lib/components/MenuButton.svelte";
+	import RoomFinder from "$lib/components/RoomFinder.svelte";
 	import { pages } from "$lib/data/pages";
-	import { onMount } from "svelte";
 
-    let rooms = $state<Room[]>([])
-    let isLoading = $state(true)
-    let searchString = $state<string>("")
+    let roomSharingDiv: HTMLDivElement
 
-    let filteredRooms: Room[] = $derived.by(() => {
-        return searchString === "" ?
-            rooms :
-            rooms.filter(r =>
-                r.people.some(p => {
-                    const [first, last] = p.split(" ")
-                    return (
-                        first.toLowerCase().startsWith(searchString.toLowerCase()) ||
-                        last.toLowerCase().startsWith(searchString.toLowerCase())
-                    )
-                })
-            )
-    })
-
-    let filteredPeople: string[] = $derived.by(() => {
-        const people = [""]
-        if (searchString === "")
-            return people
-        return rooms
-            .flatMap(r => r.people)
-            .filter(p => {
-                const [first, last] = p.split(" ")
-                return first.toLowerCase().startsWith(searchString.toLowerCase()) || 
-                    last.toLowerCase().startsWith(searchString.toLowerCase())
-            })
-    })
-
-    type Room = {
-        id: string
-        people: string[]
+    function scrollToRoomSharing() {
+        roomSharingDiv.scrollIntoView({ behavior: "smooth", block: "start" })
     }
-
-    type Match = {
-        person: string, room: string, others: string[]
-    }
-
-    let matches: Match[] = $derived.by(() => {
-        const q = searchString.trim().toLowerCase();
-        if (!q) return [];
-
-        return rooms.flatMap((r) =>
-            r.people
-                .filter((full) => {
-                    const [first = "", last = ""] = full.split(" ");
-                    return (
-                        first.toLowerCase().startsWith(q) ||
-                        last.toLowerCase().startsWith(q)
-                    );
-                })
-                .map((person) => ({
-                    person,
-                    room: r.id,
-                    others: r.people.filter((o) => o !== person)
-                }))
-        );
-    });
-
-    let matchi
-
-    async function fetchRooms() {
-        isLoading = true
-
-        try {
-            const response = await fetch(asset("/rooms.json"))
-            if (!response.ok) throw new Error("failed to load rooms")
-            rooms = await response.json()
-        } catch (e) {
-            console.log(e)
-        } finally {
-            isLoading = false
-        }
-    }
-
-    onMount(fetchRooms)
 </script>
 
 <div class="container">
@@ -1328,28 +1854,30 @@ export const prerender = true;
 
     <div class="welcome">
         <h3>Welcome to FSC and MC Learning Days</h3>
-        <p>Two days. One mission. FSC and MC are joining forces to break silos, building bridges, and spart game-changing conversations.</p>
+        <p>Two days. One mission. FSC and MC are joining forces to break silos, build bridges, and spark game-changing conversations.</p>
     </div>
 
     <div class="card">
         <img class="card-img" src={asset("/travel.png")} alt="">
         <div class="fade"></div>
-        
+
         <div class="card-info">
-            <h3>Skogshem & Wijk</h3>
+            <h3 class="card-header">Skogshem & Wijk</h3>
             <div class="info-figures">
                 <figure class="info-figure">
-                    <img class="icon" src={asset("/calendar-07.png")} alt="">
+                    <img class="icon" src={asset("/calendar.svg")} alt="">
                     <span>28-29 August</span>
                 </figure>
                 <figure class="info-figure">
-                    <img class="icon" src={asset("/marker-06.png")} alt="">
+                    <img class="icon" src={asset("/marker.svg")} alt="">
                     <span>Hustegavägen 1, Lidingö</span>
                 </figure>
             </div>
         </div>
-        <button class="card-button" onpointerdown={() => goto(resolve("/travel/directions"))}>TO & FROM</button>
+        <button class="card-button" onclick={() => goto(resolve("/travel/directions"))}>TRAVEL INFO</button>
     </div>
+
+    <h2>General info</h2>
 
     <div class="info">
         <h3>Time reporting</h3>
@@ -1365,54 +1893,57 @@ export const prerender = true;
         <h3>Suggested pack list</h3>
 
         <BulletInfo 
-            img={asset("/hanger.png")} 
+            img={asset("/hanger.svg")} 
             header="Festive dinner" 
             body="Business formal clothes for the festive dinner in the evening"
         />
 
         <BulletInfo 
-            img={asset("/hanger.png")} 
+            img={asset("/hanger.svg")} 
             header="Conference" 
-            body="Clothes and shoes for two days"
+            body="Business casual clothes and shoes for two days"
         />
 
         <BulletInfo 
-            img={asset("/hanger.png")} 
+            img={asset("/hanger.svg")} 
             header="Pool / sauna" 
             body="Swimwear if you want to use the hotel's outdoor pool or sauna"
         />
+
+        <BulletInfo 
+            img={asset("/luggage.svg")} 
+            header="Necessities" 
+            body="Work computer and charger"
+        />
     </div>
 
-    <figure class="rooms">
-        <input type="text" bind:value={searchString}>
-        <ul>
-            {#each matches as match}
-            <li>
-                <span class="room-person">{match.person}:</span>
-                <span class="room-info">Room {match.room} with {match.others}</span>
-            </li>
-            {/each}
-        </ul>
-        <!-- {#each filteredRooms as room}
-        <p>{room.people}</p>
-        {/each} -->
-    </figure>
+    
+    <div bind:this={roomSharingDiv} class="rooms">
+        <h2>Room sharing</h2>
+        <p>Here you can find more information about your stay at Skogshem & Wijk.</p>
+        <!-- <div class="temp">
+            <span>COMING SOON</span>
+        </div> -->
+        <RoomFinder callback={scrollToRoomSharing}/>
+    </div>
 </div>
 
 <FooterNav previousPage={pages[1]} nextPage={pages[3]}/>
 
 <style>
-    .container {
-        display: flex; flex-direction: column; gap: 40px;
+    .welcome {
+        margin-top: 40px;
+        display: flex; flex-direction: column; gap: 10px;
     }
 
-    .welcome {
-        display: flex; flex-direction: column; gap: 10px;
-
+    h2 {
+        margin-top: 48px;
+        font-size: 64px;
     }
 
     h3 {
         font-size: 32px;
+        line-height: 110%;
         letter-spacing: -.96px;
     }
 
@@ -1422,6 +1953,8 @@ export const prerender = true;
     }
 
     .card {
+        margin-top: 40px;
+
         position: relative;
         height: 424px;
         border-radius: 8px;
@@ -1431,7 +1964,7 @@ export const prerender = true;
         
         .card-img {
             position: absolute; inset: 0;
-            width: 100%; height: 100%;
+            width: 100%; height: 94%;
             object-fit: cover;
             border-radius: 8px;
         }
@@ -1441,6 +1974,7 @@ export const prerender = true;
             inset: auto auto 94px 16px;
 
             .info-figures {
+                margin-top: 8px;
                 display: flex; gap: 8px;
             }
         }
@@ -1451,6 +1985,11 @@ export const prerender = true;
             height: 50px; width: 186px;
             background-color: var(--primary-color);
             border-radius: 4px;
+            font-weight: 700;
+        }
+
+        .card-header {
+            font-size: 28px; font-weight: 700; line-height: 120%;
         }
     }
     
@@ -1472,7 +2011,7 @@ export const prerender = true;
 
 
     .info {
-        margin-top: 8px;
+        margin-top: 32px;
         display: flex; flex-direction: column; gap: 16px;
     }
 
@@ -1481,34 +2020,23 @@ export const prerender = true;
     }
 
     .rooms {
-        margin-top: 8px;
-        height: 303px;
-        border-radius: 8px;
-        border: 1px solid #373946;
-        background: linear-gradient(106deg, #16171F 0%, #000 100%);
-        
-        display: grid; place-items: center;
+        margin-top: 48px;
 
-        input {
-            color: #000;
-        }
-
-        ul {
-            display: flex; flex-direction: column; gap: 8px;
-        }
-
-        li {
-            display: flex; gap: 4px; align-items: center;
-        }
-
-        .room-person {
-            font-weight: 700;
-        }
-
-        .room-info {
-
+        p {
+            margin-top: 40px;
         }
     }
+
+
+
+
+    /* .temp {
+        margin-top: 16px;
+
+        height: 50px; background-color: var(--primary-color);
+        border-radius: 4px;
+        display: grid; place-items: center;
+    } */
 </style>
 ```
 
@@ -1518,7 +2046,6 @@ export const prerender = true;
 <script lang="ts">
 	import { goto } from "$app/navigation";
 	import { asset, resolve } from "$app/paths";
-	import BulletInfo from "$lib/components/BulletInfo.svelte";
 	import FooterNav from "$lib/components/FooterNav.svelte";
 	import TransportBullet from "$lib/components/TransportBullet.svelte";
 	import { pages } from "$lib/data/pages";
@@ -1527,11 +2054,11 @@ export const prerender = true;
 </script>
 
 <div class="container">
-    <button onpointerdown={() => goto(resolve("/travel"))}>
-        <img src={asset("/arrow-down-right.png")} alt="">
+    <button onclick={() => goto(resolve("/travel"))}>
+        <img src={asset("/arrow-down-right.svg")} alt="">
     </button>
 
-    <h2>To & from</h2>
+    <h2>Travel info</h2>
 
     <div class="intro">
         <p>We have arranged transportation from Skogshem & Wijk from Stockholm Cityterminal through bus. See the schedule for the arranged transportation below.</p>
@@ -1553,13 +2080,28 @@ export const prerender = true;
         <TransportBullet header="MEETING POINT" body="SKOGSHEM & WIJK" />
         <TransportBullet header="DESTINATION" body="CITYTERMINALEN" />
         <TransportBullet header="DEPARTURE" body="15:45" />
-        <TransportBullet header="ARRIVAL" body="16:15" />
+        <TransportBullet header="ARRIVAL" body="16:15 - 16:30" />
     </div>
 
     <div class="other">
         <h3>Traveling form other cities</h3>
-        <BulletInfo img={asset("/ticket-02.png")} header="Gothenburg / Malmö" body="The conference team will arrange your travel. You will receive your train tickets by email."/>
-        <BulletInfo img={asset("/ticket-02.png")} header="Riga / Jönköping" body="Arrange your own travel to Stockholm. You need to be there at Cityterminalen no later than 09:45 on Aug 28th."/>
+
+        <div class="bullet">
+            <figure>
+                <img class="icon" src={asset("/ticket.svg")} alt="">
+                <h4>Gothenburg / Malmö</h4>
+            </figure>
+            <p>The conference team will arrange your travel. You will receive your train tickets by email.</p>
+            <p>If you have not received your tickets, reach out to the conference team as soon as possible, <a href="mailto:se-fmlearningfscmc@kpmg.se" class="mail">se-fmlearningfscmc@kpmg.se</a></p>
+        </div>
+
+        <div class="bullet">
+            <figure>
+                <img class="icon" src={asset("/ticket.svg")} alt="">
+                <h4>Riga / Jönköping</h4>
+            </figure>
+            <p>Arrange your own travel to Stockholm. You need to be there at Cityterminalen <span>no later than 09:45 on Aug 28th</span></p>
+        </div>
     </div>
 </div>
 
@@ -1584,14 +2126,12 @@ export const prerender = true;
     .intro {
         margin-top: 40px;
         display: flex; flex-direction: column; gap: 16px;
-
-        p {
-            font-size: 16px;
-        }
     }
 
     strong {
         color: var(--primary-color);
+        text-transform: uppercase;
+        font-weight: 400;
     }
 
     .bullet-container {
@@ -1612,6 +2152,27 @@ export const prerender = true;
     .mail {
         text-decoration: underline;
     }
+
+    .bullet {
+        display: flex; flex-direction: column; gap: 10px;
+        
+        figure {
+            display: flex; gap: 10px;
+        }
+    
+        img {
+            width: 24px; height: 24px;
+        }
+    
+        h4 {
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        span {
+            color: var(--primary-color);
+        }
+    }
 </style>
 ```
 
@@ -1625,9 +2186,17 @@ export const prerender = true;
 
 This is a binary file of the type: Image
 
-# static\arrow-down-right.png
+# static\albe.png
 
 This is a binary file of the type: Image
+
+# static\arrow-down-right.svg
+
+This is a file of the type: SVG Image
+
+# static\arrow-left.svg
+
+This is a file of the type: SVG Image
 
 # static\Bastu.png
 
@@ -1641,13 +2210,56 @@ This is a binary file of the type: Image
 
 This is a binary file of the type: Image
 
-# static\calendar-07.png
+# static\calendar.svg
 
-This is a binary file of the type: Image
+This is a file of the type: SVG Image
 
 # static\Cornhole.png
 
 This is a binary file of the type: Image
+
+# static\daka.png
+
+This is a binary file of the type: Image
+
+# static\dinner.json
+
+```json
+[
+    {
+        "person": "Alfred Berg",
+        "table": "01"
+    },
+    {
+        "person": "Zihan Persson",
+        "table": "02"
+    },
+    {
+        "person": "Daniel Peng",
+        "table": "03"
+    },
+    {
+        "person": "Emil Isaksson",
+        "table": "04"
+    },
+    {
+        "person": "Daniel Peng",
+        "table": "05"
+    },
+    {
+        "person": "Daniel Peng",
+        "table": "06"
+    },
+    {
+        "person": "Emil Isaksson",
+        "table": "07"
+    },
+    {
+        "person": "Emil Elefant",
+        "table": "07"
+    }
+]
+```
 
 # static\dinner.png
 
@@ -1661,29 +2273,6 @@ This is a binary file of the type: Image
 
 This is a binary file of the type: Image
 
-# static\events.json
-
-```json
-[
-    {
-        "slug": "opening-night",
-        "title": "Opening Night",
-        "date": "2025-09-01",
-        "time": "18:00",
-        "location": "Main Hall",
-        "description": "Kickoff with welcome drinks."
-    },
-    {
-        "slug": "keynote",
-        "title": "Keynote",
-        "date": "2025-09-02",
-        "time": "10:00",
-        "location": "Auditorium A",
-        "description": "Keynote by the special guest."
-    }
-]
-```
-
 # static\fata.png
 
 This is a binary file of the type: Image
@@ -1696,13 +2285,9 @@ This is a file of the type: SVG Image
 
 This is a binary file of the type: Image
 
-# static\hanger.png
+# static\hanger.svg
 
-This is a binary file of the type: Image
-
-# static\leftArrow.png
-
-This is a binary file of the type: Image
+This is a file of the type: SVG Image
 
 # static\lial.png
 
@@ -1712,17 +2297,25 @@ This is a binary file of the type: Image
 
 This is a binary file of the type: Image
 
-# static\logo.png
+# static\logo.svg
 
-This is a binary file of the type: Image
+This is a file of the type: SVG Image
 
-# static\marker-06.png
+# static\luggage.svg
 
-This is a binary file of the type: Image
+This is a file of the type: SVG Image
+
+# static\marker.svg
+
+This is a file of the type: SVG Image
 
 # static\Mingle.png
 
 This is a binary file of the type: Image
+
+# static\minus.svg
+
+This is a file of the type: SVG Image
 
 # static\nama.png
 
@@ -1731,6 +2324,52 @@ This is a binary file of the type: Image
 # static\nifo.png
 
 This is a binary file of the type: Image
+
+# static\people.json
+
+```json
+[
+    {
+        "name": "Alfred Berg",
+        "roomMate": "Robin Dafnäs",
+        "table": "11"
+    },
+    {
+        "name": "Robin Dafnäs",
+        "roomMate": "Alfred Berg",
+        "table": "3"
+    },
+    {
+        "name": "Kalvin Berg",
+        "roomMate": "Hobbin Dafnäs",
+        "table": "8"
+    },
+    {
+        "name": "Bergfred Färg",
+        "roomMate": "Dafne Dandy",
+        "table": "5"
+    },
+    {
+        "name": "Kalvin Kango",
+        "roomMate": "Mango Jango Dafnäs",
+        "table": "8"
+    },
+    {
+        "name": "Manito Greg",
+        "roomMate": "Dafneddy Teddy",
+        "table": "5"
+    },
+    {
+        "name": "Karl Johan Kanto",
+        "roomMate": "Hob-Robin Dafnäs",
+        "table": "1"
+    }
+]
+```
+
+# static\plus.svg
+
+This is a file of the type: SVG Image
 
 # static\Pool.png
 
@@ -1744,6 +2383,10 @@ User-agent: *
 Disallow:
 
 ```
+
+# static\roda.png
+
+This is a binary file of the type: Image
 
 # static\rooms.json
 
@@ -1760,93 +2403,822 @@ Disallow:
     {
         "id": "003",
         "people": ["Daniel Peng", "Alexander Örbratt"]
+    },
+    {
+        "id": "004",
+        "people": ["Emil Isaksson Torgilsman", "Emil Isaksson Torgilsman"]
+    },
+    {
+        "id": "005",
+        "people": ["Daniel Peng", "asd Örbratt"]
+    },
+    {
+        "id": "006",
+        "people": ["Daniel Peng", "Daniel Peng"]
+    },
+    {
+        "id": "007",
+        "people": ["Emil Isaksson Torgilsman", "Emma A"]
+    },
+    {
+        "id": "007",
+        "people": ["Emil Torgilsman", "Emma Sata"]
     }
 ]
 ```
 
-# static\scheduleFriday.json
+# static\schedule.json
 
 ```json
-[
-    {
-        "time": "12:10-12:40",
-        "place": "Sandhamn Seglarhotell Restaurant",
-        "activity": "Lunch"
+{
+    "associate": {
+        "thursday": [
+            {
+                "time": "10:00 - 10:30",
+                "style": "grey",
+                "activity": "Transport to Skogshem & Wijk"
+            },
+            {
+                "time": "10:30 - 11:00",
+                "style": "grey",
+                "activity": "Arrival and check-in"
+            },
+            {
+                "time": "11:00 - 12:00",
+                "style": "-",
+                "activity": "Introduction & External inspirational speaker, Marcus Tungel, Head of Finance Swedbank"
+            },
+            {
+                "time": "12:00 - 13:00",
+                "style": "grey",
+                "activity": "Lunch"
+            },
+            {
+                "time": "13:00 - 13:55",
+                "style": "-",
+                "activity": "Sector Outlooks (KPMG internaltional  speakers): Consumer & Retail (Isabelle Allen), Industrial & Manufacturing, Financial Services (Camiel van Steekelenburg)"
+            },
+            {
+                "time": "14:00 - 15:00",
+                "style": "-",
+                "activity": "Power BI Digital tools for efficiency"
+            },
+            {
+                "time": "15:00 - 15:20",
+                "style": "grey",
+                "activity": "Break with coffee"
+            },
+            {
+                "time": "15:20 - 16:20",
+                "style": "-",
+                "activity": "Power BI"
+            },
+            {
+                "time": "16:20 - 16:30",
+                "style": "grey",
+                "activity": "Break with coffee"
+            },
+            {
+                "time": "16:30 - 17:30",
+                "style": "-",
+                "activity": "AI: Pär Edin lecture"
+            },
+            {
+                "time": "17:30 - 19:30",
+                "style": "grey",
+                "activity": "Free time: spa / activities"
+            },
+            {
+                "time": "19:30 - 20:00",
+                "style": "-",
+                "activity": "Pre-drinks"
+            },
+            {
+                "time": "20:00 - 22:30",
+                "style": "-",
+                "activity": "Festive 3-course dinner"
+            },
+            {
+                "time": "22:20 - 24:00",
+                "style": "-",
+                "activity": "Party!"
+            }
+        ],
+
+        "friday": [
+            {
+                "time": "07:00 - 08:15",
+                "style": "grey",
+                "activity": "Breakfast buffet"
+            },
+            {
+                "time": "08:15 - 09:15",
+                "style": "-",
+                "activity": "Well-being lecture"
+            },
+            {
+                "time": "09:15 - 10:00",
+                "style": "-",
+                "activity": "Sales"
+            },
+            {
+                "time": "10:00 - 10:15",
+                "style": "grey",
+                "activity": "Break with coffee"
+            },
+            {
+                "time": "10:15 - 12:15",
+                "style": "-",
+                "activity": "Visualization Power BI"
+            },
+            {
+                "time": "12:15 - 13:15",
+                "style": "grey",
+                "activity": "Lunch"
+            },
+            {
+                "time": "13:15 - 15:15",
+                "style": "-",
+                "activity": "Present with impact"
+            },
+            {
+                "time": "15:15 - 15:30",
+                "style": "-",
+                "activity": "Closing session"
+            },
+            {
+                "time": "15:30 - 15:45",
+                "style": "grey",
+                "activity": "Checkout / Go to bus"
+            },
+            {
+                "time": "15:45 - 16:15",
+                "style": "grey",
+                "activity": "Transport to Cityterminalen"
+            }
+        ]
     },
-    {
-        "time": "12:40-16:00",
-        "place": "Conference room",
-        "activity": "Conferende agenda"
+
+    "seniorAssociate": {
+        "thursday": [
+            {
+                "time": "10:00 - 10:30",
+                "style": "grey",
+                "activity": "Transport to Skogshem & Wijk"
+            },
+            {
+                "time": "10:30 - 11:00",
+                "style": "grey",
+                "activity": "Arrival and check-in"
+            },
+            {
+                "time": "11:00 - 12:00",
+                "style": "-",
+                "activity": "Introduction & External inspirational speaker, Marcus Tungel, Head of Finance Swedbank"
+            },
+            {
+                "time": "12:00 - 13:00",
+                "style": "grey",
+                "activity": "Lunch"
+            },
+            {
+                "time": "13:00 - 13:55",
+                "style": "-",
+                "activity": "Sector Outlooks (KPMG internaltional  speakers): Consumer & Retail (Isabelle Allen), Industrial & Manufacturing, Financial Services (Camiel van Steekelenburg)"
+            },
+            {
+                "time": "14:00 - 15:00",
+                "style": "-",
+                "activity": "Ways of Working: Starting a project"
+            },
+            {
+                "time": "15:00 - 15:20",
+                "style": "grey",
+                "activity": "Break with coffee"
+            },
+            {
+                "time": "15:20 - 16:20",
+                "style": "-",
+                "activity": "Ways of Working: Delivering / End a project"
+            },
+            {
+                "time": "16:20 - 16:30",
+                "style": "grey",
+                "activity": "Break with coffee"
+            },
+            {
+                "time": "16:30 - 17:30",
+                "style": "-",
+                "activity": "AI: Pär Edin lecture"
+            },
+            {
+                "time": "17:30 - 19:30",
+                "style": "grey",
+                "activity": "Free time: spa / activities"
+            },
+            {
+                "time": "19:30 - 20:00",
+                "style": "-",
+                "activity": "Pre-drinks"
+            },
+            {
+                "time": "20:00 - 22:30",
+                "style": "-",
+                "activity": "Festive 3-course dinner"
+            },
+            {
+                "time": "22:20 - 24:00",
+                "style": "-",
+                "activity": "Party!"
+            }
+        ],
+
+        "friday": [
+            {
+                "time": "07:00 - 08:15",
+                "style": "grey",
+                "activity": "Breakfast buffet"
+            },
+            {
+                "time": "08:15 - 10:00",
+                "style": "-",
+                "activity": "Visualization Present with impact"
+            },
+            {
+                "time": "10:00 - 10:15",
+                "style": "grey",
+                "activity": "Break with coffee"
+            },
+            {
+                "time": "10:15 - 12:15",
+                "style": "-",
+                "activity": "Present with impact Velocity"
+            },
+            {
+                "time": "12:15 - 13:15",
+                "style": "grey",
+                "activity": "Lunch"
+            },
+            {
+                "time": "13:15 - 14:15",
+                "style": "-",
+                "activity": "Sales"
+            },
+            {
+                "time": "14:15 - 15:15",
+                "style": "-",
+                "activity": "Well being"
+            },
+            {
+                "time": "15:15 - 15:30",
+                "style": "-",
+                "activity": "Closing session"
+            },
+            {
+                "time": "15:30 - 15:45",
+                "style": "grey",
+                "activity": "Checkout / Go to bus"
+            },
+            {
+                "time": "15:45 - 16:15",
+                "style": "grey",
+                "activity": "Transport to Cityterminalen"
+            }
+        ]
     },
-    {
-        "time": "10:00-12:00",
-        "place": "Cityterminalen",
-        "activity": "Transport to Sandhamn"
+
+    "manager": {
+        "thursday": [
+            {
+                "time": "10:00 - 10:30",
+                "style": "grey",
+                "activity": "Transport to Skogshem & Wijk"
+            },
+            {
+                "time": "10:30 - 11:00",
+                "style": "grey",
+                "activity": "Arrival and check-in"
+            },
+            {
+                "time": "11:00 - 12:00",
+                "style": "-",
+                "activity": "Introduction & External inspirational speaker, Marcus Tungel, Head of Finance Swedbank"
+            },
+            {
+                "time": "12:00 - 13:00",
+                "style": "grey",
+                "activity": "Lunch"
+            },
+            {
+                "time": "13:00 - 13:55",
+                "style": "-",
+                "activity": "Sector Outlooks (KPMG internaltional  speakers): Consumer & Retail (Isabelle Allen), Industrial & Manufacturing, Financial Services (Camiel van Steekelenburg)"
+            },
+            {
+                "time": "14:00 - 15:00",
+                "style": "-",
+                "activity": "Ways of Working: Starting a project"
+            },
+            {
+                "time": "15:00 - 15:20",
+                "style": "grey",
+                "activity": "Break with coffee"
+            },
+            {
+                "time": "15:20 - 16:20",
+                "style": "-",
+                "activity": "Ways of Working: Delivering / End a project"
+            },
+            {
+                "time": "16:20 - 16:30",
+                "style": "grey",
+                "activity": "Break with coffee"
+            },
+            {
+                "time": "16:30 - 17:30",
+                "style": "-",
+                "activity": "AI: Pär Edin lecture"
+            },
+            {
+                "time": "17:30 - 19:30",
+                "style": "grey",
+                "activity": "Free time: spa / activities"
+            },
+            {
+                "time": "19:30 - 20:00",
+                "style": "-",
+                "activity": "Pre-drinks"
+            },
+            {
+                "time": "20:00 - 22:30",
+                "style": "-",
+                "activity": "Festive 3-course dinner"
+            },
+            {
+                "time": "22:20 - 24:00",
+                "style": "-",
+                "activity": "Party!"
+            }
+        ],
+
+        "friday": [
+            {
+                "time": "07:00 - 08:15",
+                "style": "grey",
+                "activity": "Breakfast buffet"
+            },
+            {
+                "time": "08:15 - 10:00",
+                "style": "-",
+                "activity": "Project Management"
+            },
+            {
+                "time": "10:00 - 10:15",
+                "style": "grey",
+                "activity": "Break with coffee"
+            },
+            {
+                "time": "10:15 - 12:15",
+                "style": "-",
+                "activity": "Sales"
+            },
+            {
+                "time": "12:15 - 13:15",
+                "style": "grey",
+                "activity": "Lunch"
+            },
+            {
+                "time": "13:15 - 14:15",
+                "style": "-",
+                "activity": "Well-being"
+            },
+            {
+                "time": "14:15 - 15:15",
+                "style": "-",
+                "activity": "Visualization as CM Digital tools for efficiency"
+            },
+            {
+                "time": "15:15 - 15:30",
+                "style": "-",
+                "activity": "Closing session"
+            },
+            {
+                "time": "15:30 - 15:45",
+                "style": "grey",
+                "activity": "Checkout / Go to bus"
+            },
+            {
+                "time": "15:45 - 16:15",
+                "style": "grey",
+                "activity": "Transport to Cityterminalen"
+            }
+        ]
     },
-    {
-        "time": "12:10-12:40",
-        "place": "Sandhamn Seglarhotell Restaurant",
-        "activity": "Lunch"
+
+    "seniorManager": {
+        "thursday": [
+            {
+                "time": "10:00 - 10:30",
+                "style": "grey",
+                "activity": "Transport to Skogshem & Wijk"
+            },
+            {
+                "time": "10:30 - 11:00",
+                "style": "grey",
+                "activity": "Arrival and check-in"
+            },
+            {
+                "time": "11:00 - 12:00",
+                "style": "-",
+                "activity": "Introduction & External inspirational speaker, Marcus Tungel, Head of Finance Swedbank"
+            },
+            {
+                "time": "12:00 - 13:00",
+                "style": "grey",
+                "activity": "Lunch"
+            },
+            {
+                "time": "13:00 - 13:55",
+                "style": "-",
+                "activity": "Sector Outlooks (KPMG internaltional  speakers): Consumer & Retail (Isabelle Allen), Industrial & Manufacturing, Financial Services (Camiel van Steekelenburg)"
+            },
+            {
+                "time": "14:00 - 15:00",
+                "style": "-",
+                "activity": "Pricing"
+            },
+            {
+                "time": "15:00 - 15:20",
+                "style": "grey",
+                "activity": "Break with coffee"
+            },
+            {
+                "time": "15:20 - 16:20",
+                "style": "-",
+                "activity": "Visualization as Change Management Alliances SAP"
+            },
+            {
+                "time": "16:20 - 16:30",
+                "style": "grey",
+                "activity": "Break with coffee"
+            },
+            {
+                "time": "16:30 - 17:30",
+                "style": "-",
+                "activity": "AI: Pär Edin lecture"
+            },
+            {
+                "time": "17:30 - 19:30",
+                "style": "grey",
+                "activity": "Free time: spa / activities"
+            },
+            {
+                "time": "19:30 - 20:00",
+                "style": "-",
+                "activity": "Pre-drinks"
+            },
+            {
+                "time": "20:00 - 22:30",
+                "style": "-",
+                "activity": "Festive 3-course dinner"
+            },
+            {
+                "time": "22:20 - 24:00",
+                "style": "-",
+                "activity": "Party!"
+            }
+        ],
+
+        "friday": [
+            {
+                "time": "07:00 - 08:15",
+                "style": "grey",
+                "activity": "Breakfast buffet"
+            },
+            {
+                "time": "08:15 - 10:00",
+                "style": "-",
+                "activity": "Velocity (SM + P)"
+            },
+            {
+                "time": "10:00 - 10:15",
+                "style": "grey",
+                "activity": "Break with coffee"
+            },
+            {
+                "time": "10:15 - 11:15",
+                "style": "-",
+                "activity": "Wellbeing (SM + P)"
+            },
+            {
+                "time": "11:15 - 12:15",
+                "style": "-",
+                "activity": "Data analysis (SM + P)"
+            },
+            {
+                "time": "12:15 - 13:15",
+                "style": "grey",
+                "activity": "Lunch"
+            },
+            {
+                "time": "13:15 - 15:15",
+                "style": "-",
+                "activity": "Sales (SM + P)"
+            },
+            {
+                "time": "15:15 - 15:30",
+                "style": "-",
+                "activity": "Closing session"
+            },
+            {
+                "time": "15:30 - 15:45",
+                "style": "grey",
+                "activity": "Checkout / Go to bus"
+            },
+            {
+                "time": "15:45 - 16:15",
+                "style": "grey",
+                "activity": "Transport to Cityterminalen"
+            }
+        ]
     },
-    {
-        "time": "12:40-16:00",
-        "place": "Conference room",
-        "activity": "Conferende agenda"
+
+    "director": {
+        "thursday": [
+            {
+                "time": "10:00 - 10:30",
+                "style": "grey",
+                "activity": "Transport to Skogshem & Wijk"
+            },
+            {
+                "time": "10:30 - 11:00",
+                "style": "grey",
+                "activity": "Arrival and check-in"
+            },
+            {
+                "time": "11:00 - 12:00",
+                "style": "-",
+                "activity": "Introduction & External inspirational speaker, Marcus Tungel, Head of Finance Swedbank"
+            },
+            {
+                "time": "12:00 - 13:00",
+                "style": "grey",
+                "activity": "Lunch"
+            },
+            {
+                "time": "13:00 - 13:55",
+                "style": "-",
+                "activity": "Sector Outlooks (KPMG internaltional  speakers): Consumer & Retail (Isabelle Allen), Industrial & Manufacturing, Financial Services (Camiel van Steekelenburg)"
+            },
+            {
+                "time": "14:00 - 15:00",
+                "style": "-",
+                "activity": "Pricing"
+            },
+            {
+                "time": "15:00 - 15:20",
+                "style": "grey",
+                "activity": "Break with coffee"
+            },
+            {
+                "time": "15:20 - 16:20",
+                "style": "-",
+                "activity": "Visualization as Change Management Alliances SAP"
+            },
+            {
+                "time": "16:20 - 16:30",
+                "style": "grey",
+                "activity": "Break with coffee"
+            },
+            {
+                "time": "16:30 - 17:30",
+                "style": "-",
+                "activity": "AI: Pär Edin lecture"
+            },
+            {
+                "time": "17:30 - 19:30",
+                "style": "grey",
+                "activity": "Free time: spa / activities"
+            },
+            {
+                "time": "19:30 - 20:00",
+                "style": "-",
+                "activity": "Pre-drinks"
+            },
+            {
+                "time": "20:00 - 22:30",
+                "style": "-",
+                "activity": "Festive 3-course dinner"
+            },
+            {
+                "time": "22:20 - 24:00",
+                "style": "-",
+                "activity": "Party!"
+            }
+        ],
+
+        "friday": [
+            {
+                "time": "07:00 - 08:15",
+                "style": "greyrey",
+                "activity": "Breakfast buffet"
+            },
+            {
+                "time": "08:15 - 10:00",
+                "style": "-",
+                "activity": "Sales"
+            },
+            {
+                "time": "10:00 - 10:15",
+                "style": "grey",
+                "activity": "Break with coffee"
+            },
+            {
+                "time": "10:15 - 11:15",
+                "style": "-",
+                "activity": "Data analysis"
+            },
+            {
+                "time": "11:15 - 12:15",
+                "style": "-",
+                "activity": "Well being"
+            },
+            {
+                "time": "12:15 - 13:15",
+                "style": "grey",
+                "activity": "Lunch"
+            },
+            {
+                "time": "13:15 - 15:15",
+                "style": "-",
+                "activity": "Velocity"
+            },
+            {
+                "time": "15:15 - 15:30",
+                "style": "-",
+                "activity": "Closing session"
+            },
+            {
+                "time": "15:30 - 15:45",
+                "style": "grey",
+                "activity": "Checkout / Go to bus"
+            },
+            {
+                "time": "15:45 - 16:15",
+                "style": "grey",
+                "activity": "Transport to Cityterminalen"
+            }
+        ]
     },
-    {
-        "time": "23:00-00:00",
-        "place": "Entrance",
-        "activity": "Bus to Cityterminalen"
+
+    "partner": {
+        "thursday": [
+            {
+                "time": "10:00 - 10:30",
+                "style": "grey",
+                "activity": "Transport to Skogshem & Wijk"
+            },
+            {
+                "time": "10:30 - 11:00",
+                "style": "grey",
+                "activity": "Arrival and check-in"
+            },
+            {
+                "time": "11:00 - 12:00",
+                "style": "-",
+                "activity": "Introduction & External inspirational speaker, Marcus Tungel, Head of Finance Swedbank"
+            },
+            {
+                "time": "12:00 - 13:00",
+                "style": "grey",
+                "activity": "Lunch"
+            },
+            {
+                "time": "13:00 - 13:55",
+                "style": "-",
+                "activity": "Sector Outlooks (KPMG internaltional  speakers): Consumer & Retail (Isabelle Allen), Industrial & Manufacturing, Financial Services (Camiel van Steekelenburg)"
+            },
+            {
+                "time": "14:00 - 15:00",
+                "style": "-",
+                "activity": "Power BI Digital tools for efficiency"
+            },
+            {
+                "time": "15:00 - 15:20",
+                "style": "grey",
+                "activity": "Break with coffee"
+            },
+            {
+                "time": "15:20 - 16:20",
+                "style": "-",
+                "activity": "Visualization as Change Management Alliances SAP"
+            },
+            {
+                "time": "16:20 - 16:30",
+                "style": "grey",
+                "activity": "Break with coffee"
+            },
+            {
+                "time": "16:30 - 17:30",
+                "style": "-",
+                "activity": "AI: Pär Edin lecture"
+            },
+            {
+                "time": "17:30 - 19:30",
+                "style": "grey",
+                "activity": "Free time: spa / activities"
+            },
+            {
+                "time": "19:30 - 20:00",
+                "style": "-",
+                "activity": "Pre-drinks"
+            },
+            {
+                "time": "20:00 - 22:30",
+                "style": "-",
+                "activity": "Festive 3-course dinner"
+            },
+            {
+                "time": "22:20 - 24:00",
+                "style": "-",
+                "activity": "Party!"
+            }
+        ],
+
+        "friday": [
+            {
+                "time": "07:00 - 08:15",
+                "style": "grey",
+                "activity": "Breakfast buffet"
+            },
+            {
+                "time": "08:15 - 10:00",
+                "style": "-",
+                "activity": "Velocity (SM P)"
+            },
+            {
+                "time": "10:00 - 10:15",
+                "style": "grey",
+                "activity": "Break with coffee"
+            },
+            {
+                "time": "10:15 - 11:15",
+                "style": "-",
+                "activity": "Well being (SM + P)"
+            },
+            {
+                "time": "11:15 - 12:15",
+                "style": "-",
+                "activity": "Data analysis (SM + P)"
+            },
+            {
+                "time": "12:15 - 13:15",
+                "style": "grey",
+                "activity": "Lunch"
+            },
+            {
+                "time": "13:15 - 15:15",
+                "style": "-",
+                "activity": "Sales (SM + P)"
+            },
+            {
+                "time": "15:15 - 15:30",
+                "style": "-",
+                "activity": "Closing session"
+            },
+            {
+                "time": "15:30 - 15:45",
+                "style": "grey",
+                "activity": "Checkout / Go to bus"
+            },
+            {
+                "time": "15:45 - 16:15",
+                "style": "grey",
+                "activity": "Transport to Cityterminalen"
+            }
+        ]
     }
-]
+}
+
 ```
 
-# static\scheduleThursday.json
+# static\search.svg
 
-```json
-[
-    {
-        "time": "10:00-12:00",
-        "place": "Cityterminalen",
-        "activity": "Transport to Sandhamn"
-    },
-    {
-        "time": "12:10-12:40",
-        "place": "Sandhamn Seglarhotell Restaurant",
-        "activity": "Lunch"
-    },
-    {
-        "time": "12:40-16:00",
-        "place": "Conference room",
-        "activity": "Conferende agenda"
-    },
-    {
-        "time": "10:00-12:00",
-        "place": "Cityterminalen",
-        "activity": "Transport to Sandhamn"
-    },
-    {
-        "time": "12:10-12:40",
-        "place": "Sandhamn Seglarhotell Restaurant",
-        "activity": "Lunch"
-    },
-    {
-        "time": "12:40-16:00",
-        "place": "Conference room",
-        "activity": "Conferende agenda"
-    }
-]
-```
+This is a file of the type: SVG Image
 
 # static\stva.png
 
 This is a binary file of the type: Image
 
-# static\ticket-02.png
+# static\ticket.svg
+
+This is a file of the type: SVG Image
+
+# static\travel.png
 
 This is a binary file of the type: Image
 
-# static\travel.png
+# static\zipe.png
 
 This is a binary file of the type: Image
 

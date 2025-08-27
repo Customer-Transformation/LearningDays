@@ -1,9 +1,15 @@
 <script lang="ts">
 	import { asset } from "$app/paths"
-	import DinnerSeating from "$lib/components/DinnerSeating.svelte";
 	import FooterNav from "$lib/components/FooterNav.svelte"
 	import MenuButton from "$lib/components/MenuButton.svelte"
+	import PeopleSearch from "$lib/components/PeopleSearch.svelte";
     import { pages } from "$lib/data/pages"
+
+    let dinnerSeatingDiv: HTMLDivElement
+
+    function scrollToDinnerSeating() {
+        dinnerSeatingDiv.scrollIntoView({ behavior: "smooth", block: "start" })
+    }
 </script>
 
 <MenuButton name="Dinner" />
@@ -50,11 +56,8 @@
     </div>
 </div>
 
-<div class="seating">
-    <h2>Dinner seating</h2>
-    <div class="temp">
-        <span>COMING SOON</span>
-    </div>
+<div class="seating" bind:this={dinnerSeatingDiv}>
+    <PeopleSearch template="dinner" callback={scrollToDinnerSeating} />
 </div>
 
 <FooterNav previousPage={pages[3]} nextPage={pages[5]}/>
@@ -183,18 +186,5 @@
 
     .seating {
         margin-top: 48px;
-    }
-
-
-
-
-
-    .temp {
-        margin-top: 20px;
-
-        height: 50px; background-color: var(--primary-color);
-        border-radius: 4px;
-        display: grid; place-items: center;
-    }
-    
+    }    
 </style>

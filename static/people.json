@@ -1,0 +1,37 @@
+[
+    {
+        "name": "Alfred Berg",
+        "roomMate": "Robin Dafnäs",
+        "table": "11"
+    },
+    {
+        "name": "Robin Dafnäs",
+        "roomMate": "Alfred Berg",
+        "table": "3"
+    },
+    {
+        "name": "Kalvin Berg",
+        "roomMate": "Hobbin Dafnäs",
+        "table": "8"
+    },
+    {
+        "name": "Bergfred Färg",
+        "roomMate": "Dafne Dandy",
+        "table": "5"
+    },
+    {
+        "name": "Kalvin Kango",
+        "roomMate": "Mango Jango Dafnäs",
+        "table": "8"
+    },
+    {
+        "name": "Manito Greg",
+        "roomMate": "Dafneddy Teddy",
+        "table": "5"
+    },
+    {
+        "name": "Karl Johan Kanto",
+        "roomMate": "Hob-Robin Dafnäs",
+        "table": "1"
+    }
+]
