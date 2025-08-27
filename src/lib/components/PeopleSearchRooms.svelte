@@ -26,8 +26,7 @@
     
     let matches: Person[] = $derived.by(() => {
         if (searchString == ""  || !people) return []
-        const allMatches = people.filter(person => queryMatchesName(person.name, searchString))
-        return allMatches.filter(person => person.roomMate !== "-")
+        return people.filter(person => queryMatchesName(person.name, searchString)).filter(person => person.roomMate !== "-")
     })
 
 	function onfocus() {
