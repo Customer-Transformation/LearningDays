@@ -57,6 +57,7 @@
 </div>
 
 <div class="seating" bind:this={dinnerSeatingDiv}>
+    <h2>Seating</h2>
     <PeopleSearch template="dinner" callback={scrollToDinnerSeating} />
 </div>
 
@@ -186,5 +187,9 @@
 
     .seating {
         margin-top: 48px;
+
+        h2 {
+            margin-bottom: 40px;
+        }
     }    
 </style>

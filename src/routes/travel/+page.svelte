@@ -187,15 +187,4 @@
             margin-top: 40px;
         }
     }
-
-
-
-
-    /* .temp {
-        margin-top: 16px;
-
-        height: 50px; background-color: var(--primary-color);
-        border-radius: 4px;
-        display: grid; place-items: center;
-    } */
 </style>
