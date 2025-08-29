@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { goto } from "$app/navigation";
+	import { goto } from "$app/navigation"
 	import { asset, resolve } from "$app/paths"
 	import { page } from "$app/state"
 	import "../globalStyles.css"
@@ -9,9 +9,10 @@
 
 <main class:welcome={page.route.id == "/"}>
 	<header>
-		<button onclick={() => goto(resolve("/"))}>
+		<button class="logo-button" onclick={() => goto(resolve("/"))}>
 			<img src={asset("/logo.svg")} alt="">
 		</button>
+		<a href="https://forms.office.com/e/hxQiZJAfHJ" class="feedback"><img src={asset("/feedbackButtonA.svg")} alt=""></a>
 	</header>
 
 	{@render children?.()}
@@ -31,8 +32,24 @@
 <style>
 	main { height: 100%; width: 100%; position: relative; padding: 60px 20px 0px 20px; background: #000; }
 	main.welcome { background: var(--gradient); }
-	header { position: absolute; inset: 0; height: 60px; padding: 20px; }
-	button { width: 48px; height: 20px; background-color: transparent; }
+
+	header { 
+		position: absolute; inset: 0; height: 60px; padding: 20px;
+
+		display: flex; justify-content: space-between;
+	}
+	
+	.logo-button { 
+		width: 48px; height: 20px; background-color: transparent; 
+	}
+
+	.feedback {
+
+		img {
+			width: 142px; height: 20px;
+		}
+	}
+
 	img { width: 100%; height: 100%; object-fit: cover; }
 	footer { margin-top: 100px; margin-bottom: 100px; }
 	footer.welcome { margin-top: 24px; margin-bottom: 0px; }

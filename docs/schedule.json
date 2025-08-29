@@ -24,7 +24,7 @@
             {
                 "time": "13:00 - 13:55",
                 "style": "-",
-                "activity": "Sector Outlooks (MC: Event area | FSC: Sal 5)"
+                "activity": "Sector Outlooks (MC: Event arena | FSC: Sal 5)"
             },
             {
                 "time": "14:00 - 15:00",
@@ -49,12 +49,12 @@
             {
                 "time": "16:30 - 17:00",
                 "style": "-",
-                "activity": "Global AI Acceleration (Event area)"
+                "activity": "Global AI Acceleration (Event arena)"
             },
             {
                 "time": "17:00 - 17:30",
                 "style": "-",
-                "activity": "Updates on AI Offerings (Event area)"
+                "activity": "Updates on AI Offerings (Event arena)"
             },
             {
                 "time": "17:30 - 19:30",
@@ -80,14 +80,9 @@
                 "activity": "Breakfast buffet (Dining room) and prepare check-out"
             },
             {
-                "time": "08:15 - 09:15",
+                "time": "08:15 - 10:00",
                 "style": "-",
-                "activity": "Well-Being (Event arena)"
-            },
-            {
-                "time": "09:15 - 10:00",
-                "style": "-",
-                "activity": "Sales (Event arena)"
+                "activity": "Power BI (Event arena)"
             },
             {
                 "time": "10:00 - 10:15",
@@ -95,9 +90,24 @@
                 "activity": "Coffee break (The foyer and café) and check-out (Reception)"
             },
             {
-                "time": "10:15 - 12:15",
+                "time": "10:15 - 11:00",
                 "style": "-",
-                "activity": "Power BI (Event arena)"
+                "activity": "Sales (Event arena)"
+            },
+            {
+                "time": "11:00 - 11:30",
+                "style": "-",
+                "activity": "Well-Being (MC only, Event arena)"
+            },
+            {
+                "time": "11:30 - 11:45",
+                "style": "grey",
+                "activity": "Coffee break (The foyer and café)"
+            },
+            {
+                "time": "11:45 - 12:15",
+                "style": "-",
+                "activity": "Well-Being (FSC only, Event arena)"
             },
             {
                 "time": "12:15 - 13:15",
@@ -142,7 +152,7 @@
             {
                 "time": "13:00 - 13:55",
                 "style": "-",
-                "activity": "Sector Outlooks (MC: Event area | FSC: Sal 5)"
+                "activity": "Sector Outlooks (MC: Event arena | FSC: Sal 5)"
             },
             {
                 "time": "14:00 - 15:00",
@@ -157,7 +167,7 @@
             {
                 "time": "15:20 - 16:20",
                 "style": "-",
-                "activity": "Ways of Working: End a Project (Event arena)"
+                "activity": "Ways of Working: Deliver a Project (Event arena)"
             },
             {
                 "time": "16:20 - 16:30",
@@ -167,12 +177,12 @@
             {
                 "time": "16:30 - 17:00",
                 "style": "-",
-                "activity": "Global AI Acceleration (Event area)"
+                "activity": "Global AI Acceleration (Event arena)"
             },
             {
                 "time": "17:00 - 17:30",
                 "style": "-",
-                "activity": "Updates on AI Offerings (Event area)"
+                "activity": "Updates on AI Offerings (Event arena)"
             },
             {
                 "time": "17:30 - 19:30",
@@ -208,24 +218,34 @@
                 "activity": "Coffee break (The foyer and café) and check-out (Reception)"
             },
             {
-                "time": "10:15 - 12:00",
+                "time": "10:15 - 11:30",
                 "style": "-",
-                "activity": "Velocity 1h 15min (Sal 5)"
+                "activity": "Velocity (Sal 5)"
             },
             {
-                "time": "12:15 - 13:15",
+                "time": "11:30 - 12:30",
                 "style": "grey",
                 "activity": "Lunch (Dining room)"
             },
             {
-                "time": "13:15 - 14:15",
+                "time": "12:30 - 13:00",
                 "style": "-",
-                "activity": "Well-Being (Sal 5)"
+                "activity": "Well-Being (FSC only, Sal 3)"
+            },
+            {
+                "time": "13:15 - 13:45",
+                "style": "-",
+                "activity": "Well-Being (MC only, Sal 3)"
+            },
+            {
+                "time": "13:45 - 14:15",
+                "style": "grey",
+                "activity": "Coffee break (The foyer and café)"
             },
             {
                 "time": "14:15 - 15:15",
                 "style": "-",
-                "activity": "Sales (Sal 5)"
+                "activity": "Sales (Sal 4)"
             },
             {
                 "time": "15:15 - 15:30",
@@ -260,7 +280,7 @@
             {
                 "time": "13:00 - 13:55",
                 "style": "-",
-                "activity": "Sector Outlooks (MC: Event area | FSC: Sal 5)"
+                "activity": "Sector Outlooks (MC: Event arena | FSC: Sal 5)"
             },
             {
                 "time": "14:00 - 15:00",
@@ -275,7 +295,7 @@
             {
                 "time": "15:20 - 16:20",
                 "style": "-",
-                "activity": "Ways of Working: End a Project (Event arena)"
+                "activity": "Ways of Working: Deliver a Project (Event arena)"
             },
             {
                 "time": "16:20 - 16:30",
@@ -285,12 +305,12 @@
             {
                 "time": "16:30 - 17:00",
                 "style": "-",
-                "activity": "Global AI Acceleration (Event area)"
+                "activity": "Global AI Acceleration (Event arena)"
             },
             {
                 "time": "17:00 - 17:30",
                 "style": "-",
-                "activity": "Updates on AI Offerings (Event area)"
+                "activity": "Updates on AI Offerings (Event arena)"
             },
             {
                 "time": "17:30 - 19:30",
@@ -326,24 +346,29 @@
                 "activity": "Coffee break (The foyer and café) and check-out (Reception)"
             },
             {
-                "time": "10:15 - 12:00",
+                "time": "10:15 - 11:30",
                 "style": "-",
-                "activity": "Velocity 1h 15min (Sal 5)"
+                "activity": "Velocity (Sal 5)"
             },
             {
-                "time": "12:00 - 12:45",
+                "time": "11:30 - 12:45",
                 "style": "grey",
                 "activity": "Lunch (Dining room)"
             },
             {
-                "time": "12:45 - 14:30",
+                "time": "12:45 - 14:00",
                 "style": "-",
-                "activity": "Sales (Sal 4)"
+                "activity": "Sales (Sal 1 & 4)"
+            },
+            {
+                "time": "14:00 - 14:30",
+                "style": "-",
+                "activity": "Well-Being (Sal 3)"
             },
             {
                 "time": "14:30 - 15:15",
-                "style": "-",
-                "activity": "Well-Being (Sal 4)"
+                "style": "grey",
+                "activity": "Coffee break (The foyer and café)"
             },
             {
                 "time": "15:15 - 15:30",
@@ -378,7 +403,7 @@
             {
                 "time": "13:00 - 13:55",
                 "style": "-",
-                "activity": "Sector Outlooks (MC: Event area | FSC: Sal 5)"
+                "activity": "Sector Outlooks (MC: Event arena | FSC: Sal 5)"
             },
             {
                 "time": "14:00 - 15:00",
@@ -393,7 +418,7 @@
             {
                 "time": "15:20 - 16:20",
                 "style": "-",
-                "activity": "How We Together Deliver and Win (Sal 5)"
+                "activity": "How We Deliver and Win in the Market (Sal 5)"
             },
             {
                 "time": "16:20 - 16:30",
@@ -403,12 +428,12 @@
             {
                 "time": "16:30 - 17:00",
                 "style": "-",
-                "activity": "Global AI Acceleration (Event area)"
+                "activity": "Global AI Acceleration (Event arena)"
             },
             {
                 "time": "17:00 - 17:30",
                 "style": "-",
-                "activity": "Updates on AI Offerings (Event area)"
+                "activity": "Updates on AI Offerings (Event arena)"
             },
             {
                 "time": "17:30 - 19:30",
@@ -436,7 +461,7 @@
             {
                 "time": "08:15 - 10:00",
                 "style": "-",
-                "activity": "Sales (Sal 3)"
+                "activity": "Sales (Sal 1)"
             },
             {
                 "time": "10:00 - 10:15",
@@ -444,24 +469,34 @@
                 "activity": "Coffee break (The foyer and café) and check-out (Reception)"
             },
             {
-                "time": "10:15 - 11:15",
+                "time": "10:15 - 10:45",
                 "style": "-",
-                "activity": "Data Analysis (Sal 3)"
+                "activity": "Well-Being (Sal 3)"
             },
             {
-                "time": "11:15 - 12:15",
-                "style": "-",
-                "activity": "Well-Being (Sal 4)"
+                "time": "10:45 - 11:30",
+                "style": "grey",
+                "activity": "Coffee break (The foyer and café)"
             },
             {
-                "time": "12:15 - 13:15",
+                "time": "11:30 - 12:30",
+                "style": "-",
+                "activity": "Data Analysis (Sal 5)"
+            },
+            {
+                "time": "12:30 - 13:15",
                 "style": "grey",
                 "activity": "Lunch (Dining room)"
             },
             {
-                "time": "13:15 - 15:15",
+                "time": "13:15 - 14:30",
                 "style": "-",
-                "activity": "Velocity 1h 15min (Sal 3)"
+                "activity": "Velocity (Sal 5)"
+            },
+            {
+                "time": "14:30 - 15:15",
+                "style": "grey",
+                "activity": "Coffee break (The foyer and café)"
             },
             {
                 "time": "15:15 - 15:30",
@@ -496,7 +531,7 @@
             {
                 "time": "13:00 - 13:55",
                 "style": "-",
-                "activity": "Sector Outlooks (MC: Event area | FSC: Sal 5)"
+                "activity": "Sector Outlooks (MC: Event arena | FSC: Sal 5)"
             },
             {
                 "time": "14:00 - 15:00",
@@ -511,7 +546,7 @@
             {
                 "time": "15:20 - 16:20",
                 "style": "-",
-                "activity": "How We Together Deliver and Win (Sal 5)"
+                "activity": "How We Deliver and Win in the Market (Sal 5)"
             },
             {
                 "time": "16:20 - 16:30",
@@ -521,12 +556,12 @@
             {
                 "time": "16:30 - 17:00",
                 "style": "-",
-                "activity": "Global AI Acceleration (Event area)"
+                "activity": "Global AI Acceleration (Event arena)"
             },
             {
                 "time": "17:00 - 17:30",
                 "style": "-",
-                "activity": "Updates on AI Offerings (Event area)"
+                "activity": "Updates on AI Offerings (Event arena)"
             },
             {
                 "time": "17:30 - 19:30",
@@ -554,22 +589,17 @@
             {
                 "time": "08:15 - 09:15",
                 "style": "-",
-                "activity": "Data Analysis (Sal 1)"
+                "activity": "Data Analysis (Sal 3)"
             },
             {
-                "time": "09:15 - 10:00",
-                "style": "-",
-                "activity": "Well-Being (Sal 1)"
-            },
-            {
-                "time": "10:00 - 10:15",
+                "time": "09:15 - 10:15",
                 "style": "grey",
                 "activity": "Coffee break (The foyer and café) and check-out (Reception)"
             },
             {
                 "time": "10:15 - 12:15",
                 "style": "-",
-                "activity": "Sales (Sal 1)"
+                "activity": "Sales (Sal 1 & 4)"
             },
             {
                 "time": "12:15 - 13:15",
@@ -577,9 +607,19 @@
                 "activity": "Lunch (Dining room)"
             },
             {
-                "time": "13:15 - 15:15",
+                "time": "13:15 - 14:30",
                 "style": "-",
-                "activity": "Velocity 1h 15min (Sal 3)"
+                "activity": "Velocity (Sal 5)"
+            },
+            {
+                "time": "14:30 - 14:45",
+                "style": "grey",
+                "activity": "Coffee break (The foyer and café)"
+            },
+            {
+                "time": "14:45 - 15:15",
+                "style": "-",
+                "activity": "Well-Being (Sal 3)"
             },
             {
                 "time": "15:15 - 15:30",
@@ -614,7 +654,7 @@
             {
                 "time": "13:00 - 13:55",
                 "style": "-",
-                "activity": "Sector Outlooks (MC: Event area | FSC: Sal 5)"
+                "activity": "Sector Outlooks (MC: Event arena | FSC: Sal 5)"
             },
             {
                 "time": "14:00 - 15:00",
@@ -629,7 +669,7 @@
             {
                 "time": "15:20 - 16:20",
                 "style": "-",
-                "activity": "How We Together Deliver and Win (Sal 5)"
+                "activity": "How We Deliver and Win in the Market (Sal 5)"
             },
             {
                 "time": "16:20 - 16:30",
@@ -639,12 +679,12 @@
             {
                 "time": "16:30 - 17:00",
                 "style": "-",
-                "activity": "Global AI Acceleration (Event area)"
+                "activity": "Global AI Acceleration (Event arena)"
             },
             {
                 "time": "17:00 - 17:30",
                 "style": "-",
-                "activity": "Updates on AI Offerings (Event area)"
+                "activity": "Updates on AI Offerings (Event arena)"
             },
             {
                 "time": "17:30 - 19:30",
@@ -672,22 +712,17 @@
             {
                 "time": "08:15 - 09:15",
                 "style": "-",
-                "activity": "Data Analysis (Sal 1)"
+                "activity": "Data Analysis (Sal 3)"
             },
             {
-                "time": "09:15 - 10:00",
-                "style": "-",
-                "activity": "Well-Being (Sal 1)"
-            },
-            {
-                "time": "10:00 - 10:15",
+                "time": "09:15 - 10:15",
                 "style": "grey",
                 "activity": "Coffee break (The foyer and café) and check-out (Reception)"
             },
             {
                 "time": "10:15 - 12:15",
                 "style": "-",
-                "activity": "Sales (Sal 4)"
+                "activity": "Sales (Sal 1 & 4)"
             },
             {
                 "time": "12:15 - 13:15",
@@ -695,9 +730,19 @@
                 "activity": "Lunch (Dining room)"
             },
             {
-                "time": "13:15 - 15:15",
+                "time": "13:15 - 14:30",
                 "style": "-",
-                "activity": "Velocity 1h 15min (Sal 3)"
+                "activity": "Velocity (Sal 5)"
+            },
+            {
+                "time": "14:30 - 14:45",
+                "style": "grey",
+                "activity": "Coffee break (The foyer and café)"
+            },
+            {
+                "time": "14:45 - 15:15",
+                "style": "-",
+                "activity": "Well-Being (Sal 3)"
             },
             {
                 "time": "15:15 - 15:30",

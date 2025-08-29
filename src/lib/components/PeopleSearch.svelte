@@ -18,7 +18,7 @@
         callback: () => void
     }
 
-	let { template, callback }: Props = $props()
+	let { template = "dinner", callback }: Props = $props()
 
     let isSearching = $state(true)
     let people = $state<Person[]>([])
